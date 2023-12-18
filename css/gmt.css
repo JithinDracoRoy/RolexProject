@@ -1,0 +1,53 @@
+
+.navbar-lower{
+    display: flex;
+    background-color:#111111 ;
+    height:85px ;
+}
+.rolex-watches-options{
+    flex: 1;
+    width:150px;
+    color:white;
+    margin:30px ;
+    margin-right:0px ;
+    padding: 0px;
+    padding-left:50px ;
+    
+}
+.cross{
+    width:2px;
+    margin-top: 30px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    color: white;
+    position: absolute;
+    left:28%
+}
+.gmt-dropdown{
+    flex: 1;
+    width:150px;
+    color:white;
+    margin:30px ;
+    margin-left:0px ;
+    margin-right: 20px;
+    padding-left: 0px;
+    padding-right:10px ;
+    position: absolute; 
+    left: 33%;
+}
+.configure-button{
+    width: 120px;
+    height: 30px;
+    position: absolute;
+    margin-top: 30px;
+    right: 40px;
+    color: white; 
+    background-color:#188754 ;
+    padding-right: 10px;
+    padding-right: 10px;
+    border: none;
+    border-radius: 30px;
+    font-size: small;
+}
