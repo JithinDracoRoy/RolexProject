@@ -35,13 +35,3 @@
   i{
     padding-left: 50px;
   }
-
-  .mainVideo{
-    position: relative;
-  }
-  .textInside{
-    color: white;
-    position: absolute;
-    top: 250px;
-    left: 500px;
-  }
