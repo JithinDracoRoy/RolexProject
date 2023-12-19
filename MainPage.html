@@ -9,10 +9,11 @@
     <script src="MainPage.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 </head>
 <body>
     <header>
-        <div class="navbar" style="padding-left: 120px; padding-right: 120px;">
+        <div class="navbar navb" style="padding-left: 120px; padding-right: 120px;">
             <div class="row" style="margin-top: 10px;">
                 <div class="containers" onclick="menuBar(this)" style="margin-top: 5px;">
                     <div class="bar1"></div>
@@ -38,16 +39,162 @@
             <h4 style="font-family: sans-serif;letter-spacing: 5px;margin-bottom: -10px;margin-top: 30px;">THE COLLECTION</h4>
             <h1 style="font-size: 80px;font-weight: bolder;margin-left: -140px;">Rolex Watches</h1>
         </div>
-        <div class="row" style="width: 80%;margin-left: 10%;">
-            <div>
-                <h4 class="col-6">Explore the Rolex Collection</h4>
+        <div class="row" style="width: 80%;margin-left: 10%;display: flex;margin-top: 100px; font-family: sans-serif;">
+            <div style="flex: 1;">
+                <h4 style="color: #137146; font-size: 50px; font-weight: bold;">Explore The Rolex <br> Collection</h4>
             </div>
-            <div class="col-6">
-                <p>The Rolex collection offers a wide range of prestigious, high-precision timepieces, from Professional to Classic models to suit any wrist.</p>
-                <p>Find your Rolex</p>
+            <div style="flex: 1; font-size: 20px;">
+                <p style="font-weight: lighter;">The Rolex Collection Offers A Wide Range Of Prestigious, High-Precision Timepieces, From Professional To Classic Models To Suit Any Wrist. <br><br></p>
+                <p style="color: #137146;font-weight: bolder;">Find Your Rolex ></p>
             </div>
         </div>
     </section>
-    
+    <section class="miniNavBar">
+        <div class="navbar second" style="margin-top: 5%;margin-left: 400px;margin-right: 100px;font-family: sans-serif;">
+            <div><p style="margin-left: -20px;">All</p></div>
+            <div><p style="margin-left: -100px;">Classic</p></div>
+            <div><p style="margin-left: -150px;">Professional</p></div>
+            <div><p style="margin-left: -160px;">Wathces By Theme</p></div>
+            <div><button class="btn" id="configure">Configure</button></div>
+        </div>
+    </section>
+    <section>
+        <div id="watches" style="font-family: sans-serif;margin-top: 50px;">
+            <img src="Assets/datejustL.avif" width="100%">
+            <div id="datejust">
+                <h3 style="font-size: 40px;"><b>Datejust</b></h3>
+                <p style="font-weight:100;font-size: 25px;">A Watch For The Dates To Remember</p>
+                <p><b>Discover more ></b></p>
+            </div>
+            <img src="Assets/submarinerL.avif" width="100%">
+            <div id="submariner">
+                <h3 style="font-size: 40px;"><b>Submariner</b></h3>
+                <p style="font-weight: lighter;font-size: 25px;">The Supreme Diver's Watch</p>
+                <p><b>Discover more ></b></p>
+            </div>
+            <img src="Assets/gmtmasterL.avif" width="100%">
+            <div id="gmtmaster">
+                <h3 style="font-size: 40px;"><b>GMT-Master II</b></h3>
+                <p style="font-weight: lighter;font-size: 25px;">Two Time-Zones,Two-Colours,Unique</p>
+                <p><b>Discover more ></b></p>
+            </div>
+            <img src="Assets/oysterL.avif" width="100%">
+            <div id="oyster">
+                <h3 style="font-size: 40px;"><b>Oyester Perpetual</b></h3>
+                <p style="font-weight: lighter;font-size: 25px;">Quintessentially Rolex</p>
+                <p><b>Discover more ></b></p>
+            </div>
+        </div>
+    </section>
+    <div style="margin-top: 90px; margin-left: 100px;">
+        <p>
+            <span>Home</span>&nbsp;/&nbsp;
+            <span style="color: #137146;">The Rolex Collection</span>&nbsp;&nbsp;
+        </p>
+    </div>
+    <div>
+        <span style="margin-left: 100px;">Share</span>
+        <span><i class="bi bi-twitter-x"></i></span>
+        <span><i class="bi bi-facebook"></i></span>
+        <span><i class="bi bi-pinterest"></i></span>
+        <span><i class="bi bi-linkedin"></i></span>
+        <span><i class="bi bi-sina-weibo"></i></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class=" footer row" style="width: 105%;background-color: #f8f8f8;padding-right: 120px;padding-top: 50px;margin-top: 30px;">
+        <figure class="col"><img class="roloex-footer-logo" src="Assets/RolexFooterLogo.png" ></figure>     
+          <div class="col footer-container ">
+          <h4><b>Rolex watches</b></h4>
+          <p>New watches 2023</p>
+          <p>Find your Rolex</p>
+          <p>Configure your Rolex</p>
+          <p>Men's watches</p>
+          <p>Women's watches</p>
+          <p>Gold watches</p>
+          <br>        
+          <h4><b>The collection</b></h4> 
+          <p>Air-King</p>
+          <p>Cosmograph Daytona</p>
+          <p>Datejust</p> 
+          <p>Lady-Datejust</p>
+          <p>Day-Date</p>
+          <p>Explorer</p>
+          <p>GMT-Master II</p>
+          <p>Oyster Perpetual</p>
+          <p>Sea-Dweller</p>
+          <p>Deepsea</p>
+          <p>Sky-Dweller</p>
+          <p>Submariner</p>
+          <p>Yacht-Master</p>
+          <p>1908</p>            
+          <br> 
+          <h4><b>Watchmaking</b></h4>
+          <p>At the core of excellence</p>
+          <p>Behind the seal</p>
+          <p>Rolex anatomy</p>        
+        </div>
+        <div class="col">
+            <h4><b>Rolex and sports</b></h4>
+            <p>Tennis</p>
+            <p>Golf</p>
+            <p>Yachting</p>
+            <p>Motor sport</p>
+            <p>Equestrianism</p>
+            <br>
+            <h4><b>Perpetual Initiatives</b></h4>
+            <p>Perpetual Planet Initiative</p>
+            <p>Perpetual Arts Initiative</p>
+            <br>
+            <h4><b>About Rolex</b></h4>
+            <p>Sustainable development</p>
+            <p>Behind the crown</p>
+            <p>History</p>
+            <br>
+            <h4><b>Buying a Rolex</b></h4>
+            <p>Store locator</p>
+            <p>Buying a Rolex</p>
+            <p>Rolex Certified Pre-Owned</p>
+            <br>
+            <h4><b>Care and Servicing</b></h4>
+            <p>Service Centre locator</p>
+            <p>Watch care and service</p>
+        </div>
+        <div class="col">
+            <h4><b>Services</b></h4>
+            <p>Frequently asked questions</p>
+            <p>Your favourites</p>
+            <p>Newsroom &nbsp;<i style="margin-left: -50px;" class="bi bi-box-arrow-up-right"></i></p>
+            <br>
+            <p><b>Legal notice</b></p>
+            <p>Terms of use</p>
+            <p>Privacy notice</p>
+            <p>Cookies</p>
+            <br>
+            <p><b>Accessibility</b></p> 
+            <p>Read our statement</p>
+            <br>
+            <p><b>Media</b></p>
+            <p>Wallpapers</p>
+            <p>Brochures</p>
+            <p>User guides</p>
+            <br>
+            <p><b>Official channels</b></p>
+            <div style="margin-left: -50px;">
+                <p><i class="bi bi-facebook"></i>&nbsp;Facebook</p>
+                <p><i class="bi bi-instagram"></i>&nbsp;Instagram</p>
+                <p><i class="bi bi-twitter-x"></i>&nbsp;X</p>
+                <p><i class="bi bi-youtube"></i>&nbsp;YouTube</p>
+                <p><i class="bi bi-pinterest"></i>&nbsp;Pinterest</p>
+                <p><i class="bi bi-linkedin"></i>&nbsp;LinkedIn</p>
+                <p><i class="bi bi-play-circle"></i>&nbsp;Youku</p>
+                <p><i class="bi bi-sina-weibo"></i>&nbsp;Weibo</p>
+                <p><i class="bi bi-wechat"></i>&nbsp;WeChat</p> 
+            </div>       
+        </div>
+        <hr style=" width: 80%; margin-left:120px; margin-right: 120px;margin-top: 80px;">
+    </footer>
 </body>
 </html>
