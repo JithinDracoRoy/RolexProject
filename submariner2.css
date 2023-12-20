@@ -1,0 +1,179 @@
+.cameron{
+    margin-top: -10px;
+    width: 100%;
+    position: relative;
+}
+#jamesCameronImage{
+    width: 100%;
+}
+.quote{
+    position: absolute;
+    top: 20%;
+    color: #f8f8f8;
+    font-size: clamp(1.5rem, 0.6875rem + 2.0313vw, 3.125rem);
+    font-family: SangBleuKingdom,"Times New Roman",Times,serif;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+    line-height: 1.3;
+    margin-right: 750px;
+    margin-left: 100px;
+}
+#jamesCameronName{
+    font-size: 18.34px;
+    font-family: "Helvetica Now Text",Helvetica,Arial,sans-serif;;
+}
+.rotatediv{
+background: linear-gradient(225deg,rgb(110 139 168 / 1), rgb(49 74 99 / 1), rgb(49 74 99 / 1));
+height: 560px;
+margin-top: -10px;
+}
+#image1{
+    background: linear-gradient(90deg,rgb(110 139 168 / 1), rgb(49 74 99 / 1), rgb(49 74 99 / 1),);
+    margin-top: 80px;
+    margin-left: 600px;
+    height: 300px;
+}
+.contentdivone a{
+    color: #f8f8f8; 
+    text-decoration: none;
+}
+.contentdivone a:hover{
+    text-decoration: none;
+    color: rgb(197, 195, 195);
+}
+a{
+ font-weight: 700; 
+ text-decoration: underline;
+}
+a:hover{
+    text-decoration: none;
+}
+.list-div{
+    display: flex;
+    width: 1350px;
+}
+.list1{
+    flex: 1;
+}
+.list2{
+    flex: 1;
+    height: 600px;
+}
+#list-img1{
+    width: 100%;
+}
+
+#list-img2{
+    width: 100%;
+}
+.rotateDiv{
+    display: flex;
+    width: 1350px;
+}
+.contentdivone{
+    flex: 1;
+    padding-top: 200px;
+    margin-left: 150px;
+    color: #f8f8f8;
+}
+.btnimagedivone{
+    flex: 1;
+    padding-top: 80px;
+    margin-right: 70px;
+}
+.buttondivone{
+    padding-top: 20px;
+    margin-left: 60px;
+}
+#btnroundone,#btnroundtwo,#btnroundthree,#btnroundfour {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #f8f8f8;
+    border-color: #ffffff;
+  }
+.imagecontainerone {
+    padding-right: 1000px;
+  }
+#imageone img {
+    display: none;
+    position: fixed;
+  }
+ 
+#imageone {
+    justify-content: center;
+    display: block;
+  }
+.roloex-footer-logo{
+    width: 125px;
+    height:100px;
+    margin-left: 25%;
+}
+.footer-container{
+    margin-left: 50px;
+    line-height: 20px;
+}
+.footer p{
+    margin-bottom: 0%;
+    font-size: medium;
+    font-weight: 600;
+    padding: 3px;
+}
+.language{
+    display: flex;
+    margin-bottom: 20px;
+}
+.languageicon{
+    flex: 1;
+    margin-left: 100px;
+}
+/* .languageicon a{
+    text-decoration: none;
+    color: black;
+}
+.languageicon a:hover{
+    color: rgb(26, 100, 26);
+    text-decoration: none;
+} */
+.languagetext{
+    flex:1;
+}
+.language a{
+    text-decoration: none;
+    color: black;
+}
+.language a:hover{
+    color: rgb(26, 100, 26);
+    text-decoration: none;
+}
+.discover img{
+    height: 320px;
+    width: 1350px;
+}
+.discover{
+    width : 1350px;
+    position: relative;
+    position: sticky;
+    bottom: 0%;
+    z-index: -1;
+}
+.discover-text{
+    position: absolute;
+    top: 30%;
+    margin-left: 360px;
+    color: #f8f8f8;
+}
+.discoverlink a{
+    position: absolute;
+    top: 50%;
+    text-decoration: none;
+    color:#f8f8f8;
+    margin-left: 600px;  
+}
+.discover a:hover{
+    text-decoration: none;
+    color: gray;
+}
