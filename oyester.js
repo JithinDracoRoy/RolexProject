@@ -29,6 +29,6 @@ function showImage(imageId) {
         oyeone.innerHTML = "Oyster,28mm,Oystersteel";
         break;
       default:
-        imageElement.src = "/images/imgpos1-removebg-preview (1).png";
+        imageElement.src = "./images/imgpos1-removebg-preview (1).png";
     }
   }
