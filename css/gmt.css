@@ -176,6 +176,9 @@
 .design-btn-div{
     position:absolute ; top:893% ; left:45% ; 
 }
+#design-btn-one{
+    background-color: white;
+}
 .design-content{
     position:absolute ; top:843% ; left:15% ; 
 }
