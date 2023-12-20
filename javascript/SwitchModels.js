@@ -21,19 +21,27 @@ const watchModels = [
     },
   ];
 
-const changeModel=(buttonId)=>{
-
-    for(let index=0 ; index < watchModels.length ; index++){       
-        if(buttonId =="design-btn-four" ){
-            document.getElementById("new-model-label").style.display="block";
-        }
-        else{
-            document.getElementById("new-model-label").style.display="none";
-        }
-        if(buttonId == watchModels[index].button){
-            document.getElementById("design-model").src = watchModels[index].imageSrc;
-            document.getElementById("design-name").innerText = watchModels[index].name;
-            break; 
-        }
+  const changeModel=(buttonId)=>{    
+    // Making all button grey color
+    for(let index=0 ; index < watchModels.length ; index++){
+        document.getElementById(watchModels[index].button).style.backgroundColor="#b1bece";
+    }     
+  
+    for(let index=0 ; index < watchModels.length ; index++){
+      //new model label display
+      if(buttonId =="design-btn-four" ){
+        document.getElementById("new-model-label").style.display="block";
+      }
+      else{
+        document.getElementById("new-model-label").style.display="none";
+      } 
+      //changing model name and image
+      if(buttonId == watchModels[index].button){
+        document.getElementById("design-model").src = watchModels[index].imageSrc;
+        document.getElementById("design-name").innerText = watchModels[index].name;      
+        document.getElementById(buttonId).style.backgroundColor="white";
+        break; 
+      }
     }
-}
+  }
+
