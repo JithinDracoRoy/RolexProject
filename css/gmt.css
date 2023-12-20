@@ -1,7 +1,10 @@
 /* Lower Navbar */
 .navbar-lower{
     width:101.1% ; height:85px ;
-    background-color:#111111 ;    
+    background-color:#111111 ; 
+    position: sticky;
+    top: 0%;
+    z-index: 1;   
 }
 .rolex-watches-options{
     width:250px ;
