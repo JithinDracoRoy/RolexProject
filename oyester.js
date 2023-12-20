@@ -1,3 +1,6 @@
+function menuBar(x) {
+  x.classList.toggle("change");
+}
 
 function showImage(imageId) {
     var imageElement = document.getElementById('imageone');

@@ -41,6 +41,10 @@
     display: flex;
     color: white;
     align-items: center;
+    position: sticky;
+    top: 0%;
+    z-index: 1;
+   
   }
   
   
@@ -137,6 +141,8 @@
   color: white;
   transition: background-color 0.3s; /* Smooth transition for color change */
 }
+
+
 
 .lastText{
     color:#197149 ;
