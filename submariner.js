@@ -9,7 +9,7 @@ function menuBar(x) {
 document.addEventListener("DOMContentLoaded", function() {
   var changingHeading = document.getElementById('mainhead');
   var changingVideo = document.getElementById('scrollcontent');
-  var fixedVideo = document.getElementById('videomain');
+  var fixedVideo = document.getElementById('videoContent');
   var nextVideoChanging = document.getElementById('scrollingtwo');
 
   window.addEventListener('scroll', function() {
@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
           document.getElementById('subhead').innerHTML='';
           document.getElementById('videobtn').style.display='none';
           document.getElementById('mainhead').innerHTML = 'Deep Confidence';
+          changingHeading.style.left = 30;
           document.getElementById('twocontent').innerHTML.style.display='none';
           // fixedVideo.style.position='fixed';
       }
@@ -28,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('subhead').innerHTML='';
         document.getElementById('videobtn').style.display='none';
         document.getElementById('mainhead').innerHTML = 'Deep Confidence';
+        changingHeading.style.left = 30;
         var opacityValue = Math.min(scrollPosition / 100, 0.8); // Adjust the division factor for a smoother effect
         changingVideo.style.opacity = opacityValue;
         document.getElementById('twocontent').innerHTML.style.display='none';
