@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="DateJust.css">
+        <script src="DateJust.js"></script>
+        <title>Rolex Project</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    </head>
+    <body>
+      
+
+     <header>
+        <div class="navbar navb" style="padding-left: 120px; padding-right: 120px;">
+            <div class="row" style="margin-top: 10px;">
+                <div class="containers" onclick="menuBar(this)" style="margin-top: 5px;">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                </div> 
+                <p style="margin-left: 7px;">Menu</p>
+            </div>
+            <div>
+                <img class="mainIcon" src="/images/RolexPNG.png" alt="ROLEX">
+            </div>
+            <div style="margin-left: -60px;">
+                <i class="fa fa-search" style="font-size:24px;"></i>
+               <div id="searchPopup" class="popup">
+                <div class="popup-content">
+                   
+                    <input type="text" placeholder="Search" id="searchInput">
+                    <button id="searchbtn" onclick="performSearch()"><i class="bi bi-arrow-right"></i></button>
+                    <span class="close" id="closeSearchBtn" >&times;</span>
+                </div>
+            </div>
+                <i class="fa fa-map-marker" style="font-size:24px"></i>
+                <i class="fa fa-heart-o" style="font-size:24px"></i>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar-lower row">
+        <div class="rolex-watches-options"><p><i class="bi bi-arrow-left"></i>&nbsp;&nbsp;&nbsp;Rolex Watches</p></div>
+        <span class="cross">|</span>
+        <div class="gmt-dropdown">
+            <span>DateJust <i style="margin-left: -45px;" class="bi bi-caret-down-fill"></i></span>
+        </div>
+        <div class="subnav-btn"><button class="configure-button ">Configure</button></div>
+    </nav>
+
+    
+    
+     <div class="video">
+     <video autoplay muted loop id="firstVideo">
+        <source src="/videos/video.webm">
+     </video>
+    </div>
+     <div id="header1"><b>Datejust</b></div>
+     <div id="header2"><b>Make a date of a day</b></div>
+     <div id="row" style="font-size: 30px;width: 100%;">
+        <div id=" textone" style="width: 50%;"><h3>No one day is like another</h3></div> 
+
+        <div id=" texttwo" style="width: 50%; margin-left: 600px;margin-top: -75px;font-size: 20px;text-align: left;"><b>Any day can leave a lasting mark on our lives and set the stage for new aspirations. Since its creation in 1945, the Datejust has continued to reinvent itself while symbolizing Rolex’s definition of classic elegance. A milestone in watchmaking history, it was the first self-winding waterproof chronometer wristwatch to feature a window displaying the date. Magnified by the Cyclops lens, these numbers are a reminder that though 24 hours mark a day, it’s on us to make those a date to remember.</b></div>
+
+     </div> 
+    <div id="header2"><b>Make a date of a day</b>
+    </div>
+
+     <div class="img-gold">
+        <img src="/images/imageone.png">
+     </div>
+     <div class="blue">
+        <h2 id="h1"><b>The date: a modern<br> milestone</b></h2>
+        <br>
+        <p id="paraone">Launched in 1945, the Datejust was the first self-winding waterproof chronometer wristwatch with a window displaying the date at 3 o’clock on the dial. This unique combination was further enhanced in 1953 with the magnifying effect of the Cyclops lens on the display. With these inventions, the Datejust embodied the quest for excellence of Rolex founder Hans Wilsdorf, who believed that watchmaking progress should encourage human progress. In an era of great change, our relationship with time is shifting. Modern life is less connected to the seasons as we move to the rhythm of the passing days. The Datejust offers comfort as well as legibility and daily time management. Useful and practical, it was soon established as a precious instrument for the modern, independent, active wearer.</p>
+    <img id="img-blue" src="/images/imagetwo.png">
+    <br>
+    <div class="paraAnime ">
+    <P class="paratwo">"This is the pinnacle of<br> watchmaking science. It<br>encapsulates every discovery made<br> to date."</P>
+    <p class="parathree">Hans Wilsdorf, 1945</p>
+    </div>
+    <br>
+    <br>
+     </div>
+     <div class="peach" style="z-index: -1;">
+      <img style="width: 100%; height: 1500px;" id="peachImage" src="./images/imgwatch.avif">
+    </div> 
+     <div class="peachtext">
+      <h1 id="headPeach"><b>Iconic technical<br> innovations</b></h1>
+      <p id="paraPeach">Described by Hans Wilsdorf as a technical feat, encapsulating all Rolex innovation to date, the Datejust also embodies a harmonious and classic elegance. Its inimitable and timeless style was enhanced with the special Jubilee bracelet, designed to commemorate the 40th anniversary of Rolex. Featuring rows of five metal links, it is known for its fluid contours and elegant clasp, which bring further distinction to the model. In 1957, a woman’s version with a diameter of 26 mm (today 28 mm) was released: the Oyster Perpetual Lady-Datejust. As reliable as the Datejust, it concentrates all the attributes of the original model.</p>
+    </div>
+    <br>
+    <div class="pink">
+        <div id="heading">
+        <h1 style="font-size: 55px;"><b>Continually updated<br>standards</b></h1>
+        </div>
+        <div id="paraPink">
+        <p>Regular new releases of the Datejust mean this watchmaking icon is constantly reinventing itself. With its varied reinterpretations, it expresses and showcases Rolex’s expertise in dial-making. Set with diamonds or crafted from mother of pearl, adorned with palm or fluted motifs, or featuring a sunray finish, the selection of dials helps uphold its reputation. The same is true of its bezels – smooth, domed, fluted or diamond-set – with which the Datejust has stylishly spanned eras while perfectly adapting to the personality of its wearers.</p>
+        </div>
+        <div id="pinkImage">
+        <img src="/images/imagefour.png">
+         </div>
+        <h2 style="margin-left: 400px; font-size: 40px;margin-top: 40px;"><b>A daily celebration of these<br> "special dates" with destiny</b></h2>
+        <br>
+        <div  id="downHead">
+        <h1 style="font-size: 60px;"><b>A witness to world<br> affairs</b></h1>
+        </div>
+        <div id="paraPinkTwo">
+        <p>Reflecting the aspirations of the modern world, the Datejust has naturally become the watch of our dates with destiny. Day after day, its dial marks a meeting point between the personal course of each wearer and the passing of time. Seen on the wrists of major figures such as Winston Churchill, Dwight D. Eisenhower and Martin Luther King, the Datejust has spanned eras without ever losing its modern touch. Symbolizing this ongoing connection with time, the Datejust’s window looks out onto the world.</p>
+        </div>
+    </div>
+    <div class="displayButton">
+        <div class="fvrt">
+       
+        </div>
+    <div class="text">
+    <h1 id="subone"><b>DateJust 36</b></h1>
+    <p id="oyeone">Oyester,36mm,Oyestersteel<br> and yello gold</p>
+    <a href="#" style="text-decoration: none; color: #197149;"><b>Discover this model ></b></a>
+    </div>
+    <div class = "watch-container">
+        <div id="image-container">
+            <img id="imageone" src="/images/watchone.png" alt="Image 1" style="display: block;">
+            <!-- <img id="image2" src="/images/watchtwo.png" alt="Image 2">
+            <img id="image3" src="/images/watchthree.png" alt="Image 3">
+            <img id="image4" src="/images/watchfour.png" alt="Image 4"> -->
+          </div>
+
+        <div class="watchebutton">
+            <button style="margin-left: -500px;" class="image-button" id="buttonone" onclick="showImage('imageone')"></button>
+            <button id="buttontwo"  class="image-button" onclick="showImage('imagetwo')"></button>
+            <button id="buttonthree"  class="image-button" onclick="showImage('imagethree')"></button>
+            <button id="buttonfour"  class="image-button" onclick="showImage('imagefour')"></button>
+        </div>
+          
+            
+    </div>
+    
+
+    </div>
+
+  
+
+    <div class="lastImages">
+        <div class="imageone">
+            <div class="image-container">
+                <img id="oneimage" src="/images/imagesix.avif">
+                <button class="image-buttonone" onclick="redirectToPage('datejusttwo.html')">+</button>
+            </div>
+        </div>
+        <div class="imagetwo">
+            <div class="image-container">
+                <img id="twoimage" src="/images/imageseven.avif">
+                <button class="image-buttontwo" onclick="redirectToPage('datejustthree.html')">+</button>
+            </div>
+        </div>
+    </div>
+  
+    
+    
+
+    <br>
+    <section style="background-color: white;">
+    <div class="lastPart">
+        <div class="lastText">
+        <p style="height: 10px;">NEXT</p>
+        <h1 style="font-size: 55px;"><b>Datejust features</b></h1>
+        <br>
+        <button id="learnMore">Learn More </button>
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <div class="lastNav">
+     <span>Home</span>
+     <span>/</span>
+     <span>Watches</span>
+     <span>/</span>
+     <span style="color: #197149;">DateJust</span>
+    </div>
+    <br>
+    <div class="social-icons">
+        <span style="font-size: 16px;"><b>Share </b> &nbsp; &nbsp;</span>
+        <span><img style="width: 14px; color: #197149;" src="/images/twitter.png"> &nbsp;&nbsp;&nbsp;</span>
+        <span><img style="width: 14px; color: #197149;"  src="/images/facebook.png">&nbsp;&nbsp;&nbsp;</span>
+        <span><img style="width: 14px; color: #197149;" src="/images/pinterest.png">&nbsp;&nbsp;&nbsp;</span>
+        <span><img style="width: 14px; color: #197149;" src="/images/linkedin.png">&nbsp;&nbsp;&nbsp;</span>
+        <span><img style="width: 14px; color: #197149;" src="/images/sina-weibo.png">&nbsp;&nbsp;&nbsp;</span>
+        <span><img style="width: 17px;" src="/images/ob.png">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span><img style="width: 14px; color: #197149;" src="/images/douban.png">&nbsp;&nbsp; &nbsp;</span>
+    
+
+    </div>
+    </section>
+    <br>
+    <footer style="background: rgb(232 232 232 / 1);" class=" footer row" style="width: 105%;background-color: #f8f8f8;padding-right: 120px;padding-top: 50px;margin-top: 30px;">
+        <figure class="col"><img class="roloex-footer-logo" src="/images/RolexFooterLogo-removebg-preview.png" ></figure>     
+          <div class="col footer-container ">
+          <h4><b>Rolex watches</b></h4>
+          <p>New watches 2023</p>
+          <p>Find your Rolex</p>
+          <p>Configure your Rolex</p>
+          <p>Men's watches</p>
+          <p>Women's watches</p>
+          <p>Gold watches</p>
+          <br>        
+          <h4><b>The collection</b></h4> 
+          <p>Air-King</p>
+          <p>Cosmograph Daytona</p>
+          <p>Datejust</p> 
+          <p>Lady-Datejust</p>
+          <p>Day-Date</p>
+          <p>Explorer</p>
+          <p>GMT-Master II</p>
+          <p>Oyster Perpetual</p>
+          <p>Sea-Dweller</p>
+          <p>Deepsea</p>
+          <p>Sky-Dweller</p>
+          <p>Submariner</p>
+          <p>Yacht-Master</p>
+          <p>1908</p>            
+          <br> 
+          <h4><b>Watchmaking</b></h4>
+          <p>At the core of excellence</p>
+          <p>Behind the seal</p>
+          <p>Rolex anatomy</p>        
+        </div>
+        <div class="col">
+            <h4><b>Rolex and sports</b></h4>
+            <p>Tennis</p>
+            <p>Golf</p>
+            <p>Yachting</p>
+            <p>Motor sport</p>
+            <p>Equestrianism</p>
+            <br>
+            <h4><b>Perpetual Initiatives</b></h4>
+            <p>Perpetual Planet Initiative</p>
+            <p>Perpetual Arts Initiative</p>
+            <br>
+            <h4><b>About Rolex</b></h4>
+            <p>Sustainable development</p>
+            <p>Behind the crown</p>
+            <p>History</p>
+            <br>
+            <h4><b>Buying a Rolex</b></h4>
+            <p>Store locator</p>
+            <p>Buying a Rolex</p>
+            <p>Rolex Certified Pre-Owned</p>
+            <br>
+            <h4><b>Care and Servicing</b></h4>
+            <p>Service Centre locator</p>
+            <p>Watch care and service</p>
+        </div>
+        <div class="col">
+            <h4><b>Services</b></h4>
+            <p>Frequently asked questions</p>
+            <p>Your favourites</p>
+            <p>Newsroom &nbsp;<i style="margin-left: -50px;" class="bi bi-box-arrow-up-right"></i></p>
+            <br>
+            <p><b>Legal notice</b></p>
+            <p>Terms of use</p>
+            <p>Privacy notice</p>
+            <p>Cookies</p>
+            <br>
+            <p><b>Accessibility</b></p> 
+            <p>Read our statement</p>
+            <br>
+            <p><b>Media</b></p>
+            <p>Wallpapers</p>
+            <p>Brochures</p>
+            <p>User guides</p>
+            <br>
+            <p><b>Official channels</b></p>
+            <div style="margin-left: -50px;">
+                <p><i class="bi bi-facebook"></i>&nbsp;Facebook</p>
+                <p><i class="bi bi-instagram"></i>&nbsp;Instagram</p>
+                <p><i class="bi bi-twitter-x"></i>&nbsp;X</p>
+                <p><i class="bi bi-youtube"></i>&nbsp;YouTube</p>
+                <p><i class="bi bi-pinterest"></i>&nbsp;Pinterest</p>
+                <p><i class="bi bi-linkedin"></i>&nbsp;LinkedIn</p>
+                <p><i class="bi bi-play-circle"></i>&nbsp;Youku</p>
+                <p><i class="bi bi-sina-weibo"></i>&nbsp;Weibo</p>
+                <p><i class="bi bi-wechat"></i>&nbsp;WeChat</p> 
+            </div>       
+        </div>
+        <hr style=" width: 80%; margin-left:120px; margin-right: 120px;margin-top: 60px; margin-bottom: 60px;">
+        <div class="language">
+            <button style="border: none;">
+            <span><img style="width: 20px;" src="/images/globe-removebg-preview.png"> </span>
+            <span><b>Languages</b></span>
+            </button>
+        </div>
+        <br>
+    </footer>
+    
+    
+        </body>
+        <div class="footerimage">
+            <img id="lastimage" src="/images/footerimage.avif">
+            <div class="lastdiv">
+                <h1><b>Discover Our Perpetual Initiatives</b></h1>
+        
+                <a href="#" >Visit Rolex.org  <span style="margin-left: -50px;"><i class="bi bi-box-arrow-up-right"></i></span></a>
+                <!-- <span style="margin-left: -50px;"><i class="bi bi-box-arrow-up-right"></i></span> -->
+            
+            </div>
+            </div>
+</html>
