@@ -1,12 +1,12 @@
-.cameron{
+.james-cameron{
     margin-top: -10px;
     width: 100%;
     position: relative;
 }
-#jamesCameronImage{
+#james-cameron-image{
     width: 100%;
 }
-.quote{
+.james-cameron-quote{
     position: absolute;
     top: 20%;
     color: #f8f8f8;
@@ -18,26 +18,28 @@
     margin-right: 750px;
     margin-left: 100px;
 }
-#jamesCameronName{
+#james-cameron-name{
     font-size: 18.34px;
     font-family: "Helvetica Now Text",Helvetica,Arial,sans-serif;;
 }
-.rotatediv{
+.watch-models{
 background: linear-gradient(225deg,rgb(110 139 168 / 1), rgb(49 74 99 / 1), rgb(49 74 99 / 1));
 height: 560px;
 margin-top: -10px;
+width: 100%;
+display: flex;
 }
-#image1{
+/* #image1{
     background: linear-gradient(90deg,rgb(110 139 168 / 1), rgb(49 74 99 / 1), rgb(49 74 99 / 1),);
     margin-top: 80px;
     margin-left: 600px;
     height: 300px;
-}
-.contentdivone a{
+} */
+.watch-models-content a{
     color: #f8f8f8; 
     text-decoration: none;
 }
-.contentdivone a:hover{
+.watch-models-content a:hover{
     text-decoration: none;
     color: rgb(197, 195, 195);
 }
@@ -74,7 +76,7 @@ a:hover{
 }
 .list-div{
     display: flex;
-    width: 1350px;
+    width: 100%;
 }
 .list1{
     flex: 1;
@@ -90,22 +92,19 @@ a:hover{
 #list-img2{
     width: 100%;
 }
-.rotateDiv{
-    display: flex;
-    width: 1350px;
-}
-.contentdivone{
+
+.watch-models-content{
     flex: 1;
     padding-top: 200px;
     margin-left: 150px;
     color: #f8f8f8;
 }
-.btnimagedivone{
+.watch-models-button-image{
     flex: 1;
     padding-top: 80px;
     margin-right: 70px;
 }
-.buttondivone{
+.watch-models-button{
     padding-top: 20px;
     margin-left: 60px;
 }
@@ -119,9 +118,9 @@ a:hover{
     background-color: #f8f8f8;
     border-color: #ffffff;
   }
-.imagecontainerone {
-    padding-right: 1000px;
-  }
+/* .watch-models-image {
+    /* padding-right: 1000px; 
+}*/
 #imageone img {
     display: none;
     position: fixed;
@@ -175,10 +174,10 @@ a:hover{
 }
 .discover img{
     height: 320px;
-    width: 1350px;
+    width: 100%;
 }
 .discover{
-    width : 1350px;
+    width : 100%;
     position: relative;
     position: sticky;
     bottom: 0%;

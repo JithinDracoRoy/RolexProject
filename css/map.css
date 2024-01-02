@@ -1,0 +1,104 @@
+.navbar{
+  position: fixed;
+}
+
+.containers {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1, .bar2 {
+  width: 18px;
+  height: 2px;
+  background-color: white;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+  transform: translate(0,3px) rotate(-45deg);
+}
+
+/* Rotate last bar */
+.change .bar2 {
+  transform: translate(0,-3px) rotate(45deg);
+}
+
+.navb{
+  background-image: linear-gradient(to right, #0b3e27, #197149);
+  color: white;
+  overflow: hidden;
+  position: fixed; 
+  top: 0;
+  width: 100%;
+  height: 150px;
+}
+#search{
+  background-image: linear-gradient(to right, #0b3e27, #197149);
+  margin-top: 150px;
+  padding-left: 42%;
+  padding-bottom: 50px;
+}
+.mainIcon{
+  height: 50px;
+  padding-left: 110px;
+  cursor: pointer;
+  margin-top: -55px;
+}
+
+i{
+  padding-left: 50px;
+}
+.fa {
+  cursor: pointer;
+}
+
+.cross{
+  width:2px ;
+  margin-top:30px ;
+  padding-left:-100px ;
+  color: white ;
+}
+.configure-button{
+  width:120px ; height:30px ;   
+  color: white; background-color:#188754 ;  
+  padding-right:10px ; padding-right:10px ;   
+  border:none ; border-radius:30px ;   
+  font-size:15px ;   
+}
+.map-page{
+  display: flex;
+  height: 400px;
+  overflow: hidden;
+}
+#map {
+  flex: 2;
+  color: black;
+}
+.map-content{
+  flex: 1;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.store-details{
+  margin-top: 30px;
+  height: 600px;
+}
+.store-details h1,h3,p,img{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+#g-map-icon,#mail-icon{
+  cursor: pointer;
+}
+#g-map-icon:hover{
+  color: #188754;
+}
+#mail-icon:hover{
+  color: #188754;
+}
+#date-time{
+  margin-left: 20px;
+}
+
