@@ -1,0 +1,103 @@
+.navbar{
+    position: fixed;
+}
+
+.submariner-page {
+    width: 100%;
+    margin-left: 0px;
+}
+.containers {
+    display: inline-block;
+    cursor: pointer;
+  }
+ 
+  .bar1, .bar2 {
+    width: 18px;
+    height: 2px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.4s;
+  }
+  
+  /* Rotate first bar */
+  .change .bar1 {
+    transform: translate(0,3px) rotate(-45deg);
+  }
+
+  /* Rotate last bar */
+  .change .bar2 {
+    transform: translate(0,-3px) rotate(45deg);
+  }
+
+  .navb{
+    background-image: linear-gradient(to right, #0b3e27, #197149);
+    color: white;
+    overflow: hidden;
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    height: 105px;
+  }
+  .mainIcon{
+    height: 50px;
+    padding-left: 110px;
+    cursor: pointer;
+  }
+
+  i{
+    padding-left: 50px;
+  }
+  .fa {
+    cursor: pointer;
+  }
+  .navbar-lower{
+    width:101.1% ; height:85px ;
+    background-color:#111111 ;   
+    position: sticky;
+    top: 0%;
+    z-index: 1;
+    margin-top: 100px;
+}
+.rolex-watches-options{
+    width:250px ;
+    color:white ;
+    margin:30px ;  margin-right:0px ;   
+    padding-left:50px ; padding-right:-100px ; 
+    transition : color 1s ease-in-out;
+         
+}
+.rolex-watches-options :hover{
+    color:#198a56    
+}
+.rolex-watches-options p{
+    width:200px ;
+    font-size: 15px ;
+    padding-right:-10px ;
+    cursor: pointer;
+}
+.cross{
+    width:2px ;
+    margin-top:30px ;
+    padding-left:-100px ;
+    color: white ;
+}
+.sub-dropdown{
+    width:300px ;
+    color:white ;
+    margin:30px ;
+    padding-right:10px ;
+    cursor: pointer;
+}
+.sub-dropdown :hover{
+    color:#198a56;
+}
+.subnav-btn{
+   margin-top: -70px ; margin-left:1150px ;
+}
+.configure-button{
+    width:120px ; height:30px ;   
+    color: white; background-color:#188754 ;  
+    padding-right:10px ; padding-right:10px ;   
+    border:none ; border-radius:30px ;   
+    font-size:15px ;   
+}
