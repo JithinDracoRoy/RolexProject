@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/DateJust.css" />
-    <script src="../js/DateJust.js"></script>
+    <script type = "module" src="../js/DateJust.js"></script>
+    <script src="../js/DateJustTwo.js"></script>
     <title>Rolex Project</title>
     <link
       rel="stylesheet"
@@ -17,6 +18,14 @@
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"/>
+
+      <script>
+        function logScrollPosition(){
+        console.log(window.scrollY);
+        
+        }
+        window.addEventListener('scroll', logScrollPosition);
+      </script>
   </head>
   <body>
     <header>
@@ -60,8 +69,10 @@
           >DateJust
           <i style="margin-left: -45px" class="bi bi-caret-down-fill"></i
         ></span>
-      </div>
+        <a id="chatbotlink" href="../html/chatbot.html">Rolex Chatbot</a>
+          </div>
       <div class="subnav-btn">
+       
         <button
           class="configure-button"
           onclick="redirectToPage('datejustfour.html')"
@@ -69,11 +80,14 @@
           Configure
         </button>
       </div>
+    
+        
+  
     </nav>
 
     <div class="video">
       <video autoplay muted loop id="firstVideo">
-        <source src="../videos/video.webm" />
+        <source src="" id="videoSource"/>
       </video>
     </div>
     <div id="header1"><b>Datejust</b></div>
@@ -107,9 +121,7 @@
     </div>
     <div id="header2"><b>Make a date of a day</b></div>
 
-    <div class="img-gold">
-      <img src="../images/imageone.png" />
-    </div>
+    <img id="Imageonesource" src=""  alt="">
     <div class="blue">
       <h2 id="h1">
         <b
@@ -132,7 +144,7 @@
         it was soon established as a precious instrument for the modern,
         independent, active wearer.
       </p>
-      <img id="img-blue" src="../images/imagetwo.png" />
+      <img id="img-blue" src=" " />
       <br />
       <div class="paraAnime">
         <p class="paratwo">
@@ -149,7 +161,7 @@
       <img
         style="width: 100%; height: 1500px"
         id="peachImage"
-        src="../images/imgwatch.avif"
+        src=" "
       />
     </div>
     <div class="peachtext">
@@ -191,7 +203,7 @@
         </p>
       </div>
       <div id="pinkImage">
-        <img src="../images/imagefour.png" />
+        <img id="pinkWatchImage"    src=" "  />
       </div>
       <h2 style="margin-left: 400px; font-size: 40px; margin-top: 40px">
         <b
@@ -275,18 +287,17 @@
     <div class="lastImages">
       <div class="imageone">
         <div class="image-container">
-          <img id="oneimage" src="../images/imagesix.avif" />
+          <img id="oneimage" src=" " />
           <button
             class="image-buttonone"
-            onclick="redirectToPage('datejusttwo.html')"
-          >
+            onclick="redirectToPage('datejusttwo.html')">
             <b>+</b>
           </button>
         </div>
       </div>
       <div class="imagetwo">
         <div class="image-container">
-          <img id="twoimage" src="../images/imageseven.avif" />
+          <img id="twoimage" src=" " />
           <button
             class="image-buttontwo"
             onclick="redirectToPage('datejustthree.html')"
@@ -323,44 +334,44 @@
         <span
           ><img
             style="width: 14px; color: #197149"
-            src="../images/twitter.png"
+            src="../assests/twitter.png"
           />
           &nbsp;&nbsp;&nbsp;</span
         >
         <span
           ><img
             style="width: 14px; color: #197149"
-            src="../images/facebook.png"
+            src="../assests/facebook.png"
           />&nbsp;&nbsp;&nbsp;</span
         >
         <span
           ><img
             style="width: 14px; color: #197149"
-            src="../images/pinterest.png"
+            src="../assests/pinterest.png"
           />&nbsp;&nbsp;&nbsp;</span
         >
         <span
           ><img
             style="width: 14px; color: #197149"
-            src="../images/linkedin.png"
+            src="../assests/linkedin.png"
           />&nbsp;&nbsp;&nbsp;</span
         >
         <span
           ><img
             style="width: 14px; color: #197149"
-            src="../images/sina-weibo.png"
+            src="../assests/sina-weibo.png"
           />&nbsp;&nbsp;&nbsp;</span
         >
         <span
           ><img
             style="width: 17px"
-            src="../images/ob.png"
+            src="../assests/ob.png"
           />&nbsp;&nbsp;&nbsp;&nbsp;</span
         >
         <span
           ><img
             style="width: 14px; color: #197149"
-            src="../images/douban.png"
+            src="../assests/douban.png"
           />&nbsp;&nbsp; &nbsp;</span
         >
       </div>
@@ -380,7 +391,7 @@
       <figure class="col">
         <img
           class="roloex-footer-logo"
-          src="../images/RolexFooterLogo-removebg-preview.png"
+          src="../assests/RolexFooterLogo-removebg-preview.png"
         />
       </figure>
       <div class="col footer-container">
@@ -490,7 +501,7 @@
           <span
             ><img
               style="width: 20px"
-              src="../images/globe-removebg-preview.png"
+              src="../assests/globe-removebg-preview.png"
             />
           </span>
           <span><b>Languages</b></span>
@@ -500,7 +511,7 @@
     </footer>
   </body>
   <div class="footerimage">
-    <img id="lastimage" src="../images/footerimage.avif" />
+    <img id="lastimage" src=" " />
     <div class="lastdiv">
       <h1><b>Discover Our Perpetual Initiatives</b></h1>
 

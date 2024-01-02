@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Collage Background</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .collage-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .collage-image {
+      position: absolute;
+      opacity: 0.5;
+      pointer-events: none;
+      animation: moveImage linear infinite;
+    }
+
+    @keyframes moveImage {
+      from {
+        transform: translate(0, 0);
+      }
+      to {
+        transform: translate(10vw, 100vh);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="collage-container">
+    <!-- Add multiple image elements with different source URLs -->
+    <img src="D:\DATE JUST Api Copy\images\crownn.png" class="collage-image" style="width: 100px;">
+    <img src="D:\DATE JUST Api Copy\images\crownn.png" class="collage-image" style="width: 150px;">
+    <img src="D:\DATE JUST Api Copy\images\crownn.png" class="collage-image" style="width: 120px;">
+    <img src="D:\DATE JUST Api Copy\images\crownn.png" class="collage-image" style="width: 100px;">
+    <img src="D:\DATE JUST Api Copy\images\crownn.png" class="collage-image" style="width: 150px;">
+    <img src="D:\DATE JUST Api Copy\images\crownn.png" class="collage-image" style="width: 120px;">
+    <!-- Add more images as needed -->
+  </div>
+
+  <script>
+    // JavaScript code for dynamically positioning images
+    const images = document.querySelectorAll('.collage-image');
+
+    images.forEach((image) => {
+      // Random initial position
+      const initialX = Math.random() * window.innerWidth;
+      const initialY = Math.random() * window.innerHeight;
+
+      // Random animation duration
+      const duration = Math.random() * 10 + 5; // between 5 and 15 seconds
+
+      image.style.left = `${initialX}px`;
+      image.style.top = `${initialY}px`;
+      image.style.animationDuration = `${duration}s`;
+    });
+  </script>
+
+</body>
+</html>
