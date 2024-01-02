@@ -46,6 +46,17 @@ body {
   .menuicon :hover {
     color: #197149;
   }
+  #login{
+    background-color: white;
+    font-family: sans-serif;
+    margin-left: 40px;
+    color: #0b3e27;
+    margin-top: -10px;
+  }
+  #login :hover{
+    color: white;
+    background-color: #197149;
+  }
   .mainVideo {
     position: relative;
   }
