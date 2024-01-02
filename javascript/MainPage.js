@@ -1,23 +1,37 @@
-function menuBar(x) {
-  x.classList.toggle("change");
-}
-function displayMenu() {
-  if (document.getElementById("hiddennav").style.height == "500px") {
-    document.getElementById("hiddennav").style.height = "0px";
-    document.getElementById("menuname").innerHTML = "Menu";
-    const myTimeout = setTimeout(delay, 1000);
-    document.body.style.overflow = "";
-  }
-  else {
-    document.getElementById("hiddennav").style.height = "500px";
-    document.body.style.overflow = "hidden";
-    document.getElementById("menuname").innerHTML = "Close";
-    document.getElementById("problem").style.zIndex = -20;
-  }
-}
-function delay() {
-  document.getElementById("problem").style.zIndex = 0;
-}
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, getDocs, collection } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+ 
+const firebaseConfig = {
+  apiKey: "AIzaSyAru6JgHWgmu9eMdCi2b9eP7R8xLOxteqA",
+  authDomain: "rolex-clone.firebaseapp.com",
+  projectId: "rolex-clone",
+  storageBucket: "rolex-clone.appspot.com",
+  messagingSenderId: "195944459124",
+  appId: "1:195944459124:web:ee7f54a1a87ef193119a21",
+  measurementId: "G-SYHPGRBD62"
+};
+ 
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+ 
+// Reference to the 'DateJust' collection and the 'Video1' document
+const storeWatchesRef = collection(db,'StoreWatches')
+ 
+// Get the document data from Firestore
+getDocs(storeWatchesRef)
+  .then((snapshot) => {
+      let watches=[]
+      snapshot.docs.forEach((doc)=>{
+        watches.push({...doc.data()})
+      })
+      console.log(watches[0].name);
+  })
+  .catch((error) => {
+    console.error("Error getting document:", error);
+  });
+
+
 function logScrollPosition() {
   var scrollPosition = parseInt(window.scrollY);
   console.log("Scroll Position: " + scrollPosition);
