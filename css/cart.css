@@ -4,7 +4,14 @@ body{
   overflow-x: hidden;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+.header{
+  background-color: #104f32;
+  height: 100px;
 
+}
+.center-image{
+  margin-left: 550px;
+}
 
 h1{
   margin-bottom:70px;
