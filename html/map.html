@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div id="search">
-                <input type="text" style="width: 30%;" >
+                <input type="text" id="searchbar" placeholder="Search" style="color: wheat;" oninput="changeOnInput()">
             </div>  
         </header>
 <div class="map-page">
@@ -56,8 +56,8 @@
         </div>
     </div>
     <div>
-        <i class="bi bi-envelope" id="mail-icon"></i>
-         <i class="bi bi-compass" id="g-map-icon"></i>
+        <ul><i class="bi bi-envelope" id="mail-icon" onclick="redirectToEmail()"></i></ul>
+        <ul><i class="bi bi-compass" id="g-map-icon"></i></ul>
     </div>
     </div>
     <div id="map"></div>

@@ -96,7 +96,7 @@ const videoSourceElement2 = document.getElementById("videotwo");
    
     const submarinerRef4 = doc(db, "Submariner", "image1");
 
-    // Reference to the video element
+  
     
     
     getDoc(submarinerRef4)
