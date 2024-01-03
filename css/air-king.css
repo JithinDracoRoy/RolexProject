@@ -57,6 +57,7 @@
     top: 0%;
     z-index: 1;
     margin-top: 100px;
+    height: 105px;
 }
 .rolex-watches-options{
     width:250px ;
@@ -100,4 +101,19 @@
     padding-right:10px ; padding-right:10px ;   
     border:none ; border-radius:30px ;   
     font-size:15px ;   
+}
+#ak-my-video-one{
+  width: 100%;
+}
+#ak-my-image-one{
+  width: 100%;
+}
+#ak-my-image-two{
+  width: 100%;
+}
+#ak-my-video-two{
+  width: 100%;
+}
+#ak-models{
+  background:linear-gradient(rgb(100 123 129 / 1),rgb(39 63 74 / 1))
 }
