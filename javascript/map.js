@@ -1,6 +1,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
+export { map };
+export { storeLocator };
+export { fetchFirestoreGeopoints };
+export { customIcon };
 // Your Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAru6JgHWgmu9eMdCi2b9eP7R8xLOxteqA",
@@ -12,16 +15,22 @@ const firebaseConfig = {
   measurementId: "G-SYHPGRBD62"
 };
 
-document.addEventListener('DOMContentLoaded', function() {
-  storeLocator();
-});
+const map = L.map('map');
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            }).addTo(map);
+
+const customIcon = L.icon({
+  iconUrl: '../assets/darkgreenmarker.png', // Replace with the path to your custom icon image
+  iconSize: [25, 25], // Size of the icon
+  iconAnchor: [16, 32], // Point of the icon which will correspond to marker's location
+  popupAnchor: [0, -32] // Point from which the popup should open relative to the iconAnchor
+            });
+
+const gMapIcon = null;
 
 function storeLocator()
 {
-  
-  var map = L.map('map').setView([52.6313102,1.292898], 13);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            }).addTo(map);
+  map.setView([52.6313102,1.292898], 13);
   fetchFirestoreGeopoints(map); 
   if ("geolocation" in navigator) {
     // Get the user's current position
@@ -83,14 +92,16 @@ function fetchFirestoreGeopoints(map) {
                     // Print latitude and longitude to console
                     console.log(`Document ID: ${doc.id}, Latitude: ${geopoint.latitude}, Longitude: ${geopoint.longitude}, name:${name}, place:${place}`);
 
+
                     // You can also add markers to the map if needed
-                    var customIcon = L.icon({
-                        iconUrl: '../assets/locationicon.gif', // Replace with the path to your custom icon image
-                        iconSize: [32, 32], // Size of the icon
-                        iconAnchor: [16, 32], // Point of the icon which will correspond to marker's location
-                        popupAnchor: [0, -32] // Point from which the popup should open relative to the iconAnchor
-                      });
-                    const marker = L.marker([geopoint.latitude, geopoint.longitude], { icon: customIcon });
+                    // var customIcon = L.icon({
+                    //     iconUrl: '../assets/darkgreenmarker.png', // Replace with the path to your custom icon image
+                    //     iconSize: [25, 25], // Size of the icon
+                    //     iconAnchor: [16, 32], // Point of the icon which will correspond to marker's location
+                    //     popupAnchor: [0, -32] // Point from which the popup should open relative to the iconAnchor
+                    //   });
+                     
+                    const marker = L.marker([geopoint.latitude, geopoint.longitude],{icon: customIcon});
                     marker.addTo(map)
                         .bindPopup(`<b>${name}</b><br>${place}`);
                     marker.on('click',function(){
@@ -98,9 +109,23 @@ function fetchFirestoreGeopoints(map) {
                       document.getElementById("storename").innerHTML = `${name}`;
                       document.getElementById("storeplace").innerHTML = `${place}`;
                       document.getElementById("storeimage").src = `${image}`;
-                      document.getElementById("storeimage").style.width = '400px';
+                      document.getElementById("storeimage").style.width = '350px';
                       document.getElementById("storeimage").style.height = '250px';
                       document.getElementById("storeaddress").innerHTML = `${address}`;
+                      document.getElementById("map-content").style.display='block';
+                      document.getElementById("mail-icon").style.display='block';
+                      const gMapIcon = document.getElementById("g-map-icon");
+                      console.log(gMapIcon);
+                      if (gMapIcon) 
+                        console.log(geopoint);
+                        gMapIcon.addEventListener('click', function() {
+                          // geopoint.forEach(()=>{
+                            calculateDirections(geopoint._lat, geopoint._long);
+                            console.log(geopoint._lat, geopoint._long);
+                          });
+                        // });
+                      
+
                     })
                 } else {
                     console.warn(`Invalid or missing geopoint data in document: ${doc.id}`);
@@ -111,18 +136,11 @@ function fetchFirestoreGeopoints(map) {
             console.error("Error getting documents: ", error);
         });
 
-        document.addEventListener('DOMContentloaded', function() {
-          const gMapIcon = document.getElementById("g-map-icon");
-          console.log(gMapIcon);
-        
-          // Check if the element exists before adding the click event listener
-          if (gMapIcon) {
-            console.log("exists");
-            gMapIcon.addEventListener('click', function() {
-              const mapUrl = `http://maps.google.co.uk/maps?q=${geopoint.latitude},${geopoint.longitude}`;
-              window.open(mapUrl, '_blank'); // Open the URL in a new tab/window
-            });
-          }
-        });
+}
+
+function calculateDirections(destinationLatitude, destinationLongitude) {
+  const destination = `${destinationLatitude},${destinationLongitude}`;
+  const mapUrl = `https://www.google.com/maps/dir/?api=1&destination=${destination}`;
+  window.open(mapUrl, '_blank'); // Open the URL in a new tab/window
 }
 
