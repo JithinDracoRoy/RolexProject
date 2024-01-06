@@ -53,10 +53,6 @@ body {
     color: #0b3e27;
     margin-top: -10px;
   }
-  #login :hover{
-    color: white;
-    background-color: #197149;
-  }
   .mainVideo {
     position: relative;
   }
@@ -77,3 +73,6 @@ body {
     font-family: sans-serif;
     opacity: 0;
   }
+  .card:hover {
+    transform: scale(1.1);
+}
