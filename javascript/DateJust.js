@@ -159,7 +159,7 @@ getDoc(dateJustRefImageFour)
     });
 
 
-    const dateJustRefImageSeven = doc(db, "DateJust", "ImageSeven");
+  const dateJustRefImageSeven = doc(db, "DateJust", "ImageSeven");
   const ImageElementseven = document.getElementById("lastimage");
   
   getDoc(dateJustRefImageSeven)
@@ -175,104 +175,166 @@ getDoc(dateJustRefImageFour)
       console.error("Error getting document:", error);
     });
 
-document.addEventListener("DOMContentLoaded", function () {
-  var header1 = document.getElementById("header1");
-  var header2 = document.getElementById("header2");
-  var header3 = document.getElementById("row");
 
-  // Add a scroll event listener to the window
-  window.addEventListener("scroll", function () {
-    // Get the current scroll position
-    var scrollPosition = window.scrollY;
-
-    // Show/hide the first heading based on scroll position
-    if (scrollPosition > 0) {
-      var video = (document.getElementById("firstVideo").style.marginTop =
-        "0%");
-      header1.classList.remove("hidden");
-    } else {
-      header1.classList.add("hidden");
-    }
-
-    // Show/hide the second heading based on scroll position
-    if (scrollPosition > 150 && scrollPosition < 400) {
-      header2.style.display = "block";
-      //    var video=document.getElementById("firstVideo").style.marginTop="20%";
-    } else {
-      header2.style.display = "none";
-    }
-    if (scrollPosition > 200 && scrollPosition < 500) {
-      header2.style.display = "none";
-      header3.style.display = "block";
-      //    var video=document.getElementById("firstVideo").style.marginTop="20%";
-    } else {
-      header3.style.display = "none";
-    }
-    if(scrollPosition < 1368){
-      document.getElementById("h1").style.animation="disappear 1s ease forwards";
-    }
-    else if (scrollPosition >  1438) {
-      document.getElementById("h1").style.animation = "smooth-appear 1s ease forwards";
-      // document.getElementById("datejust").style.opacity = "0";
-    }
-    if(scrollPosition < 1413){
-      document.getElementById("paraone").style.animation="disappear 1s ease forwards";
-    }
-    else if (scrollPosition >  1431) {
-      document.getElementById("paraone").style.animation = "smooth-appear 1s ease forwards";
-      // document.getElementById("datejust").style.opacity = "0";
-    }
-    if(scrollPosition < 4200){
-      document.getElementById("heading").style.animation="disappear 1s ease forwards";
-    }
-    else if (scrollPosition >  4250) {
-      document.getElementById("heading").style.animation = "smooth-appear 1s ease forwards";
-      // document.getElementById("datejust").style.opacity = "0";
-    }
-    if(scrollPosition < 4200){
-      document.getElementById("paraPink").style.animation="disappear 1s ease forwards";
-    }
-    else if (scrollPosition >  4250) {
-      document.getElementById("paraPink").style.animation = "smooth-appear 1s ease forwards";
-      // document.getElementById("datejust").style.opacity = "0";
-    }
-    if(scrollPosition < 5467){
-      document.getElementById("downHead").style.animation="disappear 1s ease forwards";
-    }
-    else if (scrollPosition >  5458) {
-      document.getElementById("downHead").style.animation = "smooth-appear 1s ease forwards";
-      // document.getElementById("datejust").style.opacity = "0";
-    }
-    if(scrollPosition < 5467){
-      document.getElementById("paraPinkTwo").style.animation="disappear 1s ease forwards";
-    }
-    else if (scrollPosition >  5458) {
-      document.getElementById("paraPinkTwo").style.animation = "smooth-appear 1s ease forwards";
-      // document.getElementById("datejust").style.opacity = "0";
-    }
+    const dateJustReftextOne = doc(db, "DateJust", "TextOne");
+    const ElementTextOne = document.getElementById("h1");
     
-  });
-});
-// Add a scroll event listener to the window outside the DOM
-window.addEventListener("scroll", function () {
-  // Get the current scroll position
-  var scrollPosition = window.scrollY;
-  var header1 = document.getElementById("header1");
-  var header2 = document.getElementById("header2");
-  var header3 = document.getElementById("row");
+    getDoc(dateJustReftextOne)
+      .then((docSnapshot) => {
+        if (docSnapshot.exists()) {
+          const TextLink = docSnapshot.data().Text;
+          ElementTextOne.innerHTML = TextLink;
+        } else {
+          console.log("Document does not exist!");
+        }
+      })
+      .catch((error) => {
+        console.error("Error getting document:", error);
+      });
 
-  if (scrollPosition > 100 && scrollPosition < 150) {
-    header1.style.display = "block";
-    header2.style.display = "none";
-    header3.style.display = "none";
-  } else if (scrollPosition > 150 && scrollPosition < 200) {
-    header1.style.display = "none";
-    header2.style.display = "block";
-    header3.style.display = "block";
-  } else if (scrollPosition > 200) {
-    header1.style.display = "none";
-    header2.style.display = "none";
-    header3.style.display = "block";
-  }
-});
+      const dateJustReftextTwo = doc(db, "DateJust", "TextTwo");
+      const ElementTextTwo = document.getElementById("paraone");
+      console.log("Hi");
+      getDoc(dateJustReftextTwo)
+        .then((docSnapshot) => {
+          console.log("Hi");
+          if (docSnapshot.exists()) {
+            console.log("Hi");
+            const TextLinkTwo = docSnapshot.data().Text;
+            ElementTextTwo.textContent = TextLinkTwo;
+          } else {
+            console.log("Document does not exist!");
+          }
+        })
+        .catch((error) => {
+          console.error("Error getting document:", error);
+        });
+
+        const dateJustReftextThree = doc(db, "DateJust", "TextThree");
+        const ElementTextThree = document.getElementById("paratwo");
+        console.log("Hi");
+        getDoc(dateJustReftextThree)
+          .then((docSnapshot) => {
+            console.log("Hi");
+            if (docSnapshot.exists()) {
+              console.log("Hi");
+              const TextLinkThree = docSnapshot.data().Text;
+              ElementTextThree.textContent = TextLinkThree;
+            } else {
+              console.log("Document does not exist!");
+            }
+          })
+          .catch((error) => {
+            console.error("Error getting document:", error);
+          });
+
+          const dateJustReftextFour = doc(db, "DateJust", "TextFour");
+          const ElementTextFour = document.getElementById("headPeach");
+          getDoc( dateJustReftextFour)
+            .then((docSnapshot) => {
+              if (docSnapshot.exists()) {
+                const TextLinkFour = docSnapshot.data().Text;
+                ElementTextFour.innerHTML = TextLinkFour;
+              } else {
+                console.log("Document does not exist!");
+              }
+            })
+            .catch((error) => {
+              console.error("Error getting document:", error);
+            });
+
+            const dateJustReftextFive = doc(db, "DateJust", "TextFive");
+           const ElementTextFive = document.getElementById("paraPeach");
+          getDoc(dateJustReftextFive)
+            .then((docSnapshot) => {
+              if (docSnapshot.exists()) {
+                const TextLinkFive = docSnapshot.data().Text;
+                ElementTextFive.innerHTML = TextLinkFive;
+              } else {
+                console.log("Document does not exist!");
+              }
+            })
+            .catch((error) => {
+              console.error("Error getting document:", error);
+            });
+
+            const dateJustReftextSix = doc(db, "DateJust", "TextSix");
+            const ElementTextSix = document.getElementById("heading");
+           getDoc(dateJustReftextSix)
+             .then((docSnapshot) => {
+               if (docSnapshot.exists()) {
+                 const TextLinkSix = docSnapshot.data().Text;
+                 ElementTextSix.innerHTML = TextLinkSix;
+               } else {
+                 console.log("Document does not exist!");
+               }
+             })
+             .catch((error) => {
+               console.error("Error getting document:", error);
+             });
+ 
+             const dateJustReftextSeven = doc(db, "DateJust", "TextSeven");
+             const ElementTextSeven = document.getElementById("paraPink");
+            getDoc(dateJustReftextSeven)
+              .then((docSnapshot) => {
+                if (docSnapshot.exists()) {
+                  const TextLinkSeven = docSnapshot.data().Text;
+                  ElementTextSeven.innerHTML = TextLinkSeven;
+                } else {
+                  console.log("Document does not exist!");
+                }
+              })
+              .catch((error) => {
+                console.error("Error getting document:", error);
+              });
+  
+              const dateJustReftextEight= doc(db, "DateJust", "TextEight");
+              const ElementTextEight = document.getElementById("mainhead");
+             getDoc(dateJustReftextEight)
+               .then((docSnapshot) => {
+                 if (docSnapshot.exists()) {
+                   const TextLinkEight = docSnapshot.data().Text;
+                   ElementTextEight.innerHTML = TextLinkEight;
+                 } else {
+                   console.log("Document does not exist!");
+                 }
+               })
+               .catch((error) => {
+                 console.error("Error getting document:", error);
+               });
+
+               
+              const dateJustReftextNine= doc(db, "DateJust", "TextNine");
+              const ElementTextNine = document.getElementById("paraPinkTwo");
+             getDoc(dateJustReftextNine)
+               .then((docSnapshot) => {
+                 if (docSnapshot.exists()) {
+                   const TextLinkNine = docSnapshot.data().Text;
+                   ElementTextNine.innerHTML = TextLinkNine;
+                 } else {
+                   console.log("Document does not exist!");
+                 }
+               })
+               .catch((error) => {
+                 console.error("Error getting document:", error);
+               });
+
+               const dateJustReftextTen= doc(db, "DateJust", "TextTen");
+               const ElementTextTen = document.getElementsByClassName("paratwo");
+              getDoc(dateJustReftextTen)
+                .then((docSnapshot) => {
+                  if (docSnapshot.exists()) {
+                    const TextLinkTen = docSnapshot.data().Text;
+                    ElementTextTen[0].innerHTML = TextLinkTen;
+                  } else {
+                    console.log("Document does not exist!");
+                  }
+                })
+                .catch((error) => {
+                  console.error("Error getting document:", error);
+                });
+              
+   
+
+
 

@@ -27,7 +27,8 @@ const YachtMasterRef = doc(db, "Yacht-Master Yacht-Master ", "Yacht-Section-One"
 // const videoElement = document.getElementById("firstvideo");
 const videoSourceElement = document.getElementById("firstvideo");
 const imageSourceElement=document.getElementById("imageone");
-const imageSourceElementtwo =document.getElementById("imagetwo")
+const imageSourceElementtwo =document.getElementById("imagetwo");
+const textSourceElementone=document.getElementById("headtext");
 // Get the document data from Firestore
 getDoc(YachtMasterRef)
   .then((docSnapshot) => {
@@ -36,10 +37,12 @@ getDoc(YachtMasterRef)
       const videoLink = docSnapshot.data().Video;
       const imageLink=docSnapshot.data().Image;
       const imageTwoLink=docSnapshot.data().ImageTwo;
+      const textOneLink=docSnapshot.data().Text;
       // Set the video source
       videoSourceElement.src = videoLink;
       imageSourceElement.src=imageLink;
       imageSourceElementtwo.src=imageTwoLink;
+      textSourceElementone.innerHTML= textOneLink;
       // Load the new source
     //   videoElement.load();
     } else {
@@ -56,6 +59,7 @@ getDoc(YachtMasterRef)
   const imageSourceElementfour=document.getElementById("secSecondImage");
   const imageSourceElementfive=document.getElementById("subSecondImage");
   const imageSourceElementsix=document.getElementById("secThreeImage");
+  const textSourceElementOne=document.getElementById("secPara");
   getDoc(YachtMasterRefTwo )
   .then((docSnapshot) => {
     if (docSnapshot.exists()) {
@@ -65,12 +69,14 @@ getDoc(YachtMasterRef)
       const imageLinkfour=docSnapshot.data().ImageTwo;
       const imageLinkFive=docSnapshot.data().ImageOne;
       const imageLinkSix=docSnapshot.data().ImageThree;
+      const textLinkOne=docSnapshot.data().Text;
       // Set the video source
     
       imageSourceElementthree.src=imageLinkthree;
       imageSourceElementfour.src=imageLinkfour;
       imageSourceElementfive.src=imageLinkFive;
       imageSourceElementsix.src=imageLinkSix;
+      textSourceElementOne.innerHTML=textLinkOne;
   
       // Load the new source
     //   videoElement.load();
@@ -89,6 +95,10 @@ getDoc(YachtMasterRef)
   const imageSourceElementeight=document.getElementById("secThreeTwo");
   const imageSourceElementnine=document.getElementById("secThreeLastImg");
   const imageSourceElementLast=document.getElementById("lastimage");
+  const textSorceElementOne=document.getElementById("lastHeading");
+  const textSourceElementTwo=document.getElementById("lastHeadingSub");
+  const textSourceElememntThree=document.getElementById("heading");
+  const textSourceElememntFour=document.getElementById("headingSub");
   getDoc(YachtMasterRefThree )
   .then((docSnapshot) => {
     if (docSnapshot.exists()) {
@@ -98,12 +108,20 @@ getDoc(YachtMasterRef)
       const imageLinkeight=docSnapshot.data().ImgaeTwo;
       const imageLinknine=docSnapshot.data().ImageThree;
       const imageLinkLast=docSnapshot.data().ImageFinal;
+      const textOneLink=docSnapshot.data().Text;
+      const textTwoLink=docSnapshot.data().TextOne;
+      const textThreeLink=docSnapshot.data().TextTwo;
+      const textFourLink=docSnapshot.data().TextThree;
       // Set the video source
     
       imageSourceElementseven.src=imageLinkseven;
       imageSourceElementnine.src=imageLinknine;
       imageSourceElementLast.src=imageLinkLast;
       imageSourceElementeight.src=imageLinkeight;
+      textSorceElementOne.innerHTML=textOneLink;
+      textSourceElementTwo.innerHTML= textTwoLink;
+      textSourceElememntThree.innerHTML=textThreeLink;
+      textSourceElememntFour.innerHTML=textFourLink;
      
       // Load the new source
     //   videoElement.load();
