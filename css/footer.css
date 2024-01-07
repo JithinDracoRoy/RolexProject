@@ -1,5 +1,5 @@
 .footer{
-    
+    margin-top: 90px;
     background-color:#f8f8f8;
 }
 .roloex-footer-logo{
@@ -32,14 +32,10 @@
 
 /* Bottom Page */
 .bottom-page{
-    position: relative; 
-    position: sticky;
-    bottom: 0%;  
-    z-index: -1;
+    position: relative;
 }
 .bottom-page img{
-    height:310px; width:100%; 
- 
+    height:310px; width:100%;   
 }
 .bottom-page h1{
     color:white;
