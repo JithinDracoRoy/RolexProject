@@ -1,0 +1,37 @@
+.containers {
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  
+  .bar1, .bar2 {
+    width: 18px;
+    height: 2px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.4s;
+  }
+  
+  /* Rotate first bar */
+  .change .bar1 {
+    transform: translate(0,3px) rotate(-45deg);
+  }
+
+  /* Rotate last bar */
+  .change .bar2 {
+    transform: translate(0,-3px) rotate(45deg);
+  }
+
+  .navbar{
+    background-image: linear-gradient(to right, #0b3e27, #197149);
+    color: white;
+    height: 105px;
+  }
+  .mainIcon{
+    height: 50px;
+    padding-left: 110px;
+  }
+
+  i{
+    padding-left: 50px;
+  }
