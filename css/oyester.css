@@ -139,7 +139,9 @@
   background-color: gray; /* Default background color */
   height: 22px;
   color: white;
-  transition: background-color 0.3s; /* Smooth transition for color change */
+  transition: background-color 0.3s;
+   /* Smooth transition for color change */
+   
 }
 
 
@@ -180,4 +182,13 @@
     transform: translateY(100%); /* Initially move it 100% down (off-screen) */
   }
 }
-
+#thirdtxt{
+  display:flex;
+  margin-top:-50px;
+}
+.partone{
+  flex:1
+}
+.parttwo{
+  flex:1
+}
