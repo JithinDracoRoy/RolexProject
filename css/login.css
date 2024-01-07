@@ -287,3 +287,8 @@ font-size:12px;
 }
 
 
+#signUpErrorid{
+  color:red;
+  font-size:12px;
+  margin-top:-10px;
+}

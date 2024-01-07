@@ -18,6 +18,7 @@ const db = getFirestore(app)
 
 const oyesterwatch = doc(db, "Oyester", "videos");
 const oyesterwatch1=doc(db,"Oyester","images");
+const oyesterWatchText=doc(db,"Oyester","text");
 
 const videoElement1 = document.getElementById("firstVedio");
 const videoSourceElement1 = document.getElementById("videoSource1");
@@ -83,40 +84,64 @@ getDoc(oyesterwatch)
   .catch((error) => {
     console.error("Error getting document:", error);
   });
-function menuBar(x) {
-  x.classList.toggle("change");
-}
+const textElement1 = document.getElementById("firsttxt");
+const textElement2 = document.getElementById("secondtxt");
+const textElement3 = document.getElementById("text3");
+const textElement4 = document.getElementById("text4");
+const textElement5 = document.getElementById("text5");
+const textElement6 = document.getElementById("text6");
+const textElement7 = document.getElementById("text7");
+const textElement8 = document.getElementById("text8");
+const textElement9 = document.getElementById("text9");
+const textElement10 = document.getElementById("text10");
+const textElement11 = document.getElementById("text11");
+const textElement12 = document.getElementById("text12");
 
-function showImage(imageId) {
-    var imageElement = document.getElementById('imageone');
-   
-    switch (imageId) {
-      case 'imageone':
-        imageElement.src = "../assets/imgpos1-removebg-preview (1).png";
-        subone.innerHTML = "Oyester Perptual,41";
-        oyeone.innerHTML = "Oyster,41mm,Oystersteel";
-        break;
-      case 'imagetwo':
-        imageElement.src = "../assets/imgpos2-removebg-preview (1).png";
-        subone.innerHTML = "Oyester Perptual,36";
-        oyeone.innerHTML = "Oyster,36mm,Oystersteel";
-        break;
-      case 'imagethree':
-        imageElement.src = "../assets/imgpos3-removebg-preview (1).png";
-        subone.innerHTML = "Oyester Perptual,34";
-        oyeone.innerHTML = "Oyster,34mm,Oystersteel";
-        break;
-      case 'imagefour':
-        imageElement.src = "../assets/imgpos4-removebg-preview (1).png";
-        subone.innerHTML = "Oyester Perptual,31";
-        oyeone.innerHTML = "Oyster,31mm,Oystersteel";
-        break;
-        case 'imagefive':
-        imageElement.src = "../assets/imgpos5-removebg-preview.png";
-        subone.innerHTML = "Oyester Perptual,28";
-        oyeone.innerHTML = "Oyster,28mm,Oystersteel";
-        break;
-      default:
-        imageElement.src = "../assets/imgpos1-removebg-preview (1).png";
+
+  getDoc(oyesterWatchText)
+  .then((docSnapshot) => {
+    if (docSnapshot.exists()) {
+      // Extract the video link from the document data
+      
+      const textLink1 = docSnapshot.data().text1;
+      const textLink2 = docSnapshot.data().text2;
+      const textLink3 = docSnapshot.data().text3;
+      const textLink4 = docSnapshot.data().text4;
+      const textLink5 = docSnapshot.data().text5;
+      const textLink6 = docSnapshot.data().text6;
+      const textLink7 = docSnapshot.data().text7;
+      const textLink8 = docSnapshot.data().text8;
+      const textLink9 = docSnapshot.data().text9;
+      const textLink10 = docSnapshot.data().text10;
+      const textLink11 = docSnapshot.data().text11;
+      const textLink12=docSnapshot.data().text12;
+      
+      
+      // Set the video source
+    
+      textElement1.innerHTML=textLink1;
+      textElement2.innerHTML=textLink2;
+      textElement3.innerHTML=textLink3;
+      textElement4.innerHTML=textLink4;
+      textElement5.innerHTML=textLink5;
+      textElement6.innerHTML=textLink6;
+      textElement7.innerHTML=textLink7;
+      textElement8.innerHTML=textLink8;
+      textElement9.innerHTML=textLink9;
+      textElement10.innerHTML=textLink10;
+      textElement11.innerHTML=textLink11;
+      textElement12.innerHTML=textLink12;
+      
+    
+    
+    
+
+      // Load the new source
+  
+    } else {
+      console.log("Document does not exist!");
     }
-}
+  })
+  .catch((error) => {
+    console.error("Error getting document:", error);
+  });

@@ -30,6 +30,7 @@ const confirmSignUpPasswordIn = document.getElementById("confirm-password-signup
 const createacctbtn = document.getElementById("create-acct-btn");
 const userName = document.getElementById("username");
 const returnBtn = document.getElementById("return-btn");
+const errorInSigningIn=document.getElementById("signUpErrorid");
 
 createacctbtn.addEventListener("click", async function () {
   const username = userName.value;
@@ -151,11 +152,15 @@ submitButton.addEventListener("click", function () {
   signInWithEmailAndPassword(auth, email, password)
      .then((userCredential) => {
        const user = userCredential.user;
+       errorInSigningIn.innerHTML="";
+       console.log("Sign in Successful");
   //     window.alert("Success! Welcome back!");
   //     // Redirect or perform any other action after successful sign-in
      })
     .catch((error) => {
   //     window.alert("Error occurred. Try again.");
+    
+    errorInSigningIn.innerHTML="Error in signing in.Enter valid credentials";
      console.error("Error signing in: ", error);
   //     // Handle sign-in errors
     })
