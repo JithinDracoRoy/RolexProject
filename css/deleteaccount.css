@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+  
+  
+  #video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1; /* Ensure it's behind the content */
+  }
+  
+  /* Style the content on top of the video */
+  .content {
+    position: relative;
+    z-index: 1; /* Place it on top of the video */
+    color: black; /* Adjust text color for better visibility */
+    
+    
+  }
+  input, button {
+    padding: 3%;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+
+  }
+.login-container {
+  
+  background-color: rgba(255, 255, 255, 0.3);
+  
+    
+    padding: 7%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    /* horizontal align */
+    width: 40vw;
+    border-radius:70px ;
+    
+    margin-left: 30vw;
+    /* vertical align */
+    /* height: 80vh; */
+    height: 350px;
+    margin-top: 120px;
+    border-color:darkgreen;
+    border-width:5px;
+    
+  }
+  #submit {
+    background-color: #0583D2;
+    color: white;
+    border: none;
+    margin-top: 5%;
+  }
+  
+  button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    transition: 0.3s;
+  }
+  img{
+    height:60px;
+    width:60px;
+    margin-left:620px;
+    margin-top:10px;
+  }

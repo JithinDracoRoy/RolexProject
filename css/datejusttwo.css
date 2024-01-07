@@ -1,0 +1,25 @@
+.page{
+    display: flex;
+}
+.left{
+    flex: 1;
+}
+.right{
+    flex: 1;
+}
+#watchimage{
+    margin-left: 200px;
+    margin-top: 100px;
+}
+.right h1{
+    font-size: 50px;
+}
+.right p{
+    font-size: 20px;
+}
+#fvrtHeart{
+    color: #0b3e27;
+}
+#iconHeart{
+    margin-top: 50px;
+}

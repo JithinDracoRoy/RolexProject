@@ -1,0 +1,225 @@
+body {
+  overflow-x: hidden;
+}
+.containers {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1,
+.bar2 {
+  width: 18px;
+  height: 2px;
+  background-color: white;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+  transform: translate(0, 3px) rotate(-45deg);
+}
+
+/* Rotate last bar */
+.change .bar2 {
+  transform: translate(0, -3px) rotate(45deg);
+}
+.navb {
+  background-image: linear-gradient(to right, #0b3e27, #197149);
+  align-items: stretch;
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 105px;
+  z-index: 20;
+}
+.mainIcon {
+  height: 50px;
+  padding-left: 110px;
+}
+
+i {
+  padding-left: 50px;
+}
+
+.menuicon :hover {
+  color: #197149;
+}
+#login{
+  background-color: white;
+  font-family: sans-serif;
+  margin-left: 40px;
+  color: #0b3e27;
+  margin-top: -10px;
+}
+#login :hover{
+  color: white;
+  background-color: #197149;
+}
+#hiddennav {
+  color: white;
+  z-index: 90;
+  font-size: 25px;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin-top: 100px;
+  height: 0px;
+  transition: height 1s ease-in;
+}
+.scroll-container {
+  overflow-x: scroll;
+  scrollbar-width: none;
+  white-space: nowrap;
+  width: 900px;
+}
+.scroll-container img {
+  width: 360px;
+  padding-left: 5px;
+}
+
+.mainVideo {
+  position: relative;
+}
+.textInside {
+  color: white;
+  position: absolute;
+  top: 250px;
+  left: 500px;
+}
+.second p {
+  font-weight: bold;
+}
+#firsttext {
+  width: 80%;
+  margin-left: 10%;
+  display: flex;
+  margin-top: 100px;
+  font-family: sans-serif;
+  opacity: 0;
+}
+#configure {
+  margin-top: -20px;
+  border-radius: 20px;
+  font-size: 13px;
+  height: 30px;
+  width: 120px;
+  background-image: linear-gradient(to right, #0b3e27, #197149);
+  color: white;
+}
+#watches img {
+  position: relative;
+  transform: scale(1.2);
+}
+@keyframes smooth-appear {
+  from {
+    transform: translateY(60px);
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+#datejust {
+  position: absolute;
+  top: 1300px;
+  left: 100px;
+  opacity: 0;
+  color: black;
+}
+#submariner {
+  position: absolute;
+  top: 1800px;
+  left: 100px;
+  opacity: 0;
+  color: black;
+}
+#gmtmaster {
+  position: absolute;
+  color: white;
+  top: 2350px;
+  left: 100px;
+  opacity: 0;
+}
+#oyster {
+  position: absolute;
+  top: 2900px;
+  left: 100px;
+  opacity: 0;
+  color: black;
+}
+#daydate {
+  position: absolute;
+  top: 3400px;
+  left: 100px;
+  color: white;
+  opacity: 0;
+}
+#seadweller {
+  position: absolute;
+  top: 3900px;
+  left: 100px;
+  color: white;
+  opacity: 0;
+}
+#deepsea {
+  position: absolute;
+  top: 4450px;
+  left: 100px;
+  color: white;
+  opacity: 0;
+}
+#ladydatejust {
+  position: absolute;
+  top: 4950px;
+  left: 100px;
+  opacity: 0;
+}
+#cosmograph {
+  position: absolute;
+  top: 5450px;
+  left: 100px;
+  color: white;
+  opacity: 0;
+}
+#yatchmaster {
+  position: absolute;
+  top: 6000px;
+  left: 100px;
+  color: white;
+  opacity: 0;
+}
+#airking {
+  position: absolute;
+  top: 6500px;
+  left: 100px;
+  color: white;
+  opacity: 0;
+}
+#explorer {
+  position: absolute;
+  top: 7050px;
+  left: 100px;
+  opacity: 0;
+}
+.share i {
+  margin-left: -30px;
+}
+.footer {
+  margin-top: 90px;
+}
+.roloex-footer-logo {
+  width: 125px;
+  height: 100px;
+  margin-left: 25%;
+}
+.footer-container {
+  margin-left: 50px;
+  line-height: 20px;
+}
+.footer p {
+  margin-bottom: 0%;
+  font-size: medium;
+  font-weight: 600;
+  padding: 3px;
+}
