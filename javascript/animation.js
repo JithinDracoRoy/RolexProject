@@ -1,23 +1,8 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 let items = document.querySelectorAll('.slider .item');
     let next = document.getElementById('next');
     let prev = document.getElementById('prev');
     
-    let active = 3;
+    let active = 4;
     function loadShow(){
         let stt = 0;
         items[active].style.transform = `none`;

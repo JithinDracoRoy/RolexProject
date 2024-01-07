@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Watches Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .watch {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border: 10px solid #333;
+            border-radius: 50%;
+            margin: 20px; /* Adjust margin as needed */
+        }
+
+        .watch-face {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background-color: #333;
+            border-radius: 50%;
+        }
+
+        .hour-hand, .minute-hand, .second-hand {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: bottom center;
+        }
+
+        .hour-hand {
+            width: 8px;
+            height: 70px;
+            background-color: #333;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .minute-hand {
+            width: 6px;
+            height: 90px;
+            background-color: #666;
+            border-radius: 3px 3px 0 0;
+        }
+
+        .second-hand {
+            width: 2px;
+            height: 100px;
+            background-color: #f00;
+            border-radius: 1px 1px 0 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="watch" id="watch1">
+        <div class="watch-face">
+            <div class="hour-hand" id="hourHand1"></div>
+            <div class="minute-hand" id="minuteHand1"></div>
+            <div class="second-hand" id="secondHand1"></div>
+        </div>
+    </div>
+
+    <div class="watch" id="watch2">
+        <div class="watch-face">
+            <div class="hour-hand" id="hourHand2"></div>
+            <div class="minute-hand" id="minuteHand2"></div>
+            <div class="second-hand" id="secondHand2"></div>
+        </div>
+    </div>
+
+    <script>
+        function updateClock(watchId, hourId, minuteId, secondId) {
+            const hourHand = document.getElementById(hourId);
+            const minuteHand = document.getElementById(minuteId);
+            const secondHand = document.getElementById(secondId);
+
+            const now = new Date();
+            const hours = now.getHours() % 12;
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+
+            const hourDeg = (hours + minutes / 60) * 360 / 12;
+            const minuteDeg = (minutes + seconds / 60) * 360 / 60;
+            const secondDeg = seconds * 360 / 60;
+
+            hourHand.style.transform = `translate(-50%, -100%) rotate(${hourDeg}deg)`;
+            minuteHand.style.transform = `translate(-50%, -100%) rotate(${minuteDeg}deg)`;
+            secondHand.style.transform = `translate(-50%, -100%) rotate(${secondDeg}deg)`;
+        }
+
+        setInterval(() => updateClock('watch1', 'hourHand1', 'minuteHand1', 'secondHand1'), 1000);
+        setInterval(() => updateClock('watch2', 'hourHand2', 'minuteHand2', 'secondHand2'), 1000);
+    </script>
+
+</body>
+</html>
