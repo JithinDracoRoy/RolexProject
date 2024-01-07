@@ -44,7 +44,7 @@ video {
 }
 .container form{
   padding:20px;
-  width:900px;
+  width:600px;
   background:white;
   box-shadow: 0 5px 10px rgba(0,0,0,.1);
   border: 1px solid wheat;
@@ -105,8 +105,8 @@ video {
   filter: drop-shadow(0 0 1px #000);
 }
 
-.container form .submit-btn{
-  width: 100%;
+.submit-btn{
+  width: 67%;
   padding:12px;
   font-size: 17px;
   background: #27ae60;
@@ -119,14 +119,19 @@ video {
   background: #2ecc71;
 }
 #button{
+  margin-top: 0px;
     border:1px solid green;
     border-radius: 30px;
-
+     width: 44%;
 }
-.inputBox {
-  margin: 20px;
+.form{
+  width: 20px;
 }
-
-input.invalid {
-  border: 1px solid red;
+#card{
+  width: 60px;
+  margin-left: 40px;
+  height: 30px;
+}
+.pricename{
+  margin-left: 30px;
 }
