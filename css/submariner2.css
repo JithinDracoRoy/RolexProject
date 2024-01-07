@@ -108,15 +108,15 @@ a:hover{
     padding-top: 20px;
     margin-left: 60px;
 }
-#btnroundone,#btnroundtwo,#btnroundthree,#btnroundfour {
+.btnround,#btnroundone,#btnroundtwo,#btnroundthree,#btnroundfour {
     display: inline-block;
     padding: 10px;
     border-radius: 50%;
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    background-color: #f8f8f8;
-    border-color: #ffffff;
+    background-color: #6a7f95;
+    /* border-color: #ffffff; */
   }
 /* .watch-models-image {
     /* padding-right: 1000px; 
