@@ -1,3 +1,4 @@
+
 function menubar(x) {
   x.classList.toggle("change");
 }
@@ -19,3 +20,5 @@ function displayMenu() {
 function delay() {
   document.getElementById("problem").style.zIndex = 0;
 }
+
+

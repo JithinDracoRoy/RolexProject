@@ -1,9 +1,8 @@
 .containers {
     display: inline-block;
     cursor: pointer;
-  }
-
-  
+    width: 100%;
+  }  
   .bar1, .bar2 {
     width: 18px;
     height: 2px;
