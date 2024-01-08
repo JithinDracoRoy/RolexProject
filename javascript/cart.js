@@ -173,11 +173,9 @@ function displayTotalPrice(orderTotal) {
 // Use async function to handle promises
 (async () => {
     try {
-      console.log("hi");
         const docSnapshot = await getDoc(docRef);
 
         if (docSnapshot.exists()) {
-          console.log("hi");
             var newname = docSnapshot.data().name;
             newname = newname.charAt(0).toUpperCase() + newname.slice(1);
             console.log(newname);
@@ -188,12 +186,7 @@ function displayTotalPrice(orderTotal) {
         console.error("Error fetching user document:", error);
     }
 })();
-// ... (existing code)
 
-// Assuming user information is available in the cart.js file
-//const userName = "User123"; // Replace with your actual way of getting the user name
-
-// Store the user name in localStorage for access in other pages
 localStorage.setItem("userName", user);
 
     $(document).ready(function(){
@@ -202,7 +195,7 @@ localStorage.setItem("userName", user);
                 autoplaySpeed: 1000, // Adjust the delay between slides in milliseconds
                 dots: true, // Display dots for navigation
                 infinite: true, // Enable infinite loop
-                speed: 800, // Transition speed in milliseconds
+                speed: 1000, // Transition speed in milliseconds
                 slidesToShow: 1, // Number of slides to show at a time
                 slidesToScroll: 1 // Number of slides to scroll at a time
             });

@@ -1,7 +1,3 @@
-// function toggleDropdown() {
-//     var dropdown = document.getElementById("myDropdown");
-//     dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
-//   }
 
   function menuBar(x) {
     x.classList.toggle("change");

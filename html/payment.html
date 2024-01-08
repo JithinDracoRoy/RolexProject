@@ -14,12 +14,18 @@
     // Get the order total from the URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     const orderTotal = urlParams.get('orderTotal');
-
+    console.log(orderTotal);
+    let orderTotalWithoutRupeesString = orderTotal.substring(3);
+    let orderTotalRazorPayString = orderTotalWithoutRupeesString.replace(/,/g, '');
+    let orderTotalRazorPay = parseInt(orderTotalRazorPayString, 10);
+    console.log(orderTotalRazorPay);
     // Ensure orderTotal is not null or undefined before using it
     if (orderTotal) {
+         const amountInPaise = parseInt(orderTotal) * 100;
+         amount=orderTotal;
         var options = {
-            "key": "rzp_test_jJ1FuRtqDqIvng",
-            "amount": parseInt(orderTotal), // Convert amount to paise
+            "key": "rzp_test_RU67oBUDkrdoAx",
+            "amount": orderTotalRazorPay, // Convert amount to paise
             "name": "Rolex",
             "description": "description",
             "image": "img/logo.png",
@@ -103,16 +109,7 @@
                 <img id="card" src="../assets/razopay.png" alt="">
             </div>
                  
-                <!-- <div class="flex">
-                    <div class="inputBox">
-                        <span>state :</span>
-                        <input type="text" placeholder="india">
-                    </div>
-                    <div class="inputBox">
-                        <span>zip code :</span>
-                        <input type="text" placeholder="123 456">
-                    </div>
-                </div> -->
+               
 
             </div>
 

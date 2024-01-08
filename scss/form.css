@@ -1,0 +1,102 @@
+.feedback-form {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ecf0f1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 50px;
+  border-radius: 20px;
+}
+.feedback-form h2 {
+  text-align: center;
+  color: #105033;
+  margin-bottom: 20px;
+  font-family: "Times New Roman", serif;
+}
+.feedback-form form {
+  display: grid;
+  gap: 20px;
+}
+.feedback-form form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #105033;
+  font-family: "Times New Roman", serif;
+  font-family: "Times New Roman", serif;
+  font-size: 19.2px;
+}
+.feedback-form form input,
+.feedback-form form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #105033;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+  font-family: "Times New Roman", serif;
+}
+.feedback-form form input:focus,
+.feedback-form form textarea:focus {
+  outline: none;
+  border-color: #082618;
+}
+.feedback-form form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+.feedback-form form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #105033;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: "Times New Roman", serif;
+  font-size: 19.2px;
+}
+.feedback-form form button:hover {
+  background-color: #082618;
+}
+@media (max-width: 500px) {
+  .feedback-form {
+    max-width: 100%;
+  }
+}
+
+.success-message {
+  text-align: center;
+  color: #2ecc71;
+  margin-top: 20px;
+  font-family: "Times New Roman", serif;
+  background-color: #ecf0f1;
+}
+
+#name {
+  border-radius: 20px;
+}
+
+#email {
+  border-radius: 20px;
+}
+
+#feedback {
+  border-radius: 20px;
+}
+
+.new-color {
+  background-color: #40735c;
+}
+
+#firstImage {
+  width: 50px;
+  margin-left: 650px;
+  margin-top: 19px;
+}
+
+.rolexPic {
+  background: linear-gradient(90deg, #0b3e27, #197149);
+  margin-top: -10px;
+  height: 90px;
+}/*# sourceMappingURL=form.css.map */
