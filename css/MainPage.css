@@ -39,7 +39,20 @@ body {
   padding-left: 110px;
   display: block;
 }
-
+#number{
+  background-color: white;
+  color: #0b3e27;
+  position: absolute;
+  top: 35%;
+  left: 71.5%;
+  padding-left: 3px;
+  font-weight: bold;
+  height: 15px;
+  width: 15px;
+  font-size: 15px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
 i {
   padding-left: 50px;
 }
@@ -51,6 +64,7 @@ i {
   background-color: white;
   font-family: sans-serif;
   margin-left: 40px;
+  margin-right: -10s0px;
   color: #0b3e27;
   margin-top: -10px;
 }
