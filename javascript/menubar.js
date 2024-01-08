@@ -13,11 +13,11 @@ function displayMenu() {
     document.getElementById("hiddennav").style.height = "550px";
     document.body.style.overflow = "hidden";
     document.getElementById("menuname").innerHTML = "Close";
-    // document.getElementById("problem").style.display="none";
+    document.getElementById("header1").style.display="none";
   }
 }
 function delay() {
-  // document.getElementById("problem").style.zIndex = 0;
+  document.getElementById("header1").style.zIndex = 0;
 }
 function logout() {
   localStorage.setItem("check",0);
