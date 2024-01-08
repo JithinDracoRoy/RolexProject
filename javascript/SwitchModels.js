@@ -1,10 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import {
-  getFirestore, collection, getDocs, doc, getDoc, onSnapshot,
-  setDoc, deleteDoc,
-  query, where
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import {   getFirestore, collection, getDocs, doc, getDoc,onSnapshot,
+  setDoc, deleteDoc, 
+  query, where } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 // ... your Firebase configuration
 
@@ -25,12 +23,12 @@ const db = getFirestore(app);
 
 //colRef -> docRef -> colRef2 -> docRef2
 const watchCollectionRef = collection(db, "WatchCollection"); //Get collection "WatchCollection" from databse
-const mainWatchCollectionDocRef = doc(watchCollectionRef, "watchCollection");  // Get doc "watchCollection" from collection "WatchCollection"
-const gmtMastersIICollectionRef = collection(mainWatchCollectionDocRef, "GMT-Masters II")//Get collection "GMT-Masters II" from doc "watchCollection"
-const wishlistCollectionRef = collection(db, "Wishlist");
+const mainWatchCollectionDocRef = doc(watchCollectionRef,"watchCollection");  // Get doc "watchCollection" from collection "WatchCollection"
+const gmtMastersIICollectionRef = collection(mainWatchCollectionDocRef,"GMT-Masters II")//Get collection "GMT-Masters II" from doc "watchCollection"
+const wishlistCollectionRef = collection(db,"Wishlist");
 
-getDocs(gmtMastersIICollectionRef).then((snapshot) => {
-  snapshot.docs.forEach((doc) => {
+getDocs(gmtMastersIICollectionRef).then((snapshot)=>{
+    snapshot.docs.forEach((doc) => {    
     let button = document.createElement("button");
     button.id = doc.id; // Set button ID to document ID
     button.classList.add("design-btn");
@@ -43,22 +41,22 @@ getDocs(gmtMastersIICollectionRef).then((snapshot) => {
     document.querySelector(".design-btn-div").appendChild(button);
   })
 })
-  .catch(err => {
-    console.log(err.message)
-  })
+.catch(err => {
+  console.log(err.message)
+})
 
 // Function to display watch data based on ID
 async function displayWatchData(watchId) {
   try {
     getDocs(gmtMastersIICollectionRef)
-      .then((snapshot) => {
+    .then((snapshot)=>{
         snapshot.docs.forEach((doc) => {
-          document.getElementById(doc.id).style.backgroundColor = "#b1bece";
-        })
+        document.getElementById(doc.id).style.backgroundColor="#b1bece"; 
       })
-      .catch(err => {
-        console.log(err.message)
-      })
+    })
+    .catch(err => {
+      console.log(err.message)
+    })
 
     const watchDocRef = doc(gmtMastersIICollectionRef, watchId);
     const snapshot = await getDoc(watchDocRef);
@@ -72,7 +70,7 @@ async function displayWatchData(watchId) {
     watchSeriesElement.textContent = watchData.series;
     watchModelElement.textContent = watchData.model;
     watchImageElement.src = watchData.img; // Assuming a valid image URL
-    document.getElementById(watchId).style.backgroundColor = "white";
+    document.getElementById(watchId).style.backgroundColor="white";
 
     const wishlistButton = document.querySelector(".add-fav-label");
     wishlistButton.id = snapshot.id + "-fav";
@@ -88,64 +86,64 @@ async function displayWatchData(watchId) {
 //check presence of document in wishlist
 async function checkWishlistStatus(watchId) {
 
-  const wishlistCollectionRef = collection(db, "Wishlist")
+  const wishlistCollectionRef = collection(db,"Wishlist")
   const wishlistDocRef = doc(wishlistCollectionRef, watchId);
   const wishlistButton = document.querySelector(".add-fav-label");
   const wishlistButtonIcon = document.querySelector(".fav-icon");
   const wishlistButtonLabel = document.querySelector(".fav-label");
 
   getDoc(wishlistDocRef)
-    .then(snapshot => {
-      if (snapshot.exists()) {
-        wishlistButtonLabel.textContent = "Remove from Wishlist";
-        wishlistButtonIcon.classList.remove("bi-suit-heart");
-        wishlistButtonIcon.classList.add("bi-suit-heart-fill");
-      }
-      else {
-        wishlistButtonLabel.textContent = "Add to Wishlist";
-        wishlistButtonIcon.classList.remove("bi-suit-heart-fill");
-        wishlistButtonIcon.classList.add("bi-suit-heart");
-      }
-    })
-
+  .then(snapshot =>{
+    if(snapshot.exists()){
+      wishlistButtonLabel.textContent = "Remove from Wishlist";
+      wishlistButtonIcon.classList.remove("bi-suit-heart");
+      wishlistButtonIcon.classList.add("bi-suit-heart-fill");
+    }
+    else{
+      wishlistButtonLabel.textContent = "Add to Wishlist";
+      wishlistButtonIcon.classList.remove("bi-suit-heart-fill");
+      wishlistButtonIcon.classList.add("bi-suit-heart");
+    }
+  })
+  
   wishlistButton.addEventListener("click", async () => {
     const wishlistButton = document.querySelector(".add-fav-label");
     let watchId = wishlistButton.id;
-    watchId = watchId.replace("-fav", "");
+    watchId = watchId.replace("-fav","");
     await updateWishlistCollection(watchId);
   });
 }
 
 //Function to update wishlist
-async function updateWishlistCollection(watchId) {
-  const wishlistCollectionRef = collection(db, "Wishlist")
+async function updateWishlistCollection(watchId){
+  const wishlistCollectionRef = collection(db,"Wishlist")
   const wishlistDocRef = doc(wishlistCollectionRef, watchId);
   const watchDocRef = doc(gmtMastersIICollectionRef, watchId);
   const snapshot = await getDoc(watchDocRef);
   const watchData = snapshot.data();
-
+ 
   getDoc(wishlistDocRef)
-    .then(snapshot => {
-      if (snapshot.exists()) {
-        deleteDoc(wishlistDocRef);
-      }
-      else {
-        setDoc(wishlistDocRef, watchData);
-      }
-      checkWishlistStatus(watchId)
-    })
+  .then(snapshot =>{
+    if(snapshot.exists()){
+      deleteDoc(wishlistDocRef);
+    }
+    else{  
+      setDoc(wishlistDocRef,watchData);
+    }
+    checkWishlistStatus(watchId)
+  })
 }
 
-window.onload = function () {
+window.onload = function() {
   displayWatchData("Oystersteel")
 };
 
 onSnapshot(wishlistCollectionRef, (snapshot) => {
   const changes = snapshot.docChanges(); // Get all changes since the last snapshot
   changes.forEach((change) => {
-    const type = change.type; // added, modified, or removed
-    const data = change.doc.data(); // Document data for the change
-    const watchId = change.doc.id; // Document ID
+      const type = change.type; // added, modified, or removed
+      const data = change.doc.data(); // Document data for the change
+      const watchId = change.doc.id; // Document ID
     checkWishlistStatus(watchId)
   });
 });
@@ -153,7 +151,7 @@ onSnapshot(wishlistCollectionRef, (snapshot) => {
 
 
 
-
-
-
+    
+  
+ 
 
