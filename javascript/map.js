@@ -17,7 +17,10 @@ const firebaseConfig = {
 
 const map = L.map('map');
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    minZoom: 3,
+    noWrap: true 
             }).addTo(map);
+L.control.zoom({ position: 'bottomright' }).addTo(map);
 
 const customIcon = L.icon({
   iconUrl: '../assets/darkgreenmarker.png', // Replace with the path to your custom icon image
@@ -41,12 +44,10 @@ function storeLocator()
         const longitude = position.coords.longitude;
         map.setView([latitude, longitude], 5);
         console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
-        fetchFirestoreGeopoints(map);
       },
       function (error) {
         map.setView([52.6313102,1.292898], 13);
         console.error(`Error getting user location: ${error.message}`);
-        fetchFirestoreGeopoints(map);
       }
     );
   } else {
@@ -54,7 +55,6 @@ function storeLocator()
     console.error("Geolocation is not supported by this browser.");
     map.setView([52.6313102,1.292898], 13);
         console.error(`Error getting user location: ${error.message}`);
-        fetchFirestoreGeopoints(map);
   }
 }
 
@@ -78,28 +78,10 @@ function fetchFirestoreGeopoints(map) {
                 const address = data.address;
 
                 if (geopoint && geopoint.latitude && geopoint.longitude) {
-                  map.on('moveend', function () {
-                    // Get the current map bounds
-                    var bounds = map.getBounds();
-                
-                    // Fetch and display stores within the current map bounds
-                    fetchAndDisplayStoresInBounds(bounds);
-                });
-                function fetchAndDisplayStoresInBounds(bounds) {
-                  document.getElementById("storename").innerHTML = `${name}`;
-                  document.getElementById("storeplace").innerHTML = `${place}`;
-                }
+                 
                     // Print latitude and longitude to console
                     console.log(`Document ID: ${doc.id}, Latitude: ${geopoint.latitude}, Longitude: ${geopoint.longitude}, name:${name}, place:${place}`);
-
-
-                    // You can also add markers to the map if needed
-                    // var customIcon = L.icon({
-                    //     iconUrl: '../assets/darkgreenmarker.png', // Replace with the path to your custom icon image
-                    //     iconSize: [25, 25], // Size of the icon
-                    //     iconAnchor: [16, 32], // Point of the icon which will correspond to marker's location
-                    //     popupAnchor: [0, -32] // Point from which the popup should open relative to the iconAnchor
-                    //   });
+                    
                      
                     const marker = L.marker([geopoint.latitude, geopoint.longitude],{icon: customIcon});
                     marker.addTo(map)
