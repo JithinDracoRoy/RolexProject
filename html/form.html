@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../scss/form.css">
+    <title>Feedback Form</title>
+</head>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Times New Roman', serif;
+
+  &::before {
+    content: '';
+     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/feedback.jpg');
+    background-position: center;
+    filter: blur(2px);
+    z-index: -1;
+  }
+}
+</style>
+<body>
+   
+    <div class="rolexPic">
+        <img id="firstImage"  src="../assets/RolexPNG.png">
+    </div>
+    <div class="feedback-form">
+        <h2>Rating Form</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+            <label for="feedback">Feedback:</label>
+            <textarea id="feedback" name="feedback" placeholder="Type your feedback here" required></textarea>
+             <div  class="new-color">
+            <button id="btn" type="submit">Submit Feedback</button>
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>

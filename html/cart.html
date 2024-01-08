@@ -63,6 +63,16 @@
                 </div>
             </nav>
         </header>
+      <div class="carousel-container">
+        <div class="carousel">
+            <div><img class="carousel-image" src="../assets/air-kingL.avif" alt="Image 1"></div>
+            <div><img class="carousel-image" src="../assets/datejustL.avif" alt="Image 2"></div>
+            <div><img class="carousel-image" src="../assets/oysterL.avif" alt="Image 3"></div>
+            <div><img class="carousel-image" src="../assets/daydateL.avif" alt="Image 4"></div>
+            <div><img class="carousel-image" src="../assets/datejustladyL.avif" alt="Image 3"></div>
+        
+        </div>
+    </div>
 
         <div class="carousel-container">
             <div class="carousel">
@@ -79,78 +89,51 @@
                 <!-- Add more image divs as needed -->
             </div>
         </div>
-
-        <div class="text">
-            <h1 id="mainheading"
-                style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"><b>WELCOME<br>
-                    TO<br> THE CART</b></h1>
+     <div class = "items-list">
+        <div class = "item-data">
+           
+        </div>
+     </div>
+    </div>
+    
+    <div style="padding-right: 10px;" class="Sub-Cart-Right col-4 mt-5" >
+        <div class="subcart-container">
+        <h1 id="rightheading">Summary</h1>
+        <hr style="background-color: black; height: 2px; margin-top: -60px;">
+         <div class="subtotal-div">
+         <p class="subtotalPrice"><b>Subtotal</b></p>
+         <p class ="subtotalPrice-value"></p>
+         <span id="amount"></span>
+        </div>
+        <hr id="summaryline">
+        <div class="Shipping-div">
+        <p class="ShippingPrice"><b>Shipping</b></p>
+        <span id="shipAmount">1000</span>
+         </div>
+         <hr id="summaryline">
+        <div class="order-div">
+        <p class="OrderTotal"><b>Order Total</b></p>
+       <span id="total"></span>
+        </div>
+        <hr id="summaryline">
+        <div class="checkout-btn">
+        <button id="btn" onclick="redirectToCheckout()">Proceed To CheckOut</button>
         </div>
         <br>
-        <i id="anime-icon" class="bi bi-cart"></i>
-        <div class="Main-Cart-Container row">
-            <div class="Sub-Cart-Left col-8 pl-5 mt-5 pr-5">
-                <div class="box">
-                    <h1 id="leftheading">Your Cart</h1>
-                    <hr
-                        style="background-color: black; height: 2px; margin-top: -60px;">
-                </div>
-                <div class="items-list">
-                    <div class="item-data">
-                        <!-- <img id="img">
-            <span id="name"></span>
-            <span><i class="bi bi-plus-circle-fill"></i></span> 
-            <p id="description"></p>
-            <hr>
-            <div class="price-div">
-            
-                <span></apan>
-                <span id="price"></span>
-            </div> -->
-                    </div>
-                </div>
-            </div>
-
-            <div style="padding-right: 10px;" class="Sub-Cart-Right col-4 mt-5">
-                <div class="subcart-container">
-                    <h1 id="rightheading">Summary</h1>
-                    <hr
-                        style="background-color: black; height: 2px; margin-top: -60px;">
-                    <div class="subtotal-div">
-                        <p class="subtotalPrice"><b>Subtotal</b></p>
-                        <p class="subtotalPrice-value"></p>
-                        <span id="amount"></span>
-                    </div>
-                    <hr id="summaryline">
-                    <div class="Shipping-div">
-                        <p class="ShippingPrice"><b>Shipping</b></p>
-                        <span id="shipAmount">1000</span>
-                    </div>
-                    <hr id="summaryline">
-                    <div class="order-div">
-                        <p class="OrderTotal"><b>Order Total</b></p>
-                        <span id="total"></span>
-                    </div>
-                    <hr id="summaryline">
-                    <div class="checkout-btn">
-                        <button id="btn" onclick="redirectToCheckout()">Proceed
-                            To CheckOut</button>
-                    </div>
-                    <br>
-                    <br>
-                </div>
-                <div class="saveforlater">
-                    <h2 id="save">Save For Later</h2>
-                    <div class="saveditems">
-
-                    </div>
-                </div>
+        <br>
+    </div>
+        <div class="saveforlater">
+            <h2 id="save">Save For Later</h2>
+            <div class="saveditems">
 
             </div>
-
-            <!-- <div class="toggle-button">
-        <button onclick="toggleCart()">Toggle Cart</button>
-    </div> -->
         </div>
-
-    </body>
+       
+    </div>
+   
+   
+    </div>
+   
+   
+</body>
 </html>

@@ -173,41 +173,37 @@ function displayTotalPrice(orderTotal) {
 
 // Use async function to handle promises
 (async () => {
-  try {
-    console.log("hi");
-    const docSnapshot = await getDoc(docRef);
+    try {
+        const docSnapshot = await getDoc(docRef);
 
-    if (docSnapshot.exists()) {
-      console.log("hi");
-      var newname = docSnapshot.data().name;
-      newname = newname.charAt(0).toUpperCase() + newname.slice(1);
-      console.log(newname);
-      document.getElementById("login").innerHTML = `<i class="fa fa-user"  aria-hidden="true"><span style="margin-left:9px" ">${newname}</span></i>`;
-
+        if (docSnapshot.exists()) {
+            var newname = docSnapshot.data().name;
+            newname = newname.charAt(0).toUpperCase() + newname.slice(1);
+            console.log(newname);
+            document.getElementById("login").innerHTML = `<i class="fa fa-user"  aria-hidden="true"><span style="margin-left:9px" ">${newname}</span></i>`;
+            
+        }
+    } catch (error) {
+        console.error("Error fetching user document:", error);
     }
   } catch (error) {
     console.error("Error fetching user document:", error);
   }
 })();
-// ... (existing code)
 
-// Assuming user information is available in the cart.js file
-//const userName = "User123"; // Replace with your actual way of getting the user name
-
-// Store the user name in localStorage for access in other pages
 localStorage.setItem("userName", user);
 
-$(document).ready(function () {
-  $('.carousel').slick({
-    autoplay: true, // Set to true for automatic slideshow
-    autoplaySpeed: 1000, // Adjust the delay between slides in milliseconds
-    dots: true, // Display dots for navigation
-    infinite: true, // Enable infinite loop
-    speed: 800, // Transition speed in milliseconds
-    slidesToShow: 1, // Number of slides to show at a time
-    slidesToScroll: 1 // Number of slides to scroll at a time
-  });
-});
+    $(document).ready(function(){
+            $('.carousel').slick({
+                autoplay: true, // Set to true for automatic slideshow
+                autoplaySpeed: 1000, // Adjust the delay between slides in milliseconds
+                dots: true, // Display dots for navigation
+                infinite: true, // Enable infinite loop
+                speed: 1000, // Transition speed in milliseconds
+                slidesToShow: 1, // Number of slides to show at a time
+                slidesToScroll: 1 // Number of slides to scroll at a time
+            });
+        });
 
 
 

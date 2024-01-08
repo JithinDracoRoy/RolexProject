@@ -151,17 +151,17 @@ getDoc(YachtMasterRef)
         document.getElementById("secPara").style.animation = "smooth-appear 1s ease forwards";
         // document.getElementById("datejust").style.opacity = "0";
       }
-      if(scrollPosition < 6589){
+      if(scrollPosition < 6470){
         document.getElementById("heading").style.animation="disappear 1s ease forwards";
       }
-      else if (scrollPosition >  6576) {
+      else if (scrollPosition >  6454) {
         document.getElementById("heading").style.animation = "smooth-appear 1s ease forwards";
         // document.getElementById("datejust").style.opacity = "0";
       }
-      if(scrollPosition < 6589){
+      if(scrollPosition < 6470){
         document.getElementById("headingSub").style.animation="disappear 1s ease forwards";
       }
-      else if (scrollPosition >  6576) {
+      else if (scrollPosition >  6454) {
         document.getElementById("headingSub").style.animation = "smooth-appear 1s ease forwards";
         // document.getElementById("datejust").style.opacity = "0";
       }
@@ -172,10 +172,10 @@ getDoc(YachtMasterRef)
         document.getElementById("lastHeading").style.animation = "smooth-appear 1s ease forwards";
         // document.getElementById("datejust").style.opacity = "0";
       }
-      if(scrollPosition < 7400){
+      if(scrollPosition < 7500){
         document.getElementById("lastHeadingSub").style.animation="disappear 1s ease forwards";
       }
-      else if (scrollPosition >  7300) {
+      else if (scrollPosition >  7400) {
         document.getElementById("lastHeadingSub").style.animation = "smooth-appear 1s ease forwards";
         // document.getElementById("datejust").style.opacity = "0";
       }
@@ -184,65 +184,6 @@ getDoc(YachtMasterRef)
       window.addEventListener('scroll', logScrollPosition);
 
 
-
-      // document.addEventListener("DOMContentLoaded", function () {
-      //   var header1 = document.getElementById("SecondText");
-      //   var header2 = document.getElementById("thirdtext");
-      //   var header3 = document.getElementById("row");
-      
-      //   // Add a scroll event listener to the window
-      //   window.addEventListener("scroll", function () {
-      //     // Get the current scroll position
-      //     var scrollPosition = window.scrollY;
-      
-      //     // Show/hide the first heading based on scroll position
-      //     if (scrollPosition > 0) {
-      //       var video = (document.getElementById("firstVideo").style.marginTop =
-      //         "0%");
-      //       header1.classList.remove("hidden");
-      //     } else {
-      //       header1.classList.add("hidden");
-      //     }
-      
-      //     // Show/hide the second heading based on scroll position
-      //     if (scrollPosition > 150 && scrollPosition < 400) {
-      //       header2.style.display = "block";
-      //       //    var video=document.getElementById("firstVideo").style.marginTop="20%";
-      //     } else {
-      //       header2.style.display = "none";
-      //     }
-      //     if (scrollPosition > 200 && scrollPosition < 500) {
-      //       header2.style.display = "none";
-      //       header3.style.display = "block";
-      //       //    var video=document.getElementById("firstVideo").style.marginTop="20%";
-      //     } else {
-      //       header3.style.display = "none";
-      //     }
-          
-      //   });
-      // });
-      // // Add a scroll event listener to the window outside the DOM
-      // window.addEventListener("scroll", function () {
-      //   // Get the current scroll position
-      //   var scrollPosition = window.scrollY;
-      //   var header1 = document.getElementById("SecondText");
-      //   var header2 = document.getElementById("thirdtext");
-      //   var header3 = document.getElementById("row");
-      
-      //   if (scrollPosition > 100 && scrollPosition < 150) {
-      //     header1.style.display = "block";
-      //     header2.style.display = "none";
-      //     header3.style.display = "none";
-      //   } else if (scrollPosition > 150 && scrollPosition < 200) {
-      //     header1.style.display = "none";
-      //     header2.style.display = "block";
-      //     header3.style.display = "block";
-      //   } else if (scrollPosition > 200) {
-      //     header1.style.display = "none";
-      //     header2.style.display = "none";
-      //     header3.style.display = "block";
-      //   }
-      // });
          
  
 

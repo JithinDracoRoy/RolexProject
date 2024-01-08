@@ -22,8 +22,8 @@ var data = {
         title: ["Thanks for your response", "Here are some watches based on your search"],
         options: ["DateJust-36", "DateJust-31", "DateJust-41",],
         url: {
-            more: "https://www.youtube.com/@webhub/videos",
-            link: ["#", "#", "#", "#", "#"]
+            // more:"https://www.youtube.com/@webhub/videos",
+            link:["../html/DateJust.html","../html/DateJust.html","../html/DateJust.html"]
         }
     },
     submariner: {
@@ -77,16 +77,18 @@ function showChatBot() {
     }
 }
 
-function initChat() {
-    j = 0;
-    cbot.innerHTML = '';
-    for (var i = 0; i < len1; i++) {
-        setTimeout(handleChat, (i * 500));
-    }
-    setTimeout(function () {
-        showOptions(data.chatinit.options)
-    }, ((len1 + 1) * 500))
-}
+
+
+ function initChat(){
+     j=0;
+     cbot.innerHTML='';
+     for(var i=0;i<len1;i++){
+         setTimeout(handleChat,(i*500));
+     }
+     setTimeout(function(){
+         showOptions(data.chatinit.options)
+     },((len1+1)*500))
+ }
 
 var j = 0;
 function handleChat() {

@@ -82,17 +82,17 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("paraone").style.animation = "smooth-appear 1s ease forwards";
       // document.getElementById("datejust").style.opacity = "0";
     }
-    if (scrollPosition < 3858) {
-      document.getElementById("heading").style.animation = "disappear 1s ease forwards";
+    if(scrollPosition < 4174){
+      document.getElementById("heading").style.animation="disappear 1s ease forwards";
     }
-    else if (scrollPosition > 3831) {
+    else if (scrollPosition >  4141) {
       document.getElementById("heading").style.animation = "smooth-appear 1s ease forwards";
       // document.getElementById("datejust").style.opacity = "0";
     }
-    if (scrollPosition < 3858) {
-      document.getElementById("paraPink").style.animation = "disappear 1s ease forwards";
+    if(scrollPosition < 4174){
+      document.getElementById("paraPink").style.animation="disappear 1s ease forwards";
     }
-    else if (scrollPosition > 3831) {
+    else if (scrollPosition >  4141) {
       document.getElementById("paraPink").style.animation = "smooth-appear 1s ease forwards";
       // document.getElementById("datejust").style.opacity = "0";
     }
@@ -110,24 +110,24 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("paraPinkTwo").style.animation = "smooth-appear 1s ease forwards";
       // document.getElementById("datejust").style.opacity = "0";
     }
-    if (scrollPosition < 2411) {
-      document.getElementById("headPeach").style.animation = "disappear 1s ease forwards";
+    if(scrollPosition < 2966 ){
+      document.getElementById("headPeach").style.animation="disappear 1s ease forwards";
     }
-    else if (scrollPosition > 2400) {
+    else if (scrollPosition >  2945) {
       document.getElementById("headPeach").style.animation = "smooth-appear 1s ease forwards";
       // document.getElementById("datejust").style.opacity = "0";
     }
-    if (scrollPosition < 2411) {
-      document.getElementById("paraPeach").style.animation = "disappear 1s ease forwards";
+    if(scrollPosition < 2966 ){
+      document.getElementById("paraPeach").style.animation="disappear 1s ease forwards";
     }
-    else if (scrollPosition > 2400) {
+    else if (scrollPosition >  2954) {
       document.getElementById("paraPeach").style.animation = "smooth-appear 1s ease forwards";
       // document.getElementById("datejust").style.opacity = "0";
     }
-    if (scrollPosition < 2434) {
-      document.getElementById("paratwo").style.animation = "disappear 1s ease forwards";
+    if(scrollPosition <2529){
+      document.getElementById("paratwo").style.animation="disappear 1s ease forwards";
     }
-    else if (scrollPosition > 2416) {
+    else if (scrollPosition >  2495) {
       document.getElementById("paratwo").style.animation = "smooth-appear 1s ease forwards";
       // document.getElementById("datejust").style.opacity = "0";
     }
@@ -174,48 +174,4 @@ window.addEventListener("scroll", function () {
 
 
 
-// import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-// import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-// const firebaseConfig = {
-//   apiKey: "AIzaSyAru6JgHWgmu9eMdCi2b9eP7R8xLOxteqA",
-//   authDomain: "rolex-clone.firebaseapp.com",
-//   projectId: "rolex-clone",
-//   storageBucket: "rolex-clone.appspot.com",
-//   messagingSenderId: "195944459124",
-//   appId: "1:195944459124:web:ee7f54a1a87ef193119a21",
-//   measurementId: "G-SYHPGRBD62"
-// };
-
-// // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// const db = getFirestore(app);
-
-// // Reference to the 'DateJust' collection and the 'Video1' document
-// const dateJustRef = doc(db, "DateJust", "Video1");
-
-// const dateJustimageone = doc(db, "DateJust", "Video1");
-// // Reference to the video element
-// const videoElement = document.getElementById("firstVideo");
-// const videoSourceElement = document.getElementById("videoSource");
-
-// // Get the document data from Firestore
-// getDoc(dateJustRef)
-//   .then((docSnapshot) => {
-//     if (docSnapshot.exists()) {
-//       // Extract the video link from the document data
-//       const videoLink = docSnapshot.data().Video;
-
-//       // Set the video source
-//       videoSourceElement.src = videoLink;
-
-//       // Load the new source
-//       videoElement.load();
-//     } else {
-//       console.log("Document does not exist!");
-//     }
-//   })
-//   .catch((error) => {
-//     console.error("Error getting document:", error);
-//   });
-
+  
