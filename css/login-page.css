@@ -60,11 +60,10 @@ img {
 
   margin-left: 30vw;
   /* vertical align */
-  height: 90vh;
+  height: 80vh;
   margin-top: 10px;
-  background-image: linear-gradient(to right, #0b3e27, #197149);
-  opacity: 0.9;
-  color: white;
+  background-color: rgba(240, 248, 255, 0.5);
+
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 

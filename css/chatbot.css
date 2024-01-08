@@ -53,10 +53,7 @@ body{
   justify-content: space-between;
   align-items: center;
 }
-/* .bot-img{
-  width: 12rem;
-  height: 20rem;
-} */
+
 .child{
   box-shadow: 0 0 2px salmon;
   border-radius: 15px;
@@ -168,7 +165,7 @@ body{
 .opt{
   padding: 5px 20px;
   columns: lightsalmon;
-  border: 1px solid blueviolet;
+  /* border: 1px solid blueviolet; */
   border-radius: 1rem;
   margin: 0.3rem 0.5rem;
   display: inline-block;
@@ -193,4 +190,97 @@ body{
   background: white;
   border: 1px solid blueviolet;
   color: blueviolet;
+}
+.robotbody {
+  /* background-color: #f0f0f0; */
+  display: flex;
+  justify-content: center;
+  margin-right: 300px;
+  height: 80vh;
+  margin: 0;
+}
+
+.robot {
+  position: relative;
+  width: 150px;
+  height: 100px;
+  margin-right: 300px;
+  margin-bottom: 100px;
+}
+
+.head, .body, .left-arm, .right-arm, .left-leg, .right-leg {
+  position: absolute;
+  background-color: #3498db;
+  border-radius: 10px;
+}
+
+.head {
+  width: 80px;
+  height: 80px;
+  top: 10px;
+  left: 35px;
+}
+
+.body {
+  width: 100px;
+  height: 100px;
+  top: 70px;
+  left: 25px;
+}
+
+.left-arm, .right-arm {
+  width: 25px;
+  height: 90px;
+  top: 70px;
+}
+
+.left-arm {
+  left: 0;
+}
+
+.right-arm {
+  right: 0;
+}
+
+.left-leg, .right-leg {
+  width: 30px;
+  height: 100px;
+  top: 170px;
+}
+
+.left-leg {
+  left: 30px;
+}
+
+.right-leg {
+  right: 30px;
+}
+
+/* Animation */
+@keyframes wave {
+  0%, 100% {
+      transform: rotate(0deg);
+  }
+  50% {
+      transform: rotate(30deg);
+  }
+}
+
+.left-arm, .right-arm {
+  animation: wave 1s infinite alternate;
+  transform-origin: top;
+}
+
+@keyframes walk {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(10px);
+  }
+}
+
+.left-leg, .right-leg {
+  animation: walk 1s infinite alternate;
+  transform-origin: top;
 }
