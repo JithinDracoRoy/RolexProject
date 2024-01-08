@@ -1,49 +1,58 @@
-.footer{
-    margin-top: 90px;
-    background-color:#f8f8f8;
+.footer {
+  margin-top: 90px;
 }
-.roloex-footer-logo{
-    width: 125px;
-    height:100px;
-    margin-left: 25%;
+.roloex-footer-logo {
+  width: 125px;
+  height: 100px;
+  margin-left: 25%;
 }
-.footer-container{
-    margin-left: 50px;
-    line-height: 20px;
+.footer-container {
+  margin-left: 50px;
+  line-height: 20px;
 }
-.footer p{
-    margin-bottom: 0%;
-    font-size: medium;
-    font-weight: 600;
-    padding: 3px;
+.footer p {
+  margin-bottom: 0%;
+  font-size: medium;
+  font-weight: 600;
+  padding: 3px;
 }
-.footer-div{
-    padding-top:60px;
+.footer-div {
+  padding-top: 60px;
 }
-.footer-hr{
-    width: 80%; height: 1px;
-    margin-left:120px; margin-right: 120px;margin-top: 80px;
-    background-color:black;
-    
+.footer-hr {
+  width: 80%;
+  height: 1px;
+  margin-left: 120px;
+  margin-right: 120px;
+  margin-top: 80px;
+  background-color: black;
 }
-.languages{
-    margin-left: 60px; margin-bottom: 20px;
+.languages {
+  margin-left: 60px;
+  margin-bottom: 20px;
 }
 
 /* Bottom Page */
-.bottom-page{
-    position: relative;
+.bottom-page {
+  position: relative;
 }
-.bottom-page img{
-    height:310px; width:100%;   
+.bottom-page img {
+  height: 310px;
+  width: 100%;
 }
-.bottom-page h1{
-    color:white;
-    font-weight: 700; font-size: 45px;
-    position: absolute; top: 100px; left: 26%; 
+.bottom-page h1 {
+  color: white;
+  font-weight: 700;
+  font-size: 45px;
+  position: absolute;
+  top: 100px;
+  left: 26%;
 }
-.bottom-page h3{
-    color: white;
-    font-weight: 700; font-size: 17px;
-    position: absolute; top: 170px; left: 45%;
+.bottom-page h3 {
+  color: white;
+  font-weight: 700;
+  font-size: 17px;
+  position: absolute;
+  top: 170px;
+  left: 45%;
 }

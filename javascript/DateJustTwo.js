@@ -68,70 +68,70 @@ document.addEventListener("DOMContentLoaded", function () {
       header3.style.display = "none";
     }
 
-    if(scrollPosition < 1368){
-      document.getElementById("h1").style.animation="disappear 1s ease forwards";
+    if (scrollPosition < 1368) {
+      document.getElementById("h1").style.animation = "disappear 1s ease forwards";
     }
-    else if (scrollPosition >  1438) {
+    else if (scrollPosition > 1438) {
       document.getElementById("h1").style.animation = "smooth-appear 1s ease forwards";
       // document.getElementById("datejust").style.opacity = "0";
     }
-    if(scrollPosition < 1413){
-      document.getElementById("paraone").style.animation="disappear 1s ease forwards";
+    if (scrollPosition < 1413) {
+      document.getElementById("paraone").style.animation = "disappear 1s ease forwards";
     }
-    else if (scrollPosition >  1431) {
+    else if (scrollPosition > 1431) {
       document.getElementById("paraone").style.animation = "smooth-appear 1s ease forwards";
       // document.getElementById("datejust").style.opacity = "0";
     }
-    if(scrollPosition < 3858){
-      document.getElementById("heading").style.animation="disappear 1s ease forwards";
+    if (scrollPosition < 3858) {
+      document.getElementById("heading").style.animation = "disappear 1s ease forwards";
     }
-    else if (scrollPosition >  3831) {
+    else if (scrollPosition > 3831) {
       document.getElementById("heading").style.animation = "smooth-appear 1s ease forwards";
       // document.getElementById("datejust").style.opacity = "0";
     }
-    if(scrollPosition < 3858){
-      document.getElementById("paraPink").style.animation="disappear 1s ease forwards";
+    if (scrollPosition < 3858) {
+      document.getElementById("paraPink").style.animation = "disappear 1s ease forwards";
     }
-    else if (scrollPosition >  3831) {
+    else if (scrollPosition > 3831) {
       document.getElementById("paraPink").style.animation = "smooth-appear 1s ease forwards";
       // document.getElementById("datejust").style.opacity = "0";
     }
-    if(scrollPosition < 5149){
-      document.getElementById("downHead").style.animation="disappear 1s ease forwards";
+    if (scrollPosition < 5149) {
+      document.getElementById("downHead").style.animation = "disappear 1s ease forwards";
     }
-    else if (scrollPosition >  5142) {
+    else if (scrollPosition > 5142) {
       document.getElementById("downHead").style.animation = "smooth-appear 1s ease forwards";
       // document.getElementById("datejust").style.opacity = "0";
     }
-    if(scrollPosition < 5149){
-      document.getElementById("paraPinkTwo").style.animation="disappear 1s ease forwards";
+    if (scrollPosition < 5149) {
+      document.getElementById("paraPinkTwo").style.animation = "disappear 1s ease forwards";
     }
-    else if (scrollPosition >  5142) {
+    else if (scrollPosition > 5142) {
       document.getElementById("paraPinkTwo").style.animation = "smooth-appear 1s ease forwards";
       // document.getElementById("datejust").style.opacity = "0";
     }
-    if(scrollPosition < 2411 ){
-      document.getElementById("headPeach").style.animation="disappear 1s ease forwards";
+    if (scrollPosition < 2411) {
+      document.getElementById("headPeach").style.animation = "disappear 1s ease forwards";
     }
-    else if (scrollPosition >  2400) {
+    else if (scrollPosition > 2400) {
       document.getElementById("headPeach").style.animation = "smooth-appear 1s ease forwards";
       // document.getElementById("datejust").style.opacity = "0";
     }
-    if(scrollPosition < 2411 ){
-      document.getElementById("paraPeach").style.animation="disappear 1s ease forwards";
+    if (scrollPosition < 2411) {
+      document.getElementById("paraPeach").style.animation = "disappear 1s ease forwards";
     }
-    else if (scrollPosition >  2400) {
+    else if (scrollPosition > 2400) {
       document.getElementById("paraPeach").style.animation = "smooth-appear 1s ease forwards";
       // document.getElementById("datejust").style.opacity = "0";
     }
-    if(scrollPosition <2434){
-      document.getElementById("paratwo").style.animation="disappear 1s ease forwards";
+    if (scrollPosition < 2434) {
+      document.getElementById("paratwo").style.animation = "disappear 1s ease forwards";
     }
-    else if (scrollPosition >  2416) {
+    else if (scrollPosition > 2416) {
       document.getElementById("paratwo").style.animation = "smooth-appear 1s ease forwards";
       // document.getElementById("datejust").style.opacity = "0";
     }
-    
+
   });
 });
 // Add a scroll event listener to the window outside the DOM
@@ -143,16 +143,16 @@ window.addEventListener("scroll", function () {
   var header3 = document.getElementById("row");
 
   if (scrollPosition > 0 && scrollPosition < 50) {
-    this.document.body.style.paddingTop="0px";
+    this.document.body.style.paddingTop = "0px";
     header1.style.display = "block";
     header2.style.display = "none";
     header3.style.display = "none";
-  } else if (scrollPosition >50 && scrollPosition < 100) {
+  } else if (scrollPosition > 50 && scrollPosition < 100) {
     header1.style.display = "none";
     header2.style.display = "block";
     header3.style.display = "block";
   } else if (scrollPosition > 100) {
-    this.document.body.style.paddingTop="50px";
+    this.document.body.style.paddingTop = "50px";
     header1.style.display = "none";
     header2.style.display = "none";
     header3.style.display = "block";
@@ -219,4 +219,3 @@ window.addEventListener("scroll", function () {
 //     console.error("Error getting document:", error);
 //   });
 
-  

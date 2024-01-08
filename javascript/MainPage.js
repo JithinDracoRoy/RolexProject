@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, getDocs, collection } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
- 
+import { getFirestore, getDocs, collection, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyAru6JgHWgmu9eMdCi2b9eP7R8xLOxteqA",
   authDomain: "rolex-clone.firebaseapp.com",
@@ -10,27 +10,28 @@ const firebaseConfig = {
   appId: "1:195944459124:web:ee7f54a1a87ef193119a21",
   measurementId: "G-SYHPGRBD62"
 };
- 
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
- 
-// Reference to the 'DateJust' collection and the 'Video1' document
-const storeWatchesRef = collection(db,'StoreWatches')
- 
-// Get the document data from Firestore
-getDocs(storeWatchesRef)
-  .then((snapshot) => {
-      let watches=[]
-      snapshot.docs.forEach((doc)=>{
-        watches.push({...doc.data()})
-      })
-      console.log(watches[0].name);
+
+const landingPageCollection = collection(db, "LandingPage");
+const assetsDocument = doc(landingPageCollection, "Assets");
+
+getDoc(assetsDocument)
+  .then((docSnapshot) => {
+    if (docSnapshot.exists()) {
+      // Document data is available in docSnapshot.data()
+      const assetsData = docSnapshot.data().Vedio1;
+      console.log("Assets Data:", assetsData);
+      document.getElementById("mainVideo").src = assetsData;
+    } else {
+      console.log("No such document!");
+    }
   })
   .catch((error) => {
     console.error("Error getting document:", error);
   });
-
 
 function logScrollPosition() {
   var scrollPosition = parseInt(window.scrollY);

@@ -37,40 +37,42 @@
         </script>
         <body>
             <div class="container">
-   
 
                 <form class="form">
-            
+
                     <div class="row">
-            
+
                         <div class="col">
-            
+
                             <h3 class="title">billing address</h3>
-            
+
                             <div class="inputBox">
                                 <span>User Name :</span>
-                                <input type="text" placeholder="Enter the user name" id="username" oninput=" validateInput()">
+                                <input type="text"
+                                    placeholder="Enter the user name"
+                                    id="username" oninput=" validateInput()">
                             </div>
                             <div class="inputBox">
                                 <span>email :</span>
-                                <input type="email" placeholder="example@example.com">
+                                <input type="email"
+                                    placeholder="example@example.com">
                             </div>
                             <div class="inputBox">
                                 <span>address :</span>
-                                <input type="text" placeholder="room - street - locality">
+                                <input type="text"
+                                    placeholder="room - street - locality">
                             </div>
                             <div class="inputBox">
                                 <span>city :</span>
                                 <input type="text" placeholder="mumbai">
                             </div>
-                           <!-- Assuming this is in your payment page HTML -->
-            
-                        <div class="inputBox">
-                        <span>Amount To Be Paid</span>
-                        <input type="text" id="amountToBePaid" readonly>
-                        </div>
-            
-                             
+                            <!-- Assuming this is in your payment page HTML -->
+
+                            <div class="inputBox">
+                                <span>Amount To Be Paid</span>
+                                <input type="text" id="amountToBePaid" readonly>
+                            </div>
+
                             <!-- <div class="flex">
                                 <div class="inputBox">
                                     <span>state :</span>
@@ -81,16 +83,16 @@
                                     <input type="text" placeholder="123 456">
                                 </div>
                             </div> -->
-            
+
                         </div>
-            
+
                         <div class="col">
-            
+
                             <h3 class="title">payment</h3>
-            
+
                             <div class="inputBox">
                                 <span>cards accepted :</span>
-                                <img src="../assets/card_img.png" alt="">
+                                <img src="../assets/card_img.png" alt>
                             </div>
                             <div class="inputBox">
                                 <span>name on card :</span>
@@ -98,13 +100,14 @@
                             </div>
                             <div class="inputBox">
                                 <span>credit card number :</span>
-                                <input type="number" placeholder="1111-2222-3333-4444">
+                                <input type="number"
+                                    placeholder="1111-2222-3333-4444">
                             </div>
                             <div class="inputBox">
                                 <span>exp month :</span>
                                 <input type="text" placeholder="january">
                             </div>
-            
+
                             <div class="flex">
                                 <div class="inputBox">
                                     <span>exp year :</span>
@@ -115,17 +118,17 @@
                                     <input type="text" placeholder="1234">
                                 </div>
                             </div>
-            
+
                         </div>
-                
+
                     </div>
-            
+
                     <button onclick="makepayment()">Proceed to Pay</button>
-            
+
                 </form>
-            
+
             </div>
-            <button onclick="makepayment()" >Proceed</button>
+            <button onclick="makepayment()">Proceed</button>
         </body>
     </head>
 </html>
