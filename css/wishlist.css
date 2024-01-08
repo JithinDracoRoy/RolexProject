@@ -1,0 +1,27 @@
+/* Wishlist Section */
+.wishlist-page {
+}
+
+.wishlist-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.wishlist-card {
+  width: calc(50% - 20px); /* 50% width with 20px gap */
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+.wishlist-card-img {
+}
+.wishlist-card-series {
+}
+.wishlist-card-price {
+}
+.wishlist-card-downlaod-button {
+}
+.wishlist-card-remove-button {
+}
