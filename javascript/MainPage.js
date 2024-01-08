@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, getDocs, collection, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getFirestore, collection, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAru6JgHWgmu9eMdCi2b9eP7R8xLOxteqA",
@@ -101,23 +101,28 @@ function logScrollPosition() {
   }
 }
 window.addEventListener('scroll', logScrollPosition);
-let check = parseInt(localStorage.getItem("check"));
-let cartId=[];
 if (check === 1) {
   const user = localStorage.getItem("user");
   const docRef = doc(db, 'User', user);
-  
+
   // Use async function to handle promises
   (async () => {
     try {
       const docSnapshot = await getDoc(docRef);
 
       if (docSnapshot.exists()) {
-        cartId=docSnapshot.data().cart;
-        if(cartId.length>1){
-          document.getElementById("opencart").style.display="none";
-          document.getElementById("closecart").style.display="block";
-          document.getElementById("number").innerText=cartId.length;
+        cartId = docSnapshot.data().cart;
+        console.log(cartId.length);
+        if (cartId.length == 0) {
+          document.getElementById("opencart").style.display = "";
+          document.getElementById("closecart").style.display = "none";
+          document.getElementById("number").style.display = "none";
+        }
+        else {
+          document.getElementById("opencart").style.display = "none";
+          document.getElementById("closecart").style.display = "";
+          document.getElementById("number").style.display = "";
+          document.getElementById("number").innerHTML = cartId.length;
         }
         var newname = docSnapshot.data().name;
         newname = newname.charAt(0).toUpperCase() + newname.slice(1);
@@ -154,6 +159,9 @@ if (check === 1) {
   })();
 }
 else {
+  document.getElementById("opencart").style.display = "none";
+  document.getElementById("closecart").style.display = "none";
+  document.getElementById("number").style.display = "none";
   document.getElementById("login").addEventListener("click", function () {
     window.location.href = "../html/login.html";
   });
