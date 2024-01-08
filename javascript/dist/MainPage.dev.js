@@ -34,6 +34,81 @@ var storeWatchesRef = (0, _firebaseFirestore.collection)(db, 'StoreWatches'); //
 })["catch"](function (error) {
   console.error("Error getting document:", error);
 });
+var check = parseInt(localStorage.getItem("check"));
+
+if (check === 1) {
+  var user = localStorage.getItem("user");
+  var docRef = (0, _firebaseFirestore.doc)(db, 'User', user); // Use async function to handle promises
+
+  (function _callee() {
+    var docSnapshot, newname, isDropdownOpen, flag;
+    return regeneratorRuntime.async(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.prev = 0;
+            _context.next = 3;
+            return regeneratorRuntime.awrap((0, _firebaseFirestore.getDoc)(docRef));
+
+          case 3:
+            docSnapshot = _context.sent;
+
+            if (docSnapshot.exists()) {
+              newname = docSnapshot.data().name;
+              newname = newname.charAt(0).toUpperCase() + newname.slice(1);
+              document.getElementById("login").innerHTML = "<i class=\"fa fa-user\" style=\"margin-left: -50px;font-size:18px;\" aria-hidden=\"true\"><span style=\"font-family: sans-serif;margin-left: 10px;\">".concat(newname, "</span></i>");
+              document.getElementById("firstoption").innerHTML = "<i class=\"fa fa-user\" style=\"margin-left: -50px;font-size:18px;\" aria-hidden=\"true\"><span style=\"font-family: sans-serif;margin-left: 10px;\">".concat(newname, "</span></i>");
+              isDropdownOpen = false;
+              document.getElementById("login").addEventListener("click", function () {
+                var dropdown = document.getElementById("dropdown");
+
+                if (isDropdownOpen) {
+                  dropdown.style.display = "none";
+                } else {
+                  // Open the dropdown
+                  dropdown.style.display = "block";
+                } // Toggle the dropdown state
+
+
+                isDropdownOpen = !isDropdownOpen;
+              }); // Close the dropdown when clicking outside of it
+
+              flag = 0;
+              document.addEventListener("click", function (event) {
+                var dropdown = document.getElementById("dropdown");
+
+                if (event.target.closest("#login") || event.target.closest("#dropdown")) {
+                  return;
+                } // Clicked outside the login button and dropdown, close the dropdown
+
+
+                dropdown.style.display = "none";
+                isDropdownOpen = false;
+              });
+            } else {
+              console.error("Document does not exist.");
+            }
+
+            _context.next = 10;
+            break;
+
+          case 7:
+            _context.prev = 7;
+            _context.t0 = _context["catch"](0);
+            console.error("Error getting document:", _context.t0);
+
+          case 10:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, null, null, [[0, 7]]);
+  })();
+} else {
+  document.getElementById("login").addEventListener("click", function () {
+    window.location.href = "../html/login-page.html";
+  });
+}
 
 function logScrollPosition() {
   var scrollPosition = parseInt(window.scrollY);

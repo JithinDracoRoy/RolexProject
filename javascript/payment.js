@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', setAmountToBePaid);
 // });
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Fetch the user name from localStorage
     const userName = localStorage.getItem("userName");
 
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Function to check if all required fields are filled
     function checkFields() {
         const emailInput = document.getElementById('username');

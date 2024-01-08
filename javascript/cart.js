@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, getDocs, deleteDoc,doc,addDoc,getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
- 
+import { getFirestore, collection, getDocs, deleteDoc, doc, addDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyAru6JgHWgmu9eMdCi2b9eP7R8xLOxteqA",
   authDomain: "rolex-clone.firebaseapp.com",
@@ -12,33 +12,33 @@ const firebaseConfig = {
 };
 
 //const user=localStorage.getItem("user");
-const user="pavi@gmail.com";
+const user = "pavi@gmail.com";
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const itemsListContainer = document.querySelector(".items-list");
 const savedItemsContainer = document.querySelector(".saveditems"); // Added reference to the saved items container
 const cartCollection = collection(db, "User");
 const saveForLaterCollection = collection(db, "SaveForLater"); // Added SaveForLater collection reference
-const storeWatchesRef=collection(db,"StoreWatches");
+const storeWatchesRef = collection(db, "StoreWatches");
 const docRef = doc(db, 'User', user);
 const docSnapshot = await getDoc(docRef);
 let totalPrice = 0;
 const shippingCharge = 1000;
 let orderTotal = 0;
-let cartId=[];
+let cartId = [];
 
 // Function to delete a document from the "Cart" collection
 function deleteItemFromCart(itemId) {
-    console.log(itemId);
-    const collectionRef = collection(db, "User");
-    const itemRef = doc(collectionRef, itemId);
+  console.log(itemId);
+  const collectionRef = collection(db, "User");
+  const itemRef = doc(collectionRef, itemId);
 
-    deleteDoc(itemRef);
+  deleteDoc(itemRef);
 }
 
 // Function to add a document to the "SaveForLater" collection
 async function saveItemForLater(itemData) {
-    await addDoc(saveForLaterCollection, itemData);
+  await addDoc(saveForLaterCollection, itemData);
 }
 
 async function getId(user) {
@@ -63,18 +63,18 @@ getDocs(storeWatchesRef)
 
     querySnapshot.forEach((doc) => {
       // Check if the item is in the user's cart
-      if (cartId.includes(doc.id)){
+      if (cartId.includes(doc.id)) {
         const namedata = doc.data().name;
         const imageData = doc.data().image;
         const detailsData = doc.data().details;
         const priceData = doc.data().price;
         const formatPrice = priceData.toLocaleString("en-IN");
-        const price = "Rs."+formatPrice;
+        const price = "Rs." + formatPrice;
         const itemId = doc.id; // Save the document ID for later reference
 
-        
+
         const itemDataDiv = document.createElement("div");
-      
+
         itemDataDiv.className = "item-data";
         itemDataDiv.innerHTML = `
          <div class=maindiv>
@@ -142,7 +142,8 @@ getDocs(storeWatchesRef)
           displaySubtotal(totalPrice);
           displayTotalPrice(orderTotal);
         });
-      }}
+      }
+    }
     );
 
     // Display the initial subtotal and total
@@ -155,29 +156,27 @@ getDocs(storeWatchesRef)
 
 function displaySubtotal(subtotal) {
 
-  const formatSubtotal=subtotal.toLocaleString("en-IN");
-  const subtotall="Rs."+formatSubtotal;
+  const formatSubtotal = subtotal.toLocaleString("en-IN");
+  const subtotall = "Rs." + formatSubtotal;
   const subTotalDiv = document.getElementById('amount');
   subTotalDiv.textContent = subtotall;
 }
- 
+
 function displayTotalPrice(orderTotal) {
-  const formatOrdertotal=orderTotal.toLocaleString("en-IN");
-  const ordertotall="Rs."+formatOrdertotal;
+  const formatOrdertotal = orderTotal.toLocaleString("en-IN");
+  const ordertotall = "Rs." + formatOrdertotal;
   const orderDiv = document.getElementById('total');
-  orderDiv.textContent =  ordertotall;
+  orderDiv.textContent = ordertotall;
 
 }
- 
+
 
 // Use async function to handle promises
 (async () => {
     try {
-      console.log("hi");
         const docSnapshot = await getDoc(docRef);
 
         if (docSnapshot.exists()) {
-          console.log("hi");
             var newname = docSnapshot.data().name;
             newname = newname.charAt(0).toUpperCase() + newname.slice(1);
             console.log(newname);
@@ -187,13 +186,11 @@ function displayTotalPrice(orderTotal) {
     } catch (error) {
         console.error("Error fetching user document:", error);
     }
+  } catch (error) {
+    console.error("Error fetching user document:", error);
+  }
 })();
-// ... (existing code)
 
-// Assuming user information is available in the cart.js file
-//const userName = "User123"; // Replace with your actual way of getting the user name
-
-// Store the user name in localStorage for access in other pages
 localStorage.setItem("userName", user);
 
     $(document).ready(function(){
@@ -202,7 +199,7 @@ localStorage.setItem("userName", user);
                 autoplaySpeed: 1000, // Adjust the delay between slides in milliseconds
                 dots: true, // Display dots for navigation
                 infinite: true, // Enable infinite loop
-                speed: 800, // Transition speed in milliseconds
+                speed: 1000, // Transition speed in milliseconds
                 slidesToShow: 1, // Number of slides to show at a time
                 slidesToScroll: 1 // Number of slides to scroll at a time
             });

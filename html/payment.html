@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="../css/payment.css">
-    <script src="../javascript/payment.js"></script>
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- custom css file link  -->
+        <link rel="stylesheet" href="../css/payment.css">
+        <script src="../javascript/payment.js"></script>
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+        <script>
     function makepayment() {
     // Get the order total from the URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     const orderTotal = urlParams.get('orderTotal');
-
+    console.log(orderTotal);
+    let orderTotalWithoutRupeesString = orderTotal.substring(3);
+    let orderTotalRazorPayString = orderTotalWithoutRupeesString.replace(/,/g, '');
+    let orderTotalRazorPay = parseInt(orderTotalRazorPayString, 10);
+    console.log(orderTotalRazorPay);
     // Ensure orderTotal is not null or undefined before using it
     if (orderTotal) {
+         const amountInPaise = parseInt(orderTotal) * 100;
+         amount=orderTotal;
         var options = {
-            "key": "rzp_test_jJ1FuRtqDqIvng",
-            "amount": parseInt(orderTotal), // Convert amount to paise
+            "key": "rzp_test_RU67oBUDkrdoAx",
+            "amount": orderTotalRazorPay, // Convert amount to paise
             "name": "Rolex",
             "description": "description",
             "image": "img/logo.png",
@@ -53,45 +59,46 @@
     // Call the function to set the amount when the page loads
     window.onload = setAmountToBePaid;
     </script>
-</head>
-<body>
-    <!-- <video autoplay muted loop playsinline>
+    </head>
+    <body>
+        <!-- <video autoplay muted loop playsinline>
         <source src="/assests/videoone.webm" type="video/mp4">
    
     </video> -->
 
-    <div class="rolexPic">
-        <img id="firstImage"  src="../assets/RolexPNG.png">
+        <div class="rolexPic">
+            <img id="firstImage" src="../assets/RolexPNG.png">
         </div>
 
-<div class="container">
-   
+        <div class="container">
 
-    <form class="form">
+            <form class="form">
 
-        <div class="row">
+                <div class="row">
 
-            <div class="col">
+                    <div class="col">
 
-                <h3 class="title">billing address</h3>
+                        <h3 class="title">billing address</h3>
 
-                <div class="inputBox">
-                    <span>Email :</span>
-                    <input type="text" placeholder="example@example.com" id="username">
-                </div>
-                <div class="inputBox">
-                    <span>User Name :</span>
-                    <input type="email" id="email">
-                </div>
-                <div class="inputBox">
-                    <span>address :</span>
-                    <input type="text" placeholder="room - street - locality">
-                </div>
-                <div class="inputBox">
-                    <span>city :</span>
-                    <input type="text" placeholder="mumbai">
-                </div>
-               <!-- Assuming this is in your payment page HTML -->
+                        <div class="inputBox">
+                            <span>Email :</span>
+                            <input type="text" placeholder="example@example.com"
+                                id="username">
+                        </div>
+                        <div class="inputBox">
+                            <span>User Name :</span>
+                            <input type="email" id="email">
+                        </div>
+                        <div class="inputBox">
+                            <span>address :</span>
+                            <input type="text"
+                                placeholder="room - street - locality">
+                        </div>
+                        <div class="inputBox">
+                            <span>city :</span>
+                            <input type="text" placeholder="mumbai">
+                        </div>
+                        <!-- Assuming this is in your payment page HTML -->
 
             <div class="inputBox">
             <span>Amount To Be Paid</span>
@@ -103,26 +110,17 @@
                 <img id="card" src="../assets/razopay.png" alt="">
             </div>
                  
-                <!-- <div class="flex">
-                    <div class="inputBox">
-                        <span>state :</span>
-                        <input type="text" placeholder="india">
-                    </div>
-                    <div class="inputBox">
-                        <span>zip code :</span>
-                        <input type="text" placeholder="123 456">
-                    </div>
-                </div> -->
+               
 
-            </div>
+                    </div>
 
-            
+                </div>
+            </form>
         </div>
-    </form>
-</div>
-<center>
-    <button  id="button" type="submit" class="submit-btn" onclick="makepayment()"disabled>Proceed to Pay</button>
-</center>   
-    
-</body>
+        <center>
+            <button id="button" type="submit" class="submit-btn"
+                onclick="makepayment()" disabled>Proceed to Pay</button>
+        </center>
+
+    </body>
 </html>
