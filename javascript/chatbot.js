@@ -31,7 +31,7 @@ var data = {
         options: ["Submariner Oyester", "Submariner Date"],
         url: {
             more: "https://www.youtube.com/@webhub/videos",
-            link: ["#", "#", "#", "#", "#"]
+            link: ["../html/Submariner.html", "../html/Submariner.html", "../html/Submariner.html", "#", "#"]
         }
     },
     gmtmaster: {
@@ -39,7 +39,7 @@ var data = {
         options: ["Gmt-Master Oyester", "Gmt-Master Gold", "Gmt-Master OyesterSteel"],
         url: {
             more: "https://www.youtube.com/@webhub/videos",
-            link: ["#", "#", "#", "#", "#"]
+            link: ["../html/gmt.html", "../html/gmt.html", "../html/gmt.html", "#", "#"]
         }
     },
     web: {
