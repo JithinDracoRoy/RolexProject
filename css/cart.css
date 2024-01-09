@@ -1,7 +1,6 @@
 body{
   margin: 0;
   overflow-x:hidden;
-  font-family: 'Times New Roman', Times, serif;
   background-color: aliceblue; /* Define your gradient colors here */
   animation: gradientAnimation 4s ease infinite; 
 }
@@ -15,11 +14,6 @@ body{
 }
 .items-list{
   margin-top: -35px;
-}
-.header{
-  background-color: #104f32;
-  height: 100px;
-
 }
 .center-image{
   margin-left: 550px;
@@ -229,7 +223,6 @@ h1{
 }
 .carousel-container {
   max-width: 100%;
-  margin: auto;
   background-color: white;
 }
 

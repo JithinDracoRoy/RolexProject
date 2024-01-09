@@ -15,9 +15,9 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const storeWatchesRef = collection(db, 'StoreWatches');
 
-let cartId=[];
+let cartId = [];
 
-localStorage.setItem("store",1);
+localStorage.setItem("store", 1);
 
 // Function to create and append a card element
 function createCard(imageData, nameData, detailsData, priceData, docId) {
@@ -79,8 +79,8 @@ function createCard(imageData, nameData, detailsData, priceData, docId) {
     const docRef = doc(db, 'User', user);
     const docSnapshot = await getDoc(docRef);
     if (docSnapshot.exists()) {
-      cartId=docSnapshot.data().cart;
-      document.getElementById("number").innerHTML=cartId.length;
+      cartId = docSnapshot.data().cart;
+      document.getElementById("number").innerHTML = cartId.length;
     }
   });
   card.appendChild(buy);
@@ -91,26 +91,26 @@ let check = parseInt(localStorage.getItem("check"));
 if (check === 1) {
   const user = localStorage.getItem("user");
   const docRef = doc(db, 'User', user);
-  
+
   // Use async function to handle promises
   (async () => {
     try {
       const docSnapshot = await getDoc(docRef);
 
       if (docSnapshot.exists()) {
-        cartId=docSnapshot.data().cart;
+        cartId = docSnapshot.data().cart;
         console.log(cartId.length);
-        if(cartId.length==0){
-          document.getElementById("opencart").style.display="";
-          document.getElementById("closecart").style.display="none";
-          document.getElementById("number").style.display="none";
+        if (cartId.length == 0) {
+          document.getElementById("opencart").style.display = "";
+          document.getElementById("closecart").style.display = "none";
+          document.getElementById("number").style.display = "none";
         }
-        else{
-          document.getElementById("opencart").style.display="none";
-          document.getElementById("closecart").style.display="";
-          document.getElementById("number").style.display="";
-          document.getElementById("number").style.marginLeft="10px";
-          document.getElementById("number").innerHTML=cartId.length;
+        else {
+          document.getElementById("opencart").style.display = "none";
+          document.getElementById("closecart").style.display = "";
+          document.getElementById("number").style.display = "";
+          document.getElementById("number").style.marginLeft = "10px";
+          document.getElementById("number").innerHTML = cartId.length;
         }
         document.getElementById("login").innerHTML = `<b style="font-size : 20px">Checkout</b>`;
         document.getElementById("login").addEventListener("click", function () {
@@ -125,14 +125,14 @@ if (check === 1) {
   })();
 }
 else {
-  document.getElementById("opencart").style.display="none";
-  document.getElementById("closecart").style.display="none";
-  document.getElementById("number").style.display="none";
+  document.getElementById("opencart").style.display = "none";
+  document.getElementById("closecart").style.display = "none";
+  document.getElementById("number").style.display = "none";
   document.getElementById("login").addEventListener("click", function () {
     window.location.href = "../html/login.html";
   });
 }
- 
+
 async function updateCart(selectedDocId, user) {
   try {
     const docRef = doc(db, 'User', user);

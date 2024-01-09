@@ -44,7 +44,7 @@ body {
   color: #0b3e27;
   position: absolute;
   top: 35%;
-  left: 71.5%;
+  left: 74%;
   padding-left: 3px;
   font-weight: bold;
   height: 15px;
@@ -64,14 +64,13 @@ i {
   background-color: white;
   font-family: sans-serif;
   margin-left: 40px;
-  margin-right: -10s0px;
   color: #0b3e27;
   margin-top: -10px;
 }
 #dropdown {
   display: none;
   position: absolute;
-  top: 30px;
+  top: 25px;
   left: 1100px;
   text-align: center;
   background-color: white;
@@ -147,6 +146,9 @@ i {
   margin-top: 100px;
   height: 0px;
   transition: height 1s ease-in;
+}
+.x1 p:hover{
+  color: #197149;
 }
 .scroll-container {
   overflow-x: scroll;
