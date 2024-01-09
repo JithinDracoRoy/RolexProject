@@ -46,6 +46,6 @@ onSnapshot(userWishlistCollectionRef, (snapshot) => {
         wishlistSizeELement.style.display = "block";
     }
   
-    // ... (handle UI updates based on changes)
+  
   });
   

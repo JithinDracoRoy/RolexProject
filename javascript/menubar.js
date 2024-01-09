@@ -7,17 +7,18 @@ function displayMenu() {
     document.getElementById("hiddennav").style.height = "0px";
     document.getElementById("menuname").innerHTML = "Menu";
     setTimeout(delay, 1000);
+    document.getElementById("hiddennav").style.display="none";
     document.body.style.overflow = "";
   }
   else {
     document.getElementById("hiddennav").style.height = "550px";
     document.body.style.overflow = "hidden";
     document.getElementById("menuname").innerHTML = "Close";
-    document.getElementById("problem").style.display="none";
+    document.getElementById("hiddennav").style.display="";
   }
 }
 function delay() {
-  document.getElementById("problem").style.display = "block";
+  // document.getElementById("problem").style.display = "block";
 }
 function logout() {
   localStorage.setItem("check",0);
