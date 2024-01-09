@@ -50,14 +50,14 @@ var data = {
             link: ["#", "#", "#", "#", "#"]
         }
     },
-    others: {
-        title: ["Here are some more options for you"],
-        options: ["YouTube", "Netflix", "Amazon Prime", "Hot Star"],
-        url: {
-            more: "https://www.youtube.com/",
-            link: ["#", "#", "#", "#", "#"]
-        }
-    },
+    // others: {
+    //     title: ["Here are some more options for you"],
+    //     options: ["YouTube", "Netflix", "Amazon Prime", "Hot Star"],
+    //     url: {
+    //         more: "https://www.youtube.com/",
+    //         link: ["#", "#", "#", "#", "#"]
+    //     }
+    // },
 }
 
 document.getElementById("init").addEventListener("click", showChatBot);

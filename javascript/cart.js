@@ -1,26 +1,25 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, getDocs, updateDoc, doc, addDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  updateDoc,
+  doc,
+  addDoc,
+  getDoc,
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import{firebaseConfig} from "../javascript/config.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAru6JgHWgmu9eMdCi2b9eP7R8xLOxteqA",
-  authDomain: "rolex-clone.firebaseapp.com",
-  projectId: "rolex-clone",
-  storageBucket: "rolex-clone.appspot.com",
-  messagingSenderId: "195944459124",
-  appId: "1:195944459124:web:ee7f54a1a87ef193119a21",
-  measurementId: "G-SYHPGRBD62",
-};
+
 
 //const user=localStorage.getItem("user");
 const user = localStorage.getItem("user");
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const itemsListContainer = document.querySelector(".items-list");
-const savedItemsContainer = document.querySelector(".saveditems"); // Added reference to the saved items container
-const cartCollection = collection(db, "User");
-const saveForLaterCollection = collection(db, "SaveForLater"); // Added SaveForLater collection reference
+
 const storeWatchesRef = collection(db, "StoreWatches");
-const docRef = doc(db, 'User', user);
+const docRef = doc(db, "User", user);
 const docSnapshot = await getDoc(docRef);
 let totalPrice = 0;
 const shippingCharge = 1000;
@@ -30,7 +29,7 @@ let check = parseInt(localStorage.getItem("check"));
 let cartId = [];
 if (check === 1) {
   const user = localStorage.getItem("user");
-  const docRef = doc(db, 'User', user);
+  const docRef = doc(db, "User", user);
 
   // Use async function to handle promises
   (async () => {
@@ -44,8 +43,7 @@ if (check === 1) {
           document.getElementById("opencart").style.display = "";
           document.getElementById("closecart").style.display = "none";
           document.getElementById("number").style.display = "none";
-        }
-        else {
+        } else {
           document.getElementById("opencart").style.display = "none";
           document.getElementById("closecart").style.display = "";
           document.getElementById("number").style.display = "";
@@ -54,8 +52,12 @@ if (check === 1) {
         }
         var newname = docSnapshot.data().name;
         newname = newname.charAt(0).toUpperCase() + newname.slice(1);
-        document.getElementById("login").innerHTML = `<i class="fa fa-user" style="font-size:28px;"><p style="font-family: sans-serif;"><b>${newname}</b></p></i>`;
-        document.getElementById("firstoption").innerHTML = `<i class="fa fa-user" style="margin-left: -50px;font-size:18px;" aria-hidden="true"><span style="font-family: sans-serif;margin-left: 10px;"><b>${newname}</b></span></i>`;
+        document.getElementById(
+          "login"
+        ).innerHTML = `<i class="fa fa-user" style="font-size:28px;"><p style="font-family: sans-serif;"><b>${newname}</b></p></i>`;
+        document.getElementById(
+          "firstoption"
+        ).innerHTML = `<i class="fa fa-user" style="margin-left: -50px;font-size:18px;" aria-hidden="true"><span style="font-family: sans-serif;margin-left: 10px;"><b>${newname}</b></span></i>`;
         let isDropdownOpen = false;
         document.getElementById("login").addEventListener("click", function () {
           const dropdown = document.getElementById("dropdown");
@@ -70,7 +72,10 @@ if (check === 1) {
         // Close the dropdown when clicking outside of it
         document.addEventListener("click", function (event) {
           const dropdown = document.getElementById("dropdown");
-          if (event.target.closest("#login") || event.target.closest("#dropdown")) {
+          if (
+            event.target.closest("#login") ||
+            event.target.closest("#dropdown")
+          ) {
             return;
           }
           // Clicked outside the login button and dropdown, close the dropdown
@@ -84,8 +89,7 @@ if (check === 1) {
       console.error("Error getting document:", error);
     }
   })();
-}
-else {
+} else {
   document.getElementById("opencart").style.display = "none";
   document.getElementById("closecart").style.display = "none";
   document.getElementById("number").style.display = "none";
@@ -122,12 +126,21 @@ async function deleteItemFromCart(itemId) {
 
 // Function to add a document to the "SaveForLater" collection
 async function saveItemForLater(itemData) {
-  await addDoc(saveForLaterCollection, itemData);
+  const userId = localStorage.getItem("user");
+  const userRef = doc(collection(db, "User"), userId);
+  const userDoc = await getDoc(userRef);
+  if (userDoc.exists()) {
+    const saveArray = userDoc.data().saveforlater || [];
+    console.log("Current save:", saveArray);
+    saveArray.push(itemData);
+    await updateDoc(userRef, { saveforlater: saveArray }); 
+  } else {
+    console.log("User not found");
+  }
 }
 
 async function getId(user) {
   try {
-
     if (docSnapshot.exists()) {
       return docSnapshot.data().cart;
     } else {
@@ -156,7 +169,6 @@ getDocs(storeWatchesRef)
         const price = "Rs." + formatPrice;
         const itemId = doc.id; // Save the document ID for later reference
 
-
         const itemDataDiv = document.createElement("div");
 
         itemDataDiv.className = "item-data";
@@ -172,7 +184,7 @@ getDocs(storeWatchesRef)
           <span class="icon-trash" data-item-id="${itemId}"><i class="bi bi-trash"></i></span>
           </div>
           <div class=saveicon>
-          <span class="icon-save" data-item-id="${itemId}"><i class="bi bi-save"></i></span>
+         
           </div>
          </div>
           <div class=desc>
@@ -205,25 +217,8 @@ getDocs(storeWatchesRef)
 
         // Add a click event listener to the save icon
         const saveIcon = itemDataDiv.querySelector(".icon-save");
-        saveIcon.addEventListener("click", () => {
-          // Save the corresponding document to the "SaveForLater" collection
-          saveItemForLater(doc.data());
-
-          // Optionally, you can remove the item from the cart after saving for later
-          deleteItemFromCart(itemId);
-          itemDataDiv.remove();
-
-          // Update the total prices
-          totalPrice -= itemPrice;
-          orderTotal = totalPrice + shippingCharge;
-
-          // Update the displayed totals
-          displaySubtotal(totalPrice);
-          displayTotalPrice(orderTotal);
-        });
       }
-    }
-    );
+    });
 
     // Display the initial subtotal and total
     displaySubtotal(totalPrice);
@@ -234,21 +229,18 @@ getDocs(storeWatchesRef)
   });
 
 function displaySubtotal(subtotal) {
-
   const formatSubtotal = subtotal.toLocaleString("en-IN");
   const subtotall = "Rs." + formatSubtotal;
-  const subTotalDiv = document.getElementById('amount');
+  const subTotalDiv = document.getElementById("amount");
   subTotalDiv.textContent = subtotall;
 }
 
 function displayTotalPrice(orderTotal) {
   const formatOrdertotal = orderTotal.toLocaleString("en-IN");
   const ordertotall = "Rs." + formatOrdertotal;
-  const orderDiv = document.getElementById('total');
+  const orderDiv = document.getElementById("total");
   orderDiv.textContent = ordertotall;
-
 }
-
 
 // Use async function to handle promises
 (async () => {
@@ -259,8 +251,9 @@ function displayTotalPrice(orderTotal) {
       var newname = docSnapshot.data().name;
       newname = newname.charAt(0).toUpperCase() + newname.slice(1);
       console.log(newname);
-      document.getElementById("login").innerHTML = `<i class="fa fa-user"  aria-hidden="true"><span style="margin-left:9px" ">${newname}</span></i>`;
-
+      document.getElementById(
+        "login"
+      ).innerHTML = `<i class="fa fa-user"  aria-hidden="true"><span style="margin-left:9px" ">${newname}</span></i>`;
     }
   } catch (error) {
     console.error("Error fetching user document:", error);
@@ -270,13 +263,13 @@ function displayTotalPrice(orderTotal) {
 localStorage.setItem("userName", user);
 
 $(document).ready(function () {
-  $('.carousel').slick({
+  $(".carousel").slick({
     autoplay: true, // Set to true for automatic slideshow
     autoplaySpeed: 1000, // Adjust the delay between slides in milliseconds
     dots: true, // Display dots for navigation
     infinite: true, // Enable infinite loop
     speed: 1000, // Transition speed in milliseconds
     slidesToShow: 1, // Number of slides to show at a time
-    slidesToScroll: 1 // Number of slides to scroll at a time
+    slidesToScroll: 1, // Number of slides to scroll at a time
   });
 });

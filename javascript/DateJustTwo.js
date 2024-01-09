@@ -45,6 +45,8 @@ function includeHTML(url, targetElementId) {
 // Call the function with the URL of your HTML file and the target element ID
 includeHTML('../html/navbar.html', 'imported');
 
+
+
 document.addEventListener("DOMContentLoaded", function () {
   var header1 = document.getElementById("header1");
   var header2 = document.getElementById("header2");
@@ -146,6 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 // Add a scroll event listener to the window outside the DOM
+
 window.addEventListener("scroll", function () {
   // Get the current scroll position
   var scrollPosition = window.scrollY;

@@ -1,6 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-export { markers };
 
 // Your Firebase configuration
 const firebaseConfig = {
@@ -36,30 +35,21 @@ camera.position.z = 5;
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.getElementById('globe-container').appendChild(renderer.domElement);
-// Instead of a sphere geometry, use a plane geometry
-// ...
 
-// Instead of a sphere geometry, use a plane geometry
-const solarSystemGeometry = new THREE.PlaneGeometry(40, 40, 1, 1); // Adjust the size as needed
-
-// Adjust the position of the solar system plane
+const solarSystemGeometry = new THREE.SphereGeometry(10, 1, 1);
 const solarSystemTexture = textureLoader.load('../assets/textures/starstexture.jpg', (texture) => {
-    texture.wrapS = THREE.RepeatWrapping;
-    texture.wrapT = THREE.RepeatWrapping;
-    texture.repeat.set(4, 4); // Adjust the repeat values as needed
+    // Set texture filtering to prevent blurring
+    // texture.minFilter = THREE.NearestFilter;
+    // texture.magFilter = THREE.NearestFilter;
 });
 
 const solarSystemMaterial = new THREE.MeshBasicMaterial({ map: solarSystemTexture, side: THREE.BackSide });
 
-// Create a plane instead of a sphere
 const solarSystem = new THREE.Mesh(solarSystemGeometry, solarSystemMaterial);
-solarSystem.position.z = -5; // Move the solar system plane behind the Earth
-solarSystem.rotation.x = Math.PI; // Rotate the plane 180 degrees to face the back
 scene.add(solarSystem);
 
-
 const earthGeometry = new THREE.SphereGeometry(2, 32, 32);
-const cloudGeometry = new THREE.SphereGeometry(2, 32, 32); // Slightly larger sphere for clouds
+const cloudGeometry = new THREE.SphereGeometry(2.03, 32, 32); // Slightly larger sphere for clouds
 
 // const textureLoader = new THREE.TextureLoader();
 const earthTexture = textureLoader.load('../assets/textures/earthtexture.jpg');
@@ -73,7 +63,6 @@ const clouds = new THREE.Mesh(cloudGeometry, cloudMaterial);
 
 scene.add(earth);
 scene.add(clouds);
-earth.position.set(0, 0, 0);
 
 const ambientLight = new THREE.AmbientLight(0x404040, 1);
 scene.add(ambientLight);
@@ -81,7 +70,7 @@ scene.add(ambientLight);
 const markersContainer = new THREE.Object3D();
 scene.add(markersContainer);
 
-renderer.setClearColor(0x000000);
+renderer.setClearColor(0xffffff);
 
 window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
@@ -96,8 +85,8 @@ function animate() {
     // Rotate the Earth and clouds
     earth.rotation.y += 0.003;
     clouds.rotation.y += 0.003;
-    solarSystemTexture.offset.x += 0.001;
-    solarSystemTexture.offset.y += 0.001;
+    solarSystemTexture.offset.x += 0.0001;
+    solarSystemTexture.offset.y += 0.0001;
 
     markersContainer.rotation.x = -earth.rotation.x;
     markersContainer.rotation.y = -earth.rotation.y;
@@ -114,30 +103,23 @@ function animate() {
 
 // Function to rotate a point in 3D space
 function rotatePoint(point, rotationYEarth, rotationYClouds) {
-    const xEarth = point.x * Math.cos(-rotationYEarth) - point.z * Math.sin(-rotationYEarth);
-    const zEarth = point.x * Math.sin(-rotationYEarth) + point.z * Math.cos(-rotationYEarth);
-
-    const xClouds = xEarth * Math.cos(-rotationYClouds) - point.y * Math.sin(-rotationYClouds);
-    const yClouds = xEarth * Math.sin(-rotationYClouds) + point.y * Math.cos(-rotationYClouds);
-
-    return { x: xClouds, y: yClouds, z: zEarth };
+    const x = point.x * Math.cos(-(rotationYEarth + rotationYClouds)) - point.z * Math.sin(-(rotationYEarth + rotationYClouds));
+    const z = point.x * Math.sin(-(rotationYEarth + rotationYClouds)) + point.z * Math.cos(-(rotationYEarth + rotationYClouds));
+    return { x, y: point.y, z };
 }
-
 
 // Define the addMarker function
 function addMarker(latitude, longitude) {
-    console.log(latitude,longitude);
     // Convert latitude and longitude to spherical coordinates
     const phi = (90 - latitude) * (Math.PI / 180);
-    const theta = (180 - longitude) * (Math.PI / 180)+(Math.PI);
+    const theta = (180 - longitude) * (Math.PI / 180);
 
     // Convert spherical coordinates to Cartesian coordinates
-    const x = 2.07 * Math.sin(phi) * Math.cos(theta);
-    const y = 2.07 * Math.cos(phi);
-    const z = 2.07 * Math.sin(phi) * Math.sin(theta);
-    console.log(x,y,z);
+    const x = 2.1 * Math.sin(phi) * Math.cos(theta);
+    const y = 2.1 * Math.cos(phi);
+    const z = 2.1 * Math.sin(phi) * Math.sin(theta);
     const textureLoader = new THREE.TextureLoader();
-    const iconTexture = textureLoader.load('../assets/globemarker.png');
+    const iconTexture = textureLoader.load('../assets/textures/placeholder.png');
 
     // Create a sprite (marker) at the calculated position
     const markerMaterial = new THREE.SpriteMaterial({ map: iconTexture });
@@ -147,8 +129,8 @@ function addMarker(latitude, longitude) {
 
 
     marker.position.set(x, y, z);
-    // marker.rotation.x = Math.PI / 2 - phi;
-    // marker.rotation.y = theta;
+    marker.rotation.x = Math.PI / 2 - phi;
+    marker.rotation.y = theta;
 
     // Store the original position for later reference
     marker.userData.originalPosition = { x, y, z };
@@ -167,24 +149,20 @@ function addMarker(latitude, longitude) {
 // Mouse interaction
 let isDragging = false;
 let previousMousePosition = { x: 0, y: 0 };
-const globeContainer = document.getElementById('globe-container');
 
-
-globeContainer.addEventListener('mousedown', (event) => {
+document.addEventListener('mousedown', (event) => {
     isDragging = true;
     previousMousePosition = { x: event.clientX, y: event.clientY };
-    document.body.style.cursor = 'grabbing';
 });
 
-globeContainer.addEventListener('mouseup', () => {
+document.addEventListener('mouseup', () => {
     isDragging = false;
-    document.body.style.cursor = 'grab';
 });
 
-globeContainer.addEventListener('mousemove', (event) => {
+document.addEventListener('mousemove', (event) => {
     if (isDragging) {
         const deltaX = event.clientX - previousMousePosition.x;
-        const deltaY = 0;  // Set deltaY to zero to disable Y-axis movement
+        const deltaY = event.clientY - previousMousePosition.y;
         // const deltaZ = event.clientZ - previousMousePosition.z;
 
         // Update Earth and clouds rotation based on drag movement
@@ -192,26 +170,22 @@ globeContainer.addEventListener('mousemove', (event) => {
         earth.rotation.y += deltaX * 0.005;
         clouds.rotation.x += deltaY * 0.005;
         clouds.rotation.y += deltaX * 0.005;
+        solarSystem.rotation.y += deltaY * 0.0009;
+        solarSystem.rotation.x += deltaX * 0.0009;
 
         // Update marker positions based on Earth and clouds rotation
+        // Update marker positions based on Earth and clouds rotation
         markers.forEach(marker => {
-            const originalPosition = marker.userData.originalPosition;
-            const rotatedPosition = rotatePoint(originalPosition, earth.rotation.y, clouds.rotation.y);
-            marker.position.set(rotatedPosition.x, rotatedPosition.y, rotatedPosition.z);
+          const originalPosition = marker.userData.originalPosition;
+          const rotatedPosition = rotatePoint(originalPosition, earth.rotation.y, clouds.rotation.y);
+          marker.position.set(rotatedPosition.x, rotatedPosition.y);
         });
-        
-        // Add event listeners outside the loop
-        markers.forEach(marker => {
-           
-                document.body.style.cursor = 'pointer'; // Change cursor to pointer when hovering over the marker
-                document.body.style.cursor = 'default'; // Change cursor back to default when leaving the marker
-        });
-        
+
+
         renderer.render(scene, camera);
-        
+
         previousMousePosition = { x: event.clientX, y: event.clientY };
     }
 });
-
 
 animate();
