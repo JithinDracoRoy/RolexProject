@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="../css/DateJust.css" />
     <script type="module" src="../javascript/DateJust.js"></script>
     <script src="../javascript/DateJustTwo.js"></script>
+    <script src="../javascript/menubar.js"></script>
     <script type="module"
-      src="../javascript/dateJustSwitchModels.js">
+      src="../javascript/datejustSwicthModelsTry.js">
     </script>
     <title>Rolex Project</title>
     <link
@@ -31,43 +32,19 @@
       </script>
   </head>
   <body>
-    <header>
-      <div
-        class="navbar navb"
-        style="padding-left: 120px; padding-right: 120px">
-        <div class="row" style="margin-top: 10px">
-          <div class="containers" style="margin-top: 5px">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-          </div>
-          <p style="margin-left: 7px">Menu</p>
-        </div>
-        <div>
-          <img class="mainIcon" src="../assets/RolexPNG.png" alt="ROLEX" />
-        </div>
-        <div style="margin-left: -60px">
-          <i class="fa fa-search" style="font-size: 24px"></i>
-          <div id="searchPopup" class="popup">
-
-          </div>
-          <i class="fa fa-map-marker" style="font-size: 24px"></i>
-          <i class="fa fa-heart-o" style="font-size: 24px"></i>
-        </div>
-      </div>
-    </header>
-
+    <div id="imported"></div>
     <nav class="navbar-lower row">
-      <div class="rolex-watches-options">
-        <p><i class="bi bi-arrow-left"></i>&nbsp;&nbsp;&nbsp;Rolex Watches</p>
+      <div class="rolex-watches-options col-2" style="margin-top: 30px;">
+        <a href="MainPage.html" style="text-decoration: none;color: white;">
+        <p><i class="bi bi-arrow-left" style="margin-top: 40px;"></i>&nbsp;&nbsp;&nbsp;Rolex Watches</p>
+      </a>
       </div>
-      <span class="cross">|</span>
-      <div class="gmt-dropdown">
-        <span>DateJust
-          <i style="margin-left: -45px"
-            class="bi bi-caret-down-fill"></i></span>
-        <a id="chatbotlink" href="../html/chatbot.html">Rolex Chatbot</a>
+      <!-- <span class="cross col-1">|</span> -->
+      <div class="gmt-dropdown col-2" style="margin-top: 30px;">
+        <span class="cross col-1">|</span>
+        <a class="col-3" id="chatbotlink" href="../html/chatbot.html">Rolex Chatbot</a>
       </div>
-      <div class="subnav-btn">
+      <div class="subnav-btn col-3" style="margin-top: -90px;">
 
         <button
           class="configure-button"
@@ -78,7 +55,7 @@
 
     </nav>
 
-    <div class="video">
+    <div class="video" id="problem" style="z-index: 20;">
       <video autoplay muted loop id="firstVideo">
         <source src id="videoSource" />
       </video>
@@ -180,10 +157,10 @@
       </div>
     </div>
     <div class="displayButton">
-      <p class="add-fav-label"><i
+      <div class="text">
+        <p class="add-fav-label" style="margin-left: -50px;"><i
           class="bi bi-suit-heart fav-icon"></i>&nbsp;<span
           class="fav-label"></span></p>
-      <div class="text">
         <h1 id="subone">DateJust 36</h1>
         <p id="oyeone">
           Oyester,36mm,Oyestersteel<br />
@@ -199,38 +176,21 @@
             src="../assets/watchone.png"
             alt="Image 1"
             style="display: block" />
+            
         </div>
 
-        <div class="watchebutton">
-          <!-- <button
-            style="margin-left: -500px"
-            class="image-button"
-            id="buttonone"
-            onclick="showImage('imageone')"
-          ></button>
-          <button
-            id="buttontwo"
-            class="image-button"
-            onclick="showImage('imagetwo')"
-          ></button>
-          <button
-            id="buttonthree"
-            class="image-button"
-            onclick="showImage('imagethree')"
-          ></button>
-          <button
-            id="buttonfour"
-            class="image-button"
-            onclick="showImage('imagefour')"
-          ></button> -->
-        </div>
+       
         <div class="play-pause-btn"><i
-            class="play-pause-icon bi bi-pause-circle"></i></div>
-      </div>
+          class="play-pause-icon bi bi-pause-circle"></i></div>
+        </div>
+        <div class="watchebutton">
+        
+        </div>
     </div>
 
     <div class="lastImages">
       <div class="imageone">
+        
         <div class="image-container">
           <img id="oneimage" src=" " />
           <button

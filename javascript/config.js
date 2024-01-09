@@ -5,5 +5,6 @@ export const firebaseConfig = {
     storageBucket: "rolex-clone.appspot.com",
     messagingSenderId: "195944459124",
     appId: "1:195944459124:web:ee7f54a1a87ef193119a21",
-    measurementId: "G-SYHPGRBD62"
+    measurementId: "G-SYHPGRBD62",
+
   };
