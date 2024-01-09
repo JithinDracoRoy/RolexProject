@@ -7,7 +7,9 @@ function displayMenu() {
     document.getElementById("hiddennav").style.height = "0px";
     document.getElementById("menuname").innerHTML = "Menu";
     setTimeout(delay, 1000);
-    document.getElementById("hiddennav").style.display="none";
+
+    document.getElementById("problem").style.display="";
+
     document.body.style.overflow = "";
   }
   else {
@@ -15,7 +17,6 @@ function displayMenu() {
     document.getElementById("hiddennav").style.zIndex=20;
     document.body.style.overflow = "hidden";
     document.getElementById("menuname").innerHTML = "Close";
-
     document.getElementById("problem").style.display="none";
   }
 }

@@ -1,5 +1,3 @@
-import { markers } from "./globe.js";
-
 document.addEventListener("DOMContentLoaded", () => {
     const darkDiv = document.getElementById("dark-div");
 
@@ -17,8 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-markers.forEach(marker => {
-    marker.addEventListener('click', () => {
-       document.getElementById('box').style.display = 'block';
-    });
-})
+const closeDetails = () => {
+    document.getElementById("box").style.display = 'none';
+};

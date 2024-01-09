@@ -6,7 +6,7 @@
 #james-cameron-image {
   width: 100%;
 }
-.james-cameron-quote {
+#james-cameron-quote {
   position: absolute;
   top: 20%;
   color: #f8f8f8;
@@ -34,12 +34,6 @@
   width: 100%;
   display: flex;
 }
-/* #image1{
-    background: linear-gradient(90deg,rgb(110 139 168 / 1), rgb(49 74 99 / 1), rgb(49 74 99 / 1),);
-    margin-top: 80px;
-    margin-left: 600px;
-    height: 300px;
-} */
 .watch-models-content a {
   color: #f8f8f8;
   text-decoration: none;
@@ -106,12 +100,12 @@ a:hover {
 }
 .watch-models-button-image {
   flex: 1;
-  padding-top: 80px;
-  margin-right: 70px;
+  padding-top: 1px;
+  margin-right: 50px;
 }
 .watch-models-button {
-  padding-top: 20px;
-  margin-left: 60px;
+  padding-top: 0px;
+  margin-left: 110px;
 }
 .btnround,
 #btnroundone,
@@ -125,19 +119,19 @@ a:hover {
   text-decoration: none;
   cursor: pointer;
   background-color: #6a7f95;
-  /* border-color: #ffffff; */
 }
-/* .watch-models-image {
-    /* padding-right: 1000px; 
-}*/
+
 #imageone img {
   display: none;
   position: fixed;
+  height: 10px;
 }
 
 #imageone {
   justify-content: center;
   display: block;
+  width: 320px;
+  margin-top: 0px;
 }
 .roloex-footer-logo {
   width: 125px;
@@ -198,14 +192,14 @@ a:hover {
   margin-left: 360px;
   color: #f8f8f8;
 }
-.discoverlink a {
+.discoverlink {
   position: absolute;
   top: 50%;
   text-decoration: none;
   color: #f8f8f8;
   margin-left: 600px;
 }
-.discover a:hover {
+.discoverlink :hover {
   text-decoration: none;
   color: gray;
 }

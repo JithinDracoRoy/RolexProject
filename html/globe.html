@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Interactive 3D Globe</title>
+    <title>Rolex.org</title>
+    <link rel="icon" href="../assets/RolexPNG.png">
     <style>
         body { margin: 0; }
     </style>
      <link rel="stylesheet" href="../css/globe.css">
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script defer type="module" src="https://threejs.org/build/three.js"></script>
-    <script defer type="module" src="../javascript/OrbitControls.js"></script>
     <script defer type="module" src="../javascript/globe.js"></script>   
     <script defer type="module" src="../javascript/globeFns.js"></script>       
 </head>
@@ -20,7 +20,20 @@
         </div>
     </div>
     <div id="globe-container">
-        <div id="box"></div>
+      <!-- <button class="button">
+        <span class="X"></span>
+        <span class="Y"></span>
+        <div class="close">Close</div>
+      </button>       -->
+        <div id="box">
+          <div id="image col-5 ps-3">
+            <img src="" id="imageSrc">
+          </div>
+          <div id="content col-5">
+            <div id="head"></div>
+            <div id="body"></div>
+          </div>
+        </div>
     <div id="dark-div">
         <h5>Inspiring Stories</h5>
         <h1><B>Projects to protect our Planet</h1>

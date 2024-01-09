@@ -1,76 +1,159 @@
-function menuBar(x) {
-  x.classList.toggle("change");
+"use strict";
+function includeHTML(url, targetElementId) {
+    fetch(url)
+        .then((response) => response.text())
+        .then((data) => {
+        const targetElement = document.getElementById(targetElementId);
+        if (targetElement) {
+            targetElement.innerHTML = data;
+        }
+    })
+        .catch((error) => console.error("Error fetching HTML:", error));
 }
-
-document.addEventListener("DOMContentLoaded", function() {
-  var changingHeading = document.getElementById('mainhead');
-  var changingVideo = document.getElementById('video-one-blackfilm');
-  // var fixedVideo = document.getElementById('videoContent');
-  var nextVideoChanging = document.getElementById('scrollingtwo');
-
-  window.addEventListener('scroll', function() {
-    var scrollPosition = parseInt(window.scrollY);
-    // document.getElementById('scrollPosition').style.propertyName = 'value';
-    console.log("Scroll Position: " + scrollPosition);
-    
-      // You can customize this threshold based on when you want the heading to change
-      if (scrollPosition > 100 && scrollPosition<200) {
-          document.getElementById('subhead').innerHTML='';
-          document.getElementById('video-one-btn').style.display='none';
-          document.getElementById('mainhead').innerHTML = 'Deep Confidence';
-          document.getElementById('video-one-blackfilm').innerHTML.style.display='none';
-          // fixedVideo.style.position='fixed';
-      }
-      else if (scrollPosition > 200 && scrollPosition<900) {
-        // fixedVideo.style.position='fixed';
-        document.getElementById('subhead').innerHTML='';
-        document.getElementById('video-one-btn').style.display='none';
-        document.getElementById('mainhead').innerHTML = 'Deep Confidence';
-        var opacityValue = Math.min(scrollPosition / 100, 0.8); // Adjust the division factor for a smoother effect
-        changingVideo.style.opacity = opacityValue;
-        document.getElementById('video-one-blackfilm').innerHTML.style.display='none';
-      }
-      // else if(scrollPosition>700){
-      //   document.getElementById('mainhead').innerHTML.style.display='none';
-      // }
-      else{
-        changingVideo.style.opacity = 0;
-        document.getElementById('subhead').innerHTML='Oyster Perpetual';
-        document.getElementById('video-one-btn').style.display='block';
-        document.getElementById('mainhead').innerHTML = 'Submariner';
-      }
-  });
+document.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener("scroll", () => {
+        const scrollPosition = window.scrollY;
+        const getElement = (id) => document.getElementById(id);
+        if (scrollPosition < 103) {
+            const subheadElement = getElement('subhead');
+            const videoOneBtnElement = getElement('video-one-btn');
+            const mainheadElement = getElement('mainhead');
+            const videoOneBlackfilmElement = getElement('video-one-blackfilm');
+            if (subheadElement && videoOneBtnElement && mainheadElement && videoOneBlackfilmElement) {
+                subheadElement.innerHTML = 'Oyster Perpetual';
+                videoOneBtnElement.style.display = 'block';
+                mainheadElement.innerHTML = 'Submariner';
+                videoOneBlackfilmElement.style.opacity = '0';
+            }
+        }
+        if (scrollPosition > 99) {
+            const subheadElement = getElement('subhead');
+            const videoOneBtnElement = getElement('video-one-btn');
+            const mainheadElement = getElement('mainhead');
+            const videoOneBlackfilmElement = getElement('video-one-blackfilm');
+            if (subheadElement && videoOneBtnElement && mainheadElement && videoOneBlackfilmElement) {
+                subheadElement.innerHTML = '';
+                videoOneBtnElement.style.display = 'none';
+                mainheadElement.innerHTML = 'Deep Confidence';
+                videoOneBlackfilmElement.style.opacity = '0.7';
+            }
+        }
+        else {
+            const subheadElement = getElement('subhead');
+            const videoOneBtnElement = getElement('video-one-btn');
+            const mainheadElement = getElement('mainhead');
+            if (subheadElement && videoOneBtnElement && mainheadElement) {
+                subheadElement.innerHTML = 'Oyster Perpetual';
+                videoOneBtnElement.style.display = 'block';
+                mainheadElement.innerHTML = 'Submariner';
+            }
+        }
+        if (scrollPosition < 852) {
+            const videoTwoContentElement = getElement("video-two-content");
+            if (videoTwoContentElement) {
+                videoTwoContentElement.style.animation = "disappear 1s ease forwards";
+            }
+        }
+        else if (scrollPosition > 1200) {
+            const videoTwoContentElement = getElement("video-two-content");
+            if (videoTwoContentElement) {
+                videoTwoContentElement.style.animation = "smooth-appear 1s ease forwards";
+            }
+        }
+        if (scrollPosition < 1727) {
+            const featureDivHeadElement = getElement("feature-div-head");
+            const featureDivContentElement = getElement("feature-div-content");
+            if (featureDivHeadElement && featureDivContentElement) {
+                featureDivHeadElement.style.animation = "disappear 1s ease forwards";
+                featureDivContentElement.style.animation = "disappear 1s ease forwards";
+            }
+        }
+        else if (scrollPosition > 1727) {
+            const featureDivHeadElement = getElement("feature-div-head");
+            const featureDivContentElement = getElement("feature-div-content");
+            if (featureDivHeadElement && featureDivContentElement) {
+                featureDivHeadElement.style.animation = "smooth-appear 1s ease forwards";
+                featureDivContentElement.style.animation = "smooth-appear 1s ease forwards";
+            }
+        }
+        if (scrollPosition < 2046) {
+            ["feature-div-image-one-id", "feature-div-image-two-id", "feature-div-image-three-id", "feature-div-image-four-id"].forEach((elementId) => {
+                const element = getElement(elementId);
+                if (element) {
+                    element.style.animation = "disappear 1s ease forwards";
+                }
+            });
+        }
+        if (scrollPosition > 2046) {
+            ["feature-div-image-one-id", "feature-div-image-two-id", "feature-div-image-three-id", "feature-div-image-four-id"].forEach((elementId) => {
+                const element = getElement(elementId);
+                if (element) {
+                    element.style.animation = "smooth-appear 1s ease forwards";
+                }
+            });
+        }
+        if (scrollPosition < 2700) {
+            const element = getElement("feature-div-content-two-para");
+            if (element) {
+                element.style.animation = "disappear 1s ease forwards";
+            }
+        }
+        else if (scrollPosition > 2700) {
+            const element = getElement("feature-div-content-two-para");
+            if (element) {
+                element.style.animation = "smooth-appear 1s ease forwards";
+            }
+        }
+        if (scrollPosition < 2855) {
+            const element = getElement("feature-div-content-two-image-main");
+            if (element) {
+                element.style.animation = "disappear 1s ease forwards";
+            }
+        }
+        else if (scrollPosition > 2855) {
+            const element = getElement("feature-div-content-two-image-main");
+            if (element) {
+                element.style.animation = "smooth-appear 1s ease forwards";
+            }
+        }
+        if (scrollPosition < 3657) {
+            const element = getElement("feature-div-content-three");
+            if (element) {
+                element.style.animation = "disappear 1s ease forwards";
+            }
+        }
+        else if (scrollPosition > 3657) {
+            const element = getElement("feature-div-content-three");
+            if (element) {
+                element.style.animation = "smooth-appear 1s ease forwards";
+            }
+        }
+        if (scrollPosition < 4148) {
+            const element = getElement("video-three-content");
+            if (element) {
+                element.style.animation = "disappear 1s ease forwards";
+            }
+        }
+        else if (scrollPosition > 4148) {
+            const element = getElement("video-three-content");
+            if (element) {
+                element.style.animation = "smooth-appear 1s ease forwards";
+            }
+        }
+        if (scrollPosition < 5031) {
+            const element = getElement("james-cameron-quote");
+            if (element) {
+                element.style.animation = "disappear 1s ease forwards";
+            }
+        }
+        else if (scrollPosition > 5031) {
+            const element = getElement("james-cameron-quote");
+            if (element) {
+                element.style.animation = "smooth-appear 1s ease forwards";
+            }
+        }
+    });
 });
-  
-function showImage(imageId) {
-  var imageElement = document.getElementById('imageone');
-
-  switch (imageId) {
-    case 'imageone':
-      imageElement.src = "../assets/vector1.png";
-      subone.innerHTML ="Submariner";
-      oyeone.innerHTML = "Oyster,41mm,Oystersteel";
-      break;
-    case 'imagetwo':
-      imageElement.src = "../assets/vector2.png";
-      subone.innerHTML = "Submariner Date";
-      oyeone.innerHTML = "Oyster,41mm,Oystersteel and Yellow gold";
-      break;
-    case 'imagethree':
-      imageElement.src = "../assets/vector3.png";
-      subone.innerHTML = "Submariner Date";
-      oyeone.innerHTML = "Oyster,41mm,Oystersteel"
-      break;
-    case 'imagefour':
-      imageElement.src = "../assets/vector4.png";
-      subone.innerHTML = "Submariner Date";
-      oyeone.innerHTML = "Oyster,41mm,Yellow Gold";
-      break;
-    default:
-      imageElement.src = "../assets/default.png";
-  }
-}
-
-function windowlocation(){
-  window.location.href ="../html/map.html";
+function windowLocation() {
+    window.location.href = "../html/map.html";
 }
