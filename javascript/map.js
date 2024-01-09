@@ -7,25 +7,21 @@ export { fetchFirestoreGeopoints };
 export { customIcon };
 
 const map = L.map('map');
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    minZoom: 3,
-    noWrap: true 
-            }).addTo(map);
-L.control.zoom({ position: 'bottomright' }).addTo(map);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+}).addTo(map);
 
 const customIcon = L.icon({
   iconUrl: '../assets/darkgreenmarker.png', // Replace with the path to your custom icon image
   iconSize: [25, 25], // Size of the icon
   iconAnchor: [16, 32], // Point of the icon which will correspond to marker's location
   popupAnchor: [0, -32] // Point from which the popup should open relative to the iconAnchor
-            });
+});
 
 const gMapIcon = null;
 
-function storeLocator()
-{
-  map.setView([52.6313102,1.292898], 13);
-  fetchFirestoreGeopoints(map); 
+function storeLocator() {
+  map.setView([52.6313102, 1.292898], 13);
+  fetchFirestoreGeopoints(map);
   if ("geolocation" in navigator) {
     // Get the user's current position
     navigator.geolocation.getCurrentPosition(
@@ -35,17 +31,20 @@ function storeLocator()
         const longitude = position.coords.longitude;
         map.setView([latitude, longitude], 5);
         console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+        fetchFirestoreGeopoints(map);
       },
       function (error) {
-        map.setView([52.6313102,1.292898], 13);
+        map.setView([52.6313102, 1.292898], 13);
         console.error(`Error getting user location: ${error.message}`);
+        fetchFirestoreGeopoints(map);
       }
     );
   } else {
     // Geolocation is not supported
     console.error("Geolocation is not supported by this browser.");
-    map.setView([52.6313102,1.292898], 13);
-        console.error(`Error getting user location: ${error.message}`);
+    map.setView([52.6313102, 1.292898], 13);
+    console.error(`Error getting user location: ${error.message}`);
+    fetchFirestoreGeopoints(map);
   }
 }
 
@@ -55,6 +54,7 @@ const db = getFirestore(app);
 
 // Function to fetch and display Firestore geopoints
 function fetchFirestoreGeopoints(map) {
+
     const mapDataCollection = collection(db, "Map Data");
     getDocs(mapDataCollection)
         .then((querySnapshot) => {
@@ -102,11 +102,20 @@ function fetchFirestoreGeopoints(map) {
                 } else {
                     console.warn(`Invalid or missing geopoint data in document: ${doc.id}`);
                 }
+
             });
-        })
-        .catch((error) => {
-            console.error("Error getting documents: ", error);
-        });
+            // });
+
+
+          })
+        } else {
+          console.warn(`Invalid or missing geopoint data in document: ${doc.id}`);
+        }
+      });
+    })
+    .catch((error) => {
+      console.error("Error getting documents: ", error);
+    });
 
 }
 

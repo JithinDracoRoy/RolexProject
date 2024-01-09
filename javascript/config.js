@@ -1,3 +1,4 @@
+
 export { firebaseConfig };
 const firebaseConfig = {
     apiKey: "AIzaSyAru6JgHWgmu9eMdCi2b9eP7R8xLOxteqA",
@@ -9,3 +10,4 @@ const firebaseConfig = {
     measurementId: "G-SYHPGRBD62",
   };
   
+

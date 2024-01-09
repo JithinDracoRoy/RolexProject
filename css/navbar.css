@@ -3,7 +3,6 @@
     cursor: pointer;
   }
 
-  
   .bar1, .bar2 {
     width: 18px;
     height: 2px;
@@ -25,7 +24,7 @@
   .navbar{
     background-image: linear-gradient(to right, #0b3e27, #197149);
     color: white;
-    height: 105px;
+    height: 0px;
   }
   .mainIcon{
     height: 50px;

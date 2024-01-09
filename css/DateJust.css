@@ -41,7 +41,8 @@ i {
 }
 
 .navbar-lower {
-  width: 101.1%;
+  width: 102.1%;
+  display: block;
   height: 85px;
   background-color: #111111;
   position: sticky;
@@ -67,15 +68,18 @@ i {
 }
 .cross {
   width: 2px;
-  margin-top: 30px;
-  padding-left: -100px;
+  margin-top: 33px;
+  padding-left: -80px;
   color: white;
+  margin-left: -40px;
 }
 .gmt-dropdown {
   width: 300px;
   color: white;
   margin: 30px;
   padding-right: 10px;
+  margin-bottom: -0px;
+  padding-bottom: -200px;
 }
 .gmt-dropdown :hover {
   color: #198a56;
@@ -89,11 +93,12 @@ i {
   height: 35px;
   color: white;
   background-color: #188754;
-  /* padding-right:10px ; padding-right:10px ;   */
   border: none;
   border-radius: 30px;
   font-size: 15px;
   padding-bottom: 30px;
+  margin-top: 18px;
+  margin-right: 5px;
 }
 .configure-button:hover {
   background-color: #197149;
@@ -161,83 +166,81 @@ i {
   left: 50%;
   transform: translateX(-50%);
 }
-#img-blue{
-    width: 500px;
-    margin-left: 400px;
-    margin-top: 30px;
+#img-blue {
+  width: 500px;
+  margin-left: 400px;
+  margin-top: 30px;
 }
-#img-blue:hover{
-    /* transition: transform 0.3s ease-in; */
-    transform: scale(1);
-    opacity: 0.7;
+#img-blue:hover {
+  /* transition: transform 0.3s ease-in; */
+  transform: scale(1);
+  opacity: 0.7;
 }
-#Imageonesource{
-   width: 100%;
-    height: 800px;
+#Imageonesource {
+  width: 100%;
+  height: 700px;
 }
-.blue{
-    background: linear-gradient(rgb(103, 159, 207), rgb(29, 70, 113));
-    margin-top: -85px;
-    z-index: 1;
+.blue {
+  background: linear-gradient(rgb(103, 159, 207), rgb(29, 70, 113));
+  margin-top: -85px;
+  z-index: 1;
 }
-#h1{
-    color: white;
-    font-size: 60px;
-    margin-top: 80px;
-    padding-top: 70px;
-    margin-left: 400px;
+#h1 {
+  color: white;
+  font-size: 60px;
+  margin-top: 80px;
+  padding-top: 70px;
+  margin-left: 400px;
 }
-#paraone{
-    color: white;
-    text-align: justify;
-    margin-left: 400px;
-    margin-right: 400px;
-    line-height: 30px;
-    margin-top: 5px;
-    font-size: 20px;
+#paraone {
+  color: white;
+  text-align: justify;
+  margin-left: 0px;
+  margin-right: 400px;
+  line-height: 30px;
+  margin-top: 5px;
+  font-size: 20px;
+  margin-left: 200px;
 }
-.paratwo{
-    color: white;
+.paratwo {
+  color: white;
 
-    text-align: center;
-    font-family: var(--quote-font-family);
-    font-style: var(--quote-font-style);
-    font-weight: var(--quote-font-weight);
-    font-size: clamp(1.5rem, 0.6875rem + 2.0313vw, 3.125rem);
-    
-
+  text-align: center;
+  font-family: var(--quote-font-family);
+  font-style: var(--quote-font-style);
+  font-weight: var(--quote-font-weight);
+  font-size: clamp(1.5rem, 0.6875rem + 2.0313vw, 3.125rem);
 }
-.parathree{
-    color: white;
-    text-align: center;
-    font-size: 20px;
-    margin-left: 10px;
+.parathree {
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  margin-left: 10px;
 }
- .peach{
-     margin-top: -40px;
-    position: relative;
+.peach {
+  margin-top: -40px;
+  position: relative;
 }
-.peachtext{
-    position: absolute;
-    top: 420%;
+.peachtext {
+  position: absolute;
+  top: 500%;
 }
-#headPeach{
-    font-size: 60px;
-    margin-left: 400px;
-    margin-top:  80px;
-    padding-top: 175px;
+#headPeach {
+  font-size: 60px;
+  margin-left: 400px;
+  margin-top: 80px;
+  padding-top: 175px;
 }
-#paraPeach{
-    margin-left: 400px;
-    margin-right: 400px;
-    font-size: 20px;
+#paraPeach {
+  margin-left: 400px;
+  margin-right: 400px;
+  font-size: 20px;
 }
- #peachImage{
-
-    margin-top: -200px;
-    overflow: hidden;
-}  
-#pinkWatchImage{
+#peachImage {
+  margin-top: -200px;
+  overflow: hidden;
+}
+#pinkWatchImage {
   width: 500px;
   margin-left: 400px;
   margin-top: 30px;
@@ -356,7 +359,7 @@ i {
 }
 .text {
   flex: 1;
-  margin-left: 200px;
+  margin-left: 300px;
   margin-top: 80px;
 }
 .text a {
@@ -369,7 +372,8 @@ i {
   height: 10px;
   margin-bottom: 50px;
   margin-left: 100px;
-  margin-right: 100px;
+  margin-right: 200px;
+  margin-top: 100px;
 }
 
 .watch-container {
@@ -395,6 +399,7 @@ i {
 
 #image-container {
   margin-right: 300px;
+  width: 10px;
 }
 #image-container img {
   display: none;
@@ -417,6 +422,10 @@ i {
   100% {
     transform: scale(1);
   }
+}
+#imageone {
+  width: 300px;
+  margin-right: 2000px;
 }
 
 .imageone {
@@ -614,19 +623,19 @@ button {
     font-size: clamp(1.5rem, 0.6875rem + 2.0313vw, 3.125rem);
   } */
 
-/* .paraAnime {
-    opacity: 0;
-    transform: translateY(50px);
-    animation: smooth-appear 3s ease forwards infinite;
-  }
+.paraAnime {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: smooth-appear 3s ease forwards infinite;
+}
 
-  @keyframes smooth-appear {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }  */
-.lastPart {
+@keyframes smooth-appear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+*/ .lastPart {
   margin-top: 100px;
 }
 .lastImages {
@@ -695,8 +704,19 @@ button {
 #chatbotlink {
   text-decoration: none;
   color: white;
-  margin-left: 50px;
+  margin-left: -5px;
 }
 #chatbotlink:hover {
   color: #188754;
+}
+.watchebutton {
+  margin-right: 200px;
+  margin-bottom: -0px;
+}
+.add-fav-label {
+  margin-left: 0px;
+}
+.play-pause-btn {
+  margin-right: 120px;
+  margin-top: 0px;
 }

@@ -1,8 +1,10 @@
 
+
 const currentDate = new Date();
 const formattedDateTime = currentDate.toLocaleString();
 
 console.log("Current Date and Time:", formattedDateTime);
+
 
 const redirectToEmail = () => {
   const emailuser = localStorage.getItem("user");
@@ -19,5 +21,6 @@ const changeOnInput = () => {
 const closeDetails = () => {
   document.getElementById("map-content").style.display = 'none';
 };
+
 
 
