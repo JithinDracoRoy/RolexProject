@@ -284,6 +284,10 @@ color: #6c757d;
 
 color:green;
 font-size:15px;
+text-align:center;
+}
+#account-creat{
+  text-align: right;
 }
 
 
