@@ -38,7 +38,7 @@ const aboutDescTwoBodyElement = document.getElementById("about-desc-two-body");
 getDoc(watchesRef)
   .then((docSnapshot) => {
     if (docSnapshot.exists()) {
-      const vidOneContent = docSnapshot.data().vidOne;
+      const aboutVidOneContent = docSnapshot.data().vidOne;
       const aboutImgContent = docSnapshot.data().bgImage;
       const aboutDescContent = docSnapshot.data().aboutDesc;
       const cardTitleContent = docSnapshot.data().cardTitle;
@@ -48,7 +48,7 @@ getDoc(watchesRef)
       const aboutDescTwoTitleContent = docSnapshot.data().descTwoTitle;
       const aboutDescTwoBodyContent = docSnapshot.data().descTwoBody;
 
-      aboutVidOneElement.src= vidOneContent;
+      aboutVidOneElement.src= aboutVidOneContent;
       aboutImgElement.src= aboutImgContent;
       aboutDescElement.innerText = aboutDescContent ;
       cardTitleElement.innerText = cardTitleContent ;
