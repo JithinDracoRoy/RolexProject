@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../scss/form.css">
     <title>Feedback Form</title>
+    <!-- Add this script before your custom script -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
 </head>
 <style>
 body {
@@ -38,10 +41,11 @@ body {
             <label for="feedback">Feedback:</label>
             <textarea id="feedback" name="feedback" placeholder="Type your feedback here" required></textarea>
              <div  class="new-color">
-            <button id="btn" type="submit" onclick="sendMail()">Submit Feedback</button>
+            <button id="btn">Submit Feedback</button>
             </div>
         </form>
     </div>
-    
+    <script src = "../javascript/form.js"></script>
+    <script>emailjs.init("E_AG4MMSPrDLV_tVH");</script>
 </body>
 </html>
