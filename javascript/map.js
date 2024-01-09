@@ -1,19 +1,10 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { firebaseConfig } from "./config.js";
 export { map };
 export { storeLocator };
 export { fetchFirestoreGeopoints };
 export { customIcon };
-// Your Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyAru6JgHWgmu9eMdCi2b9eP7R8xLOxteqA",
-  authDomain: "rolex-clone.firebaseapp.com",
-  projectId: "rolex-clone",
-  storageBucket: "rolex-clone.appspot.com",
-  messagingSenderId: "195944459124",
-  appId: "1:195944459124:web:ee7f54a1a87ef193119a21",
-  measurementId: "G-SYHPGRBD62"
-};
 
 const map = L.map('map');
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -95,14 +86,13 @@ function fetchFirestoreGeopoints(map) {
                       document.getElementById("storeimage").style.height = '250px';
                       document.getElementById("storeaddress").innerHTML = `${address}`;
                       document.getElementById("map-content").style.display='block';
-                      document.getElementById("mail-icon").style.display='block';
                       const gMapIcon = document.getElementById("g-map-icon");
                       console.log(gMapIcon);
                       if (gMapIcon) 
                         console.log(geopoint);
                         gMapIcon.addEventListener('click', function() {
                           // geopoint.forEach(()=>{
-                            calculateDirections(geopoint._lat, geopoint._long);
+                            calculateDirections(geopoint.latitude, geopoint.longitude);
                             console.log(geopoint._lat, geopoint._long);
                           });
                         // });
