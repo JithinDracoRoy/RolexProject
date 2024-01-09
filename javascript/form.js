@@ -1,7 +1,8 @@
 function sendMail() {
+  alert(document.getElementById("email").value)
     var params = {
       name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
+      to_email: document.getElementById("email").value,
       message: document.getElementById("feedback").value,
     };
   
@@ -20,3 +21,4 @@ function sendMail() {
       .catch(err=>console.log(err));
   
   }
+  
