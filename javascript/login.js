@@ -113,7 +113,7 @@ if(signupPassword !== confirmSignUpPassword)
       
         name: username,
         cart:empty,
-        wishlist: empty,
+        saveforlater: empty,
 
     });
 

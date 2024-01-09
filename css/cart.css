@@ -29,14 +29,6 @@ h1{
   margin-bottom:70px;
   font-size: 60px;
 }
-/* #btn{
-  color: white;
-  font-size: x-large;
-  background-color:black;
-  width: 400px;
-  min-height: 50px;
-  border: none;
-} */
 #btn:hover{
   background-color: grey;
 }
@@ -64,21 +56,20 @@ h1{
   width: 200px;
 }
 #description{
-  margin-left: 220px;
+  margin-left: 200px;
   margin-top: -100px;
   font-size:15px;
   margin-bottom: 20px;
 }
 #price{
-  margin-left:550px;
+  margin-left:500px;
   margin-top: -10px;
 }
 #name{
   font-size: larger;
   color: #197149;
-  margin-left: 20px;
+  margin-left: 0px;
   font-weight:800;
-
 }
 
 #icon{
@@ -146,9 +137,6 @@ h1{
     opacity: 0.7;
   }
 }
-#mainheading{
-  font-size: 70px;
-}
 
 #firstVideo {
   width: 100%;
@@ -189,21 +177,13 @@ h1{
   color: gray;
 }
 #login{
-
   background-color: white;
   width: 110px;
   margin-left: 900px;
   margin-top: 40px;
+  padding-left: 0px;
   border: none;
   height: 42px;
-  margin-right: 0px;
-  /* margin-left: 500px;
-  width: 100px;   
-  height: 30px;
-  background-color: white;
-  color: black;
-  border: none;
-  margin-bottom: 30px; */
 }
 
 .cartimage{
