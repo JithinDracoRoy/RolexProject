@@ -30,6 +30,7 @@ const confirmSignUpPasswordIn = document.getElementById("confirm-password-signup
 const createacctbtn = document.getElementById("create-acct-btn");
 const userName = document.getElementById("username");
 const returnBtn = document.getElementById("return-btn");
+const errorInSigningIn=document.getElementById("signUpErrorid");
 
 createacctbtn.addEventListener("click", async function () {
   const username = userName.value;
@@ -62,13 +63,14 @@ createacctbtn.addEventListener("click", async function () {
   const confirmsignUpPasswordError= document.getElementById("confirm-password-signup-error");
   checkFieldNull(confirmsignUpPasswordId,confirmsignUpPasswordError);
   const passwordNotMatch=document.getElementById("password-no-match");
+  passwordNotMatch.style.display="none";
   const validationMessage = document.getElementById('username-validation');
-
+ 
 if(signupPassword !== confirmSignUpPassword)
 {
  passwordNotMatch.style.display="block";
 }
-  
+
 
   // if (
   //   signupPassword !== confirmSignUpPassword ||
@@ -82,28 +84,44 @@ if(signupPassword !== confirmSignUpPassword)
 
   try {
     const createAccountMessage=document.getElementById("account-creat");
-    if(validationMessage.style.innerText=="Username is valid" && signUpUserError.style.display=="none"&& 
-    signUpEmailError.style.display=="none" && signUpEmailInvalid.style.display=="none" && signUpPasswordError.style.display=="none" &&
-    confirmsignUpPasswordError.style.display=="none" && passwordNotMatch.style.display=="none" && strengthIndicator.style.innerText=="Strong password")
-    {
+    console.log(validationMessage.innerText);
+    console.log(signUpUserError.style.display);
+    console.log(signUpEmailError.style.display);
+    console.log(signUpEmailInvalid.style.display);
+    console.log(signUpPasswordError.style.display);
+    console.log(passwordNotMatch.style.display);
+    console.log(strengthIndicator.innerText);
     
+    if (
+      validationMessage.innerText === 'Username is valid' &&
+      signUpUserError.style.display === "none" &&
+      signUpEmailError.style.display === "none" &&
+      signUpEmailInvalid.style.display === "none" &&
+      signUpPasswordError.style.display === "none" &&
+      confirmsignUpPasswordError.style.display === "none" &&
+      passwordNotMatch.style.display === "none" &&
+      strengthIndicator.innerText === 'Strong password'
+    ) {
+    
+    console.log("account created successfully");
     const userCredential = await createUserWithEmailAndPassword(auth, signupEmail, signupPassword);
     //window.alert("Success! Your Account has been created.");
-    createAccountMessage.style.display="block";
+    createAccountMessage.innerText="Your account has been created.Please return to sign in page";
     const user = userCredential.user;
     let empty = [];
     await setDoc(doc(db, "User", signupEmail), {
       
         name: username,
         cart:empty,
-        wishlist: empty,
+        saveforlater: empty,
 
     });
 
     console.log("User document successfully written!");
    } // Redirect or perform any other action after successful signup and database update
    else{
-    createAccountMessage.style.innerText="Your account has not been created.please try again";
+    createAccountMessage.innerText="Your account has not been created.please try again";
+    
    }
   } catch (error) {
     // window.alert("Error occurred. Try again.");
@@ -134,11 +152,18 @@ submitButton.addEventListener("click", function () {
   signInWithEmailAndPassword(auth, email, password)
      .then((userCredential) => {
        const user = userCredential.user;
+       errorInSigningIn.innerHTML="";
+       console.log("Sign in Successful");
+       localStorage.setItem("check", 1);//to see if anyone is logged in
+       localStorage.setItem("user", email);
+       window.location.href="../html/MainPage.html";
   //     window.alert("Success! Welcome back!");
   //     // Redirect or perform any other action after successful sign-in
      })
     .catch((error) => {
   //     window.alert("Error occurred. Try again.");
+    
+    errorInSigningIn.innerHTML="Error in signing in.Enter valid credentials";
      console.error("Error signing in: ", error);
   //     // Handle sign-in errors
     })
@@ -240,13 +265,3 @@ function checkUsernameValidity(username) {
     validationMessage.style.color = 'green';
   }
 }
-document.getElementByClass('floatingInput').addEventListener('input', function () {
-  const inputValue = this.value;
-  const label = this.previousElementSibling;
-  
-  if (inputValue) {
-    label.classList.add('active');
-  } else {
-    label.classList.remove('active');
-  }
-});

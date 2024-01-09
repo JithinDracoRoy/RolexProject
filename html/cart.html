@@ -1,94 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product List</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"/>
-      <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"/>
-      <link rel="stylesheet" href="../css/cart.css">
-     <script type="module" src="../javascript/cart.js"></script>
-     <!-- <script src="../js/cartTwo.js"></script> -->
-</head>
-<script>
-function redirectToCheckout() {
-    // Redirect to another page
-    window.location.href = 'payment.html';
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Product List</title>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css" />
+        <link rel="stylesheet" href="../css/cart.css">
+        <script src="../javascript/menubar.js"></script>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css"
+            href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+        <link rel="stylesheet" type="text/css"
+            href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+        <script type="module" src="../javascript/cart.js"></script>
+        <script src="../javascript/cartt.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <!-- <script src="../js/cartTwo.js"></script> -->
+    </head>
+
+    <script>
+    async function fetchEmailAndSetInput() {
+    const emailInput = document.querySelector('.inputBox input[type="email"]');
+ 
+  // Fetch the user document from Firestore
+  try {
+      const userDocRef = doc(db, 'User', 'pavi@gmail.com'); // Replace 'pavi@gmail.com' with the actual user email
+      const userDocSnapshot = await getDoc(userDocRef);
+ 
+      if (userDocSnapshot.exists()) {
+          // Get the email from the user document
+          const email = userDocSnapshot.data().email;
+ 
+          // Set the fetched email in the email input field
+          emailInput.value = email;
+      } else {
+          console.error('User document does not exist');
+      }
+  } catch (error) {
+      console.error('Error fetching user document:', error);
+  }
 }
 </script>
-<body>
-  <header class="header">
-    <nav>
-      
-        <div class="center-image">
-            <img src="../assets/RolexPNG.png" alt="Center Image" style="width: 60px;margin-top: 20px;">
-        </div>
-       
-    </nav>
-</header>
-    
-    <div class="video">
-        <video style="width: 100%;" autoplay muted loop id="firstVideo" >
-          <source  src="../assets/video.webm" id="videoSource"/>
-        </video>
-      </div>
+    <body>
+        <div id="imported"></div>
 
-      <div class="text">
-        <h1><b>WELCOME TO THE CART</b></h1>
-      </div>
-      <br>
-        <!-- <i id="anime-icon" class="bi bi-cart"></i> -->
-    <i id="anime-icon" class="bi bi-cart"></i>
-   
-    <div class="Main-Cart-Container row">
-    <div class="Sub-Cart-Left col-8 pl-5 mt-5" style="margin-left: -20px;">
-        <h1 id="leftheading">Your Cart</h1>
-     <div class = "items-list">
-        <div class = "item-data">
-            <!-- <img id="img">
-            <span id="name"></span>
-            <span><i class="bi bi-plus-circle-fill"></i></span> 
-            <p id="description"></p>
-            <hr>
-            <div class="price-div">
-            
-                <span></apan>
-                <span id="price"></span>
-            </div> -->
-        </div>
-     </div>
-    </div>
-    
-    <div style="padding-right: 10px;" class="Sub-Cart-Right col-4 mt-5" >
-        <h1 id="rightheading">Summary</h1>
-         <div class="subtotal-div">
-         <p class="subtotalPrice"><b>Subtotal</b></p>
-         <p class ="subtotalPrice-value"></p>
-         <span id="amount"></span>
-        </div>
-        <hr>
-        <div class="Shipping-div">
-        <p class="ShippingPrice"><b>Shipping</b></p>
-        <span id="shipAmount">1000</span>
-         </div>
-         <hr>
-        <div class="order-div">
-        <p class="OrderTotal"><b>Order Total</b></p>
-       <span id="total"></span>
-        </div>
-        <hr>
-        <div class="checkout-btn">
-        <button id="btn" onclick="redirectToCheckout() ">Proceed To CheckOut</button>
-        </div>
-    </div>
-    </div>
+        <div class="carousel-container">
+            <div class="carousel">
+                <div><img class="carousel-image" src="../assets/air-kingL.avif"
+                        alt="Image 1"></div>
+                <div><img class="carousel-image" src="../assets/datejustL.avif"
+                        alt="Image 2"></div>
+                <div><img class="carousel-image" src="../assets/oysterL.avif"
+                        alt="Image 3"></div>
+                <div><img class="carousel-image" src="../assets/daydateL.avif"
+                        alt="Image 4"></div>
+                <div><img class="carousel-image"
+                        src="../assets/datejustladyL.avif" alt="Image 3"></div>
 
-  
-</body>
+            </div>
+        </div>
+
+        <div class="text">
+            <h1 id="problem"
+                style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 70px;"><b>WELCOME<br>
+                    TO<br> THE CART</b></h1>
+        </div>
+        <br>
+        <i id="anime-icon" class="bi bi-cart"></i>
+        <div class="Main-Cart-Container row">
+            <div class="Sub-Cart-Left col-8 pl-5 mt-5 pr-5">
+                <div class="box">
+                    <h1 id="leftheading">Your Cart</h1>
+                    <hr
+                        style="background-color: black; height: 2px; margin-top: -60px;">
+                </div>
+                <div class="items-list">
+                    <div class="item-data">
+
+                    </div>
+                </div>
+            </div>
+
+            <div style="padding-right: 10px;" class="Sub-Cart-Right col-4 mt-5">
+                <div class="subcart-container">
+                    <h1 id="rightheading">Summary</h1>
+                    <hr
+                        style="background-color: black; height: 2px; margin-top: -60px;">
+                    <div class="subtotal-div">
+                        <p class="subtotalPrice"><b>Subtotal</b></p>
+                        <p class="subtotalPrice-value"></p>
+                        <span id="amount"></span>
+                    </div>
+                    <hr id="summaryline">
+                    <div class="Shipping-div">
+                        <p class="ShippingPrice"><b>Shipping</b></p>
+                        <span id="shipAmount">1000</span>
+                    </div>
+                    <hr id="summaryline">
+                    <div class="order-div">
+                        <p class="OrderTotal"><b>Order Total</b></p>
+                        <span id="total"></span>
+                    </div>
+                    <hr id="summaryline">
+                    <div class="checkout-btn">
+                        <button id="btn" onclick="redirectToCheckout()">Proceed
+                            To CheckOut</button>
+                    </div>
+                    <br>
+                    <br>
+                </div>
+                <div class="saveforlater">
+                    <h2 id="save">Save For Later</h2>
+                    <div class="saveditems">
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </body>
 </html>
