@@ -63,6 +63,8 @@ createacctbtn.addEventListener("click", function() {
       const user = userCredential.user;
       // ...
       window.alert("Success!Your Account has been created.");
+      localStorage.setItem("check", 1);
+      window.location.href = "../MainPage.html";
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -85,12 +87,12 @@ submitButton.addEventListener("click", function() {
       const user = userCredential.user;
       console.log("You have successfully loged  in!");
       window.alert("Success! Welcome back!");
+      localStorage.setItem("check", 1);
+      window.location.href = "../html/MainPage.html";
       // ...
     })
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log("Error occurred. Try again.");
+      console.log("Error occurred. Try again.",error);
       window.alert("Error occurred. Try again.");
     });
 });
