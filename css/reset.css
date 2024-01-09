@@ -52,4 +52,14 @@
     margin-top: -5px;
     font-size:15px;
   }
-  
+  #passwordEmailSent{
+  font-size:15px;
+  color:green;
+  }
+  #passwordEmailNotSent{
+  font-size:15px;
+  color:red;
+  }
+  #emailCheckResult{
+    font-size:15px;
+  }

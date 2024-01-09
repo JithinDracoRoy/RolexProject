@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { getFirestore, setDoc, doc, collection } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAru6JgHWgmu9eMdCi2b9eP7R8xLOxteqA",
@@ -24,6 +24,7 @@ const main = document.getElementById("main");
 const createacct = document.getElementById("create-acct")
 
 const signupEmailIn = document.getElementById("email-signup");
+const confirmSignupEmailIn = document.getElementById("confirm-email-signup");
 const usernameIn = document.getElementById("username");
 const signupPasswordIn = document.getElementById("password-signup");
 const confirmSignUpPasswordIn = document.getElementById("confirm-password-signup");
@@ -31,55 +32,50 @@ const createacctbtn = document.getElementById("create-acct-btn");
 
 const returnBtn = document.getElementById("return-btn");
 
-var email, password, username, signupEmail, signupPassword, confirmSignUpPassword, empty = [];
+var email, password, signupEmail, signupPassword, confirmSignupEmail, confirmSignUpPassword;
 
-createacctbtn.addEventListener("click", function () {
+createacctbtn.addEventListener("click", function() {
   var isVerified = true;
 
   signupEmail = signupEmailIn.value;
-  signupPassword = signupPasswordIn.value;
-  confirmSignUpPassword = confirmSignUpPasswordIn.value;
-  username = usernameIn.value;
-  if (signupPassword != confirmSignUpPassword) {
-    window.alert("Password fields do not match. Try again.")
-    isVerified = false;
+  confirmSignupEmail = confirmSignupEmailIn.value;
+  if(signupEmail != confirmSignupEmail) {
+      window.alert("Email fields do not match. Try again.")
+      isVerified = false;
   }
 
-  if (signupEmail == null || username == null || signupPassword == null || confirmSignUpPassword == null) {
+  signupPassword = signupPasswordIn.value;
+  confirmSignUpPassword = confirmSignUpPasswordIn.value;
+  if(signupPassword != confirmSignUpPassword) {
+      window.alert("Password fields do not match. Try again.")
+      isVerified = false;
+  }
+  
+  if(signupEmail == null || confirmSignupEmail == null || signupPassword == null || confirmSignUpPassword == null) {
     window.alert("Please fill out all required fields.");
     isVerified = false;
   }
-
-  if (isVerified) {
-    const userDocRef = doc(db, 'User', signupEmail);
-    setDoc(userDocRef, {
-      name: username,
-      cart: empty,
-      wishlist: [],
-      saveforlater: empty
-    });
-
-    // Now, add an item to the wishlist collection
-    const wishlistCollectionRef = collection(userDocRef, 'wishlist'); // Use userDocRef here
-    const wishlistItemDocRef = doc(wishlistCollectionRef);
-    setDoc(wishlistItemDocRef, {
-      item: 'Your Wishlist Item Here',
-      // Other wishlist item properties
-    });
+  
+  if(isVerified) {
     createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
       .then((userCredential) => {
-        window.alert("Success!Your Account has been created.");
-        localStorage.setItem("check", 1);
-        localStorage.setItem("user", signupEmail);
-        window.location.href = "../html/MainPage.html";
-      })
-      .catch((error) => {
-        window.alert("Error occurred. Try again. ", error);
-      });
+      // Signed in 
+      const user = userCredential.user;
+      // ...
+      window.alert("Success!Your Account has been created.");
+      localStorage.setItem("check", 1);
+      window.location.href = "../MainPage.html";
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+      window.alert("Error occurred. Try again.");
+    });
   }
 });
 
-submitButton.addEventListener("click", function () {
+submitButton.addEventListener("click", function() {
   email = emailInput.value;
   console.log(email);
   password = passwordInput.value;
@@ -92,23 +88,21 @@ submitButton.addEventListener("click", function () {
       console.log("You have successfully loged  in!");
       window.alert("Success! Welcome back!");
       localStorage.setItem("check", 1);
-      localStorage.setItem("user", email);
       window.location.href = "../html/MainPage.html";
       // ...
     })
     .catch((error) => {
-      console.log("Error occurred. Try again.", error);
+      console.log("Error occurred. Try again.",error);
       window.alert("Error occurred. Try again.");
     });
 });
 
-signupButton.addEventListener("click", function () {
-  console.log("Sign-up button clicked");
-  main.style.display = "none";
-  createacct.style.display = "block";
+signupButton.addEventListener("click", function() {
+    main.style.display = "none";
+    createacct.style.display = "block";
 });
 
-returnBtn.addEventListener("click", function () {
-  main.style.display = "block";
-  createacct.style.display = "none";
+returnBtn.addEventListener("click", function() {
+    main.style.display = "block";
+    createacct.style.display = "none";
 });

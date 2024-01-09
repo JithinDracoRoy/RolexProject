@@ -14,10 +14,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const storeWatchesRef = collection(db, 'StoreWatches');
-
-let cartId = [];
-
-localStorage.setItem("store", 1);
+let cartId=[];
 
 // Function to create and append a card element
 function createCard(imageData, nameData, detailsData, priceData, docId) {
@@ -25,7 +22,6 @@ function createCard(imageData, nameData, detailsData, priceData, docId) {
   card.className = 'card col-4';
   card.style.textAlign = "center";
   card.style.fontFamily = "sans-serif";
-  card.style.border = "none";
 
   var image = document.createElement('img');
   image.src = imageData;
@@ -62,19 +58,18 @@ function createCard(imageData, nameData, detailsData, priceData, docId) {
   buy.style.borderRadius = "20px";
   buy.style.marginLeft = "180px"
   buy.style.marginBottom = "100px";
-  buy.addEventListener("mouseover", function () {
-    buy.style.color = "green";
-    buy.style.backgroundColor = "white";
+  buy.addEventListener("mouseover",function(){
+    buy.style.color="green";
+    buy.style.backgroundColor="white";
   })
-  buy.addEventListener("mouseleave", function () {
-    buy.style.color = "white";
-    buy.style.backgroundColor = "darkgreen";
+  buy.addEventListener("mouseleave",function(){
+    buy.style.color="white";
+    buy.style.backgroundColor="darkgreen";
   })
-  buy.addEventListener('click', async () => {
+  buy.addEventListener('click', async ()=>{
     // Retrieve data associated with the clicked card
     var selectedDocId = docId;
-    const user = localStorage.getItem("user");
-    console.log(user);
+    let user = localStorage.getItem("user");
     updateCart(selectedDocId, user);
     const docRef = doc(db, 'User', user);
     const docSnapshot = await getDoc(docRef);

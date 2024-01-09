@@ -21,6 +21,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css" />
 
   </head>
+  <script src="../javascript/menubar.js"></script>
   <script>
       function logScrollPosition(){
       console.log(window.scrollY);
@@ -28,54 +29,96 @@
       }
       window.addEventListener('scroll', logScrollPosition);
     </script>
-
-  <nav class="navbar-lower row">
-    <div class="rolex-watches-options">
-      <p><i class="bi bi-arrow-left"></i>&nbsp;&nbsp;&nbsp;Rolex Watches</p>
+ <body>
+  <div id="imported"></div>
+  <nav class="navbar-lower row" style="margin-top: -100px;">
+    <div class="rolex-watches-options col-2" style="margin-top: 30px;">
+      <a href="MainPage.html" style="text-decoration: none;color: white;">
+      <p><i id="arrowleft" class="bi bi-arrow-left" style="margin-top: 40px;"></i>&nbsp;&nbsp;Rolex Watches</p>
+    </a>
     </div>
-    <span class="cross">|</span>
-    <div class="gmt-dropdown">
-      <span> Yacht-Master
-        <i style="margin-left: -40px" class="bi bi-caret-down-fill"></i></span>
-      <a id="chatbot" href="chatbot.html">Rolex Chatbot</a>
+    <!-- <span class="cross col-1">|</span> -->
+    <div class="gmt-dropdown col-2" style="margin-top: 30px;">
+      <span class="cross col-1">|</span>
+      <a class="col-3" id="chatbotlink" href="../html/chatbot.html">Rolex Chatbot</a>
+    </div>
+    <div class="subnav-btn col-3" style="margin-top: -90px;">
+
+      <button
+        class="configure-button"
+        onclick="redirectToPage('animation.html')">
+        Configure
+      </button>
     </div>
 
-        <body>
-        <section>
-            <div class="Section1Video">
-                <video autoplay muted loop src=" " id="firstvideo">
-                     <!-- <source src=" " id="firstvideosource" />  -->
-                       
-                </video>
-                
-                <div>
-                  <p id="firsttext">Oyester Perpetual</p>
-                  <h1 id="SecondText"><b>Yacht-Master</b></h1>
-               </div> 
+  </nav>
+
+
+       
+    <section>
+      <div class="Section1Video">
+          <video autoplay muted loop src=" " id="firstvideo">
+               <!-- <source src=" " id="firstvideosource" />  -->
+                 
+          </video>
           
-              <div>
-                <h1 id="thirdtext"><b>Marine character</b></h1>
-              </div>
-              
-             <br> 
-        
-            </div>
-            <br>
-            <div class="ImageContainer">
-              <img src="" id="imageone">
-              <div>
-                  <h1 id="headtext"></h1>
-              </div>
-              <div class="ImageContainerSub">
-              <div>
-                <img src="" id="imagetwo">
-              </div>
-            </div>
-          </div>
-          <img src="../assets/main watch.avif" id="secThreeTwo">
-          <img src=" " id="secThreeLastImg">
+          <div>
+            <p id="firsttext">Oyester Perpetual</p>
+            <h1 id="SecondText"><b>Yacht-Master</b></h1>
+         </div> 
+    
+        <div>
+          <h1 id="thirdtext"><b>Marine character</b></h1>
         </div>
-        <br>
+        
+       <br> 
+  
+      </div>
+      <br>
+      <div class="ImageContainer">
+        <img src="" id="imageone">
+        <div>
+            <h1 id="headtext"></h1>
+        </div>
+        <div class="ImageContainerSub">
+        <div>
+          <img src="" id="imagetwo">
+        </div>
+      </div>
+    </div>
+    <div class="sectionTwo">
+     <div>
+      <img src=" " id="secFirstImage">
+     </div>
+     <div class="secContainer">
+      <img src=" " id="secSecondImage">
+      <div>
+        <img src=" " id="subSecondImage">
+      </div>
+      <h1 id="secPara"><b></h1>
+     </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+     <div class="sectionThree"> 
+      <img src=" " id="secThreeImage">
+      <div class="sectionThreePara">
+      <h1 style="font-size: 50px;" id="heading"></h1>
+      <p id="headingSub"> </p>
+    </div>
+     </div>
+     <div class=sectionThreeSub>
+      <img src=" " id="secThreeOne">
+      <div class="sectionSubThreePara">
+      <h1 id="lastHeading"></h1>
+      <p id="lastHeadingSub"><b></p>
+      </div>
+      <img src="../assets/main watch.avif" id="secThreeTwo" >
+      <img src=" " id="secThreeLastImg"> 
+     </div>
+    <br>
 
         <section style="background-color: white">
           <div class="lastPart">
@@ -108,37 +151,37 @@
               <span
                 ><img
                   style="width: 14px; color: #197149"
-                  src="../assests/facebook.png"
+                  src="../assets/facebook.png"
                 />&nbsp;&nbsp;&nbsp;</span
               >
               <span
                 ><img
                   style="width: 14px; color: #197149"
-                  src="../assests/pinterest.png"
+                  src="../assets/pinterest.png"
                 />&nbsp;&nbsp;&nbsp;</span
               >
               <span
                 ><img
                   style="width: 14px; color: #197149"
-                  src="../assests/linkedin.png"
+                  src="../assets/linkedin.png"
                 />&nbsp;&nbsp;&nbsp;</span
               >
               <span
                 ><img
                   style="width: 14px; color: #197149"
-                  src="../assests/sina-weibo.png"
+                  src="../assets/sina-weibo.png"
                 />&nbsp;&nbsp;&nbsp;</span
               >
               <span
                 ><img
                   style="width: 17px"
-                  src="../assests/ob.png"
+                  src="../assets/ob.png"
                 />&nbsp;&nbsp;&nbsp;&nbsp;</span
               >
               <span
                 ><img
                   style="width: 14px; color: #197149"
-                  src="../assests/douban.png"
+                  src="../assets/douban.png"
                 />&nbsp;&nbsp; &nbsp;</span
               >
             </div>
@@ -159,7 +202,7 @@
         <figure class="col">
           <img
             class="roloex-footer-logo"
-            src="../assests/RolexFooterLogo-removebg-preview.png" />
+            src="../assets/RolexFooterLogo-removebg-preview.png" />
         </figure>
         <div class="col footer-container">
           <h4><b>Rolex watches</b></h4>
@@ -265,7 +308,7 @@
           <button style="border: none">
             <span><img
                 style="width: 20px"
-                src="../assests/globe-removebg-preview.png" />
+                src="../assets/globe-removebg-preview.png" />
             </span>
             <span><b>Languages</b></span>
           </button>

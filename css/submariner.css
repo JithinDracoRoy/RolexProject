@@ -13,6 +13,59 @@ body, html {
     width: 100%;
     margin-left: 0px;
 }
+.navbar-lower{
+    width:101.1% ; height:85px ;
+    background-color:#111111 ;    
+    position: sticky;
+    margin-top: -100px;
+    z-index: 1;
+  }
+  .rolex-watches-options{
+    width:250px ;
+    color:white ;
+    margin:30px ;  margin-right:0px ;  
+    padding-left:50px ; padding-right:-100px ;
+    transition : color 1s ease-in-out;
+         
+  }
+  .rolex-watches-options :hover{
+    color:#198a56    
+  }
+  .rolex-watches-options p{
+    width:200px ;
+    font-size: 15px ;
+    padding-right:-10px ;
+  }
+  .cross{
+    width:2px ;
+    margin-top:30px ;
+    padding-left:-100px ;
+    color: white ;
+  }
+  .gmt-dropdown{
+    width:300px ;
+    color:white ;
+    margin:30px ;
+    padding-right:10px ;
+  }
+  .gmt-dropdown :hover{
+    color:#198a56;
+  }
+  .subnav-btn{
+   margin-top: -70px ; margin-left:1150px ;
+  }
+  .configure-button{
+    width:120px ; height:35px ;  
+    color: white; background-color:#188754 ;  
+    /* padding-right:10px ; padding-right:10px ;   */
+    border:none ; border-radius:30px ;  
+    font-size:15px ;
+    padding: 7px;
+    margin-top: 18px;
+  }
+  .configure-button:hover{
+    background-color: #197149;
+  }
 .containers {
     display: inline-block;
     cursor: pointer;
@@ -130,12 +183,12 @@ body, html {
     height: 768px;
     width: 100%;
     opacity: 0;
-    margin-top: 10px;
-    animation: smooth-appear 1s ease-in-out; 
+    margin-top: 0px; 
 }
 .video-one-content-two{
     margin-top: 300px;
     display: block;
+    display: flex;
 }
 
 .video-one-content-two-head{
@@ -143,13 +196,14 @@ body, html {
     font-size: 60px;
     color: #f8f8f8;
     font-weight: bold;
+    flex: 1;
 }
 
 .video-one-content-two-body{
     color: #f8f8f8;
     font-size: 20px;
     width: 500px;
-    margin-left: 700px;
+    flex: 1;
 }
 .video-one-content-one-subhead{
     position: absolute;
@@ -183,16 +237,15 @@ body, html {
     border: none;
 }
 #video-one-btn {
-    width: 200px;
-    font-size: 18px;
-    padding: 10px;
-    border: 1px;
-    color: #f8f8f8;
-    cursor: pointer;
+    cursor: pointer; 
+    border: 1px solid #f8f8f8; 
+    background-color: transparent; 
+    height: 50px; 
+    width: 200px; 
+    color: #3498db; 
+    font-size: 1.5em; 
     border-radius: 30px;
-    margin-top: 20px;
-    /* background-color: transparent;
-    background: blur(15px); */
+    backdrop-filter: blur(3);
   }
 .image-one{
     margin-top: -5px;
@@ -221,7 +274,7 @@ body, html {
     margin-top: 0px;
     animation: smooth-appear 1s ease-in-out; 
 }
-.video-two-content{
+#video-two-content{
     position: absolute;
     top: 15%;
     width: 500px;
@@ -229,7 +282,7 @@ body, html {
     font-size: 20px;
     color: #f8f8f8;
 }
-.video-two-content h2{
+#video-two-content h2{
     font-size: 50px;
 }
 .video-three{
@@ -237,7 +290,7 @@ body, html {
     margin-top: 8px;
     padding: 0px;
     width: 100%;
-    filter: brightness(3);
+    filter: brightness(1);
 }
 #video-three-blackfilm{
     background-color: #000000;
@@ -248,7 +301,7 @@ body, html {
     opacity: 0.7;
     animation: smooth-appear 1s ease-in-out; 
 }
-.video-three-content{
+#video-three-content{
     position: absolute;
     top: 15%;
     width: 500px;
@@ -256,7 +309,7 @@ body, html {
     font-size: 20px;
     color: #f8f8f8;
 }
-.video-three-content h1{
+#video-three-content h1{
     font-size: 50px;
 }
 #my-video-two,#my-video-three{
@@ -268,7 +321,7 @@ body, html {
     filter: blur(4px);
     filter: brightness(1.1);
   }
-.feature-div{
+#feature-div{
     background: linear-gradient(rgb(189, 212, 229), rgb(216, 227, 233), rgb(180, 194, 205));
     height: 2429.83px;
     margin-top: -10px;
@@ -374,7 +427,7 @@ body, html {
     margin-left: 400px;
     margin-top: 0px;
 }
-.feature-div-content-three{
+#feature-div-content-three{
     color: #212121;
     font-family: "Helvetica Now Text",Helvetica,Arial,sans-serif;
     margin-left: 400px;

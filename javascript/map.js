@@ -1,19 +1,10 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { firebaseConfig } from "./config.js";
 export { map };
 export { storeLocator };
 export { fetchFirestoreGeopoints };
 export { customIcon };
-// Your Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyAru6JgHWgmu9eMdCi2b9eP7R8xLOxteqA",
-  authDomain: "rolex-clone.firebaseapp.com",
-  projectId: "rolex-clone",
-  storageBucket: "rolex-clone.appspot.com",
-  messagingSenderId: "195944459124",
-  appId: "1:195944459124:web:ee7f54a1a87ef193119a21",
-  measurementId: "G-SYHPGRBD62"
-};
 
 const map = L.map('map');
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -63,64 +54,55 @@ const db = getFirestore(app);
 
 // Function to fetch and display Firestore geopoints
 function fetchFirestoreGeopoints(map) {
-  const mapDataCollection = collection(db, "Map Data");
-  getDocs(mapDataCollection)
-    .then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        const data = doc.data();
 
-        // Assuming each document has a field named "geopoint"
-        const geopoint = data.geopoint;
-        const name = data.name;
-        const place = data.place;
-        const image = data.image;
-        const address = data.address;
+    const mapDataCollection = collection(db, "Map Data");
+    getDocs(mapDataCollection)
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
 
-        if (geopoint && geopoint.latitude && geopoint.longitude) {
-          map.on('moveend', function () {
-            // Get the current map bounds
-            var bounds = map.getBounds();
+                // Assuming each document has a field named "geopoint"
+                const geopoint = data.geopoint;
+                const name = data.name;
+                const place = data.place;
+                const image = data.image;
+                const address = data.address;
 
-            // Fetch and display stores within the current map bounds
-            fetchAndDisplayStoresInBounds(bounds);
-          });
-          function fetchAndDisplayStoresInBounds(bounds) {
-            document.getElementById("storename").innerHTML = `${name}`;
-            document.getElementById("storeplace").innerHTML = `${place}`;
-          }
-          // Print latitude and longitude to console
-          console.log(`Document ID: ${doc.id}, Latitude: ${geopoint.latitude}, Longitude: ${geopoint.longitude}, name:${name}, place:${place}`);
+                if (geopoint && geopoint.latitude && geopoint.longitude) {
+                 
+                    // Print latitude and longitude to console
+                    console.log(`Document ID: ${doc.id}, Latitude: ${geopoint.latitude}, Longitude: ${geopoint.longitude}, name:${name}, place:${place}`);
+                    
+                     
+                    const marker = L.marker([geopoint.latitude, geopoint.longitude],{icon: customIcon});
+                    marker.addTo(map)
+                        .bindPopup(`<b>${name}</b><br>${place}`);
+                    marker.on('click',function(){
+                      map.setView([geopoint.latitude, geopoint.longitude], 15);
+                      document.getElementById("storename").innerHTML = `${name}`;
+                      document.getElementById("storeplace").innerHTML = `${place}`;
+                      document.getElementById("storeimage").src = `${image}`;
+                      document.getElementById("storeimage").style.width = '350px';
+                      document.getElementById("storeimage").style.height = '250px';
+                      document.getElementById("storeaddress").innerHTML = `${address}`;
+                      document.getElementById("map-content").style.display='block';
+                      const gMapIcon = document.getElementById("g-map-icon");
+                      console.log(gMapIcon);
+                      if (gMapIcon) 
+                        console.log(geopoint);
+                        gMapIcon.addEventListener('click', function() {
+                          // geopoint.forEach(()=>{
+                            calculateDirections(geopoint.latitude, geopoint.longitude);
+                            console.log(geopoint._lat, geopoint._long);
+                          });
+                        // });
+                      
 
+                    })
+                } else {
+                    console.warn(`Invalid or missing geopoint data in document: ${doc.id}`);
+                }
 
-          // You can also add markers to the map if needed
-          // var customIcon = L.icon({
-          //     iconUrl: '../assets/darkgreenmarker.png', // Replace with the path to your custom icon image
-          //     iconSize: [25, 25], // Size of the icon
-          //     iconAnchor: [16, 32], // Point of the icon which will correspond to marker's location
-          //     popupAnchor: [0, -32] // Point from which the popup should open relative to the iconAnchor
-          //   });
-
-          const marker = L.marker([geopoint.latitude, geopoint.longitude], { icon: customIcon });
-          marker.addTo(map)
-            .bindPopup(`<b>${name}</b><br>${place}`);
-          marker.on('click', function () {
-            map.setView([geopoint.latitude, geopoint.longitude], 15);
-            document.getElementById("storename").innerHTML = `${name}`;
-            document.getElementById("storeplace").innerHTML = `${place}`;
-            document.getElementById("storeimage").src = `${image}`;
-            document.getElementById("storeimage").style.width = '350px';
-            document.getElementById("storeimage").style.height = '250px';
-            document.getElementById("storeaddress").innerHTML = `${address}`;
-            document.getElementById("map-content").style.display = 'block';
-            document.getElementById("mail-icon").style.display = 'block';
-            const gMapIcon = document.getElementById("g-map-icon");
-            console.log(gMapIcon);
-            if (gMapIcon)
-              console.log(geopoint);
-            gMapIcon.addEventListener('click', function () {
-              // geopoint.forEach(()=>{
-              calculateDirections(geopoint._lat, geopoint._long);
-              console.log(geopoint._lat, geopoint._long);
             });
             // });
 
