@@ -1,16 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import {
-  getFirestore,
-  collection,
-  getDocs,
-  updateDoc,
-  doc,
-  addDoc,
-  getDoc,
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import{firebaseConfig} from "../javascript/config.js";
-
-
+import { getFirestore, collection, getDocs, updateDoc, doc, addDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { firebaseConfig } from "../javascript/config.js";
 
 //const user=localStorage.getItem("user");
 const user = localStorage.getItem("user");
@@ -133,7 +123,7 @@ async function saveItemForLater(itemData) {
     const saveArray = userDoc.data().saveforlater || [];
     console.log("Current save:", saveArray);
     saveArray.push(itemData);
-    await updateDoc(userRef, { saveforlater: saveArray }); 
+    await updateDoc(userRef, { saveforlater: saveArray });
   } else {
     console.log("User not found");
   }
