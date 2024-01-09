@@ -19,59 +19,48 @@
         <script src="../javascript/oyester.js" type="module"></script>
         <script type="module"
             src="../javascript/oyesterSwicthModels.js"></script>
+        <script src="../javascript/menubar.js"></script>
         <script src="../javascript/oyester1.js"></script>
         <title>Oyester_Perpetual</title>
     </head>
     <body>
-        <header>
-            <div class="navbar"
-                style="padding-left: 120px; padding-right: 120px;">
-                <div class="row" style="margin-top: 10px;">
-                    <div class="containers" onclick="menuBar(this)"
-                        style="margin-top: 5px;">
-                        <div class="bar1"></div>
-                        <div class="bar2"></div>
-                    </div>
-                    <p style="margin-left: 18px;margin-top:-19px;">Menu</p>
-                </div>
-                <div>
-                    <img class="mainIcon" src="../assets/RolexPNG.png" getdata()
-                        alt="ROLEX">
-                </div>
-                <div style="margin-left: -60px;">
-                    <i class="fa fa-search" style="font-size:24px"></i>
-                    <i class="fa fa-map-marker" style="font-size:24px"></i>
-                    <i class="fa fa-heart-o" style="font-size:24px"></i>
-                </div>
+        <div id="imported"></div>
+
+        <nav class="navbar-lower row">
+            <div class="rolex-watches-options col-2" style="margin-top: 30px;position: sticky; top: 0%;">
+              <p><i class="bi bi-arrow-left" style="margin-top: 40px; text-decoration: none;"></i>&nbsp;&nbsp;&nbsp;Rolex Watches</p>
             </div>
-
-            <!-- <div class="menu">
-            <span><i class="fa fa-arrow-left"></i>Rolex Watches</span>   |
-            <span class="watch-name">  Oyster Perpetual</span>
-            <i class="fa fa-caret-down" style="font-size:24px"></i>
-            <button class="configure-btn">Configure</button>
-            
-        </div> -->
-        </header>
-
-        <div class="menu">
+            <!-- <span class="cross col-1">|</span> -->
+            <div class="gmt-dropdown col-2" style="margin-top: 30px;">
+              <span class="cross col-1">|</span>
+              <a class="col-3" id="chatbotlink" href="../html/chatbot.html">Rolex Chatbot</a>
+            </div>
+            <div class="subnav-btn col-3" style="margin-top: -90px;">
+                <button
+                class="configure-button">
+                Configure
+              </button>
+            </div>
+         
+          </nav>
+        <!-- <div class="menu" style="position: sticky;z-index: 100;height: 100px;">
             <span><i class="fa fa-arrow-left"></i>Rolex Watches</span> |
             <span class="watch-name"> Oyster Perpetual</span>
             <i class="fa fa-caret-down" style="font-size:24px"></i>
             <button class="configure-btn">Configure</button>
-        </div>
+        </div> -->
         <div class="video-container">
             <video height="1000px" id="firstVedio" autoplay loop="true"
-                style="position: absolute; right: 0; top: 170px; min-width:100%;z-index:-100; object-fit: cover;filter:brightness(50%);">
+                style="right: 0; top: 170px; min-width:100%;z-index:-100; object-fit: cover;filter:brightness(50%);">
 
                 <source src id="videoSource1" type="video/mp4">
             </video>
-            <div class="text-overlay"
-                style="margin-top: 300px;color:white;opacity:1;">
+            <div class="text-overlay" id="problem"
+                style="margin-top: -900px;color:white;opacity:1;position: absolute;">
                 <p id="firsttxt" style="font-size: 50px;margin-left:400px;"></p>
                 <p id="secondtxt"
-                    style="font-size: 49px;margin-left:350px;"></p>
-                <div id="thirdtxt">
+                    style="font-size: 49px;margin-left:350px;margin-top: 100px;"></p>
+                <div id="thirdtxt" style="margin-top: 150px;margin-left: 100px;">
                     <div class="partone">
                         <p style="font-size: 31px;margin-left: 40px;"
                             id="text3"></p>
@@ -79,12 +68,11 @@
                     <div class="parttwo">
                         <p style="font-size: 18px;margin-left:40px;"
                             id="text4"></p>
-
                     </div>
                 </div>
             </div>
 
-            <section class="content" style="margin-top:200px">
+            <section class="content" style="margin-top:-10px;">
                 <div class="image-container">
                     <img src="../assets/watch-3d-removebg-preview.png"
                         alt="Centered Image">
@@ -99,7 +87,7 @@
             <section>
                 <div>
                     <video id="secondvideo" autoplay muted loop
-                        style="object-fit: cover;width: 1260px;height:600px;">
+                        style="object-fit: cover;width: 1260px;height:700px;">
                     </video>
                 </div>
                 <section>
@@ -124,7 +112,7 @@
                     </section>
                     <section>
                         <div class="background-text">
-
+                            
                             <h1 class="animatedtext" id="text10"></h1>
 
                         </div>

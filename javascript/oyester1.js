@@ -2,6 +2,19 @@ function menuBar(x) {
   x.classList.toggle("change");
 }
 
+function includeHTML(url, targetElementId) {
+  fetch(url)
+      .then(response => response.text())
+      .then(data => {
+          // Insert the HTML content into the target element
+          document.getElementById(targetElementId).innerHTML = data;
+      })
+      .catch(error => console.error('Error fetching HTML:', error));
+}
+
+// Call the function with the URL of your HTML file and the target element ID
+includeHTML('../html/navbar.html', 'imported');
+
 function showImage(imageId) {
   var imageElement = document.getElementById('imageone');
 
@@ -38,12 +51,12 @@ function showImage(imageId) {
 function logScrollPosition() {
   var scrollPosition = parseInt(window.scrollY);
   console.log("Scroll Position: " + scrollPosition);
-  if (scrollPosition > 0 && scrollPosition < 200) {
+  if (scrollPosition > 0 && scrollPosition < 100) {
     document.getElementById("firsttxt").style.opacity = "1"
     document.getElementById("secondtxt").style.opacity = "0";
     document.getElementById("thirdtxt").style.display = "0";
   }
-  if (scrollPosition > 200 && scrollPosition < 400) {
+  if (scrollPosition > 100 && scrollPosition < 400) {
     document.getElementById("firsttxt").style.opacity = "0";
     document.getElementById("secondtxt").style.opacity = "1";
     document.getElementById("thirdtxt").style.opacity = "0";
