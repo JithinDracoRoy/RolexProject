@@ -1,171 +1,161 @@
-/* Lower Navbar */
-.navbar-lower{
-    width:101.1% ; height:85px ;
-    background-color:#111111 ; 
-    position: sticky;
-    top: 0%;
-    z-index: 1;   
-}
-.rolex-watches-options{
-    width:250px ;
-    color:white ;
-    margin:30px ;  margin-right:0px ;   
-    padding-left:50px ; padding-right:-100px ;         
-}
-.rolex-watches-options :hover{
-    color:#198a56    
-}
-.rolex-watches-options p{
-    width:200px ;
-    font-size: 15px ;
-    padding-right:-10px ;
-}
-.cross{
-    width:2px ;
-    margin-top:30px ;
-    padding-left:-100px ;
-    color: white ;
-}
-.gmt-dropdown{
-    width:300px ;
-    color:white ;
-    margin:30px ;
-    padding-right:10px ;
-}
-.gmt-dropdown :hover{
-    color:#198a56;
-}
-.subnav-btn{
-   margin-top: -70px ; margin-left:1150px ;
-}
-.configure-button{
-    width:120px ; height:30px ;   
-    color: white; background-color:#188754 ;  
-    padding-right:10px ; padding-right:10px ;   
-    border:none ; border-radius:30px ;   
-    font-size:15px ;   
-}
 
 /* Introduction Page */
-.intro-page{
+#intro-page{
     margin-bottom: -6px;
 }
-.intro{
+#intro{
     color:white ;
 }
-.intro-vid{
+#intro-vid{
     position:relative ;
+    /* position: sticky;
+    top: 12%; */
+    z-index: 1;
 }
-.intro-title{
+#intro-title{
     position:absolute ; top:40% ; left:40% ;
     font-size:30px ; font-weight: 400 ;
-    /* display: none; */
+    opacity: 1;
+    z-index: 2;
 }
-.intro h1{
+#intro-series{
     position:absolute ;  top:45% ; left:30% ;
     font-size: 75px ; font-weight: 700 ;
-    /* display: none; */
+    opacity: 1;
+    z-index: 2;
 }
-.intro h2{
+#intro-sub-title{
     position: absolute ; top:45% ; left:30%;
     font-size: 75px ; font-weight: 700 ;
-    display:none;
+    opacity: 0;
+    z-index: 2;
 }
-.intro h3{
-    position:absolute ; top:50% ; left:8% ;
+#intro-desc-title{
+    position:absolute ; top:70% ; left:8% ;
     font-size: 40px ; font-weight: 700 ;
-    display:none;
+    opacity: 0;
+    z-index: 2;
 
 }
-.intro-desc{
-    position: absolute ; top:50% ; left:50% ;
+#intro-desc-body{
+    position: absolute ; top:70% ; left:50% ;
     font-size: 27px ; font-weight: 400 ;
     padding-right: 100px;
     line-height: 1.2;
-    display: none;
-
+    opacity: 0;
+    z-index: 2;
 }
 
-/* 3D Model Page */
-.models-page{
+/* Model Page */
+ #models-page{
+    margin-top: -20px;
     color: white;
+    position:relative ;
 }
-.model-img-div{
-    margin-top: -4px;
+#model-img-div{
+    margin-top: -4px;    
 }
-.models-page h3{
-    position:absolute ; top:170% ; left:28% ;
+#model-img{
+    z-index: 1;
+}
+#model-page-title{
+    position:absolute ;
+    top:20% ; 
+    left:28% ;
     font-size: 60px ; font-weight: 700 ;
     width: 500px; height: 110px;
-
+    opacity: 0;
+    z-index: 2;
 }
-.model-para-one{
-    position:absolute ; top:195% ; left:28% ;
-    font-size: 20px ; font-weight: 200 ;
+#model-para-one{
+    position:absolute ;
+    top:50% ;
+    left:28% ;
+    font-size: 20px ; font-weight: 400 ;
     width: 520px; height: 150px;
-    line-height: 1.2;
-    display: none;
-}
-.model-para-two{
-    position:absolute ; top:195% ; left:28% ;
-    font-size: 20px ; font-weight: 200 ;
+    line-height: 1.5;
+    opacity: 0;
+    z-index: 2;
+    /* display: none;  */
+ }
+#model-para-two{
+    position:absolute ; top:50% ; left:28% ;
+    font-size: 20px ; font-weight: 400 ;
     width: 520px; height: 150px;
-    line-height: 1.2;
+    line-height: 1.5;
+    opacity: 0;
+    z-index: 2;
     /* display: none; */
-}
+} 
 
 /* About Section */
-.about-img{
+#about-page{
+    position:relative ;
+}
+#about-img{
     margin-top: -5px;
 }
-.about-desc{
-    position:absolute ; top:377% ; left:30% ;
-    font-size: 40px ; font-weight: 400 ;
-    width: 540px; height: 190px;
-    line-height: 1.2;
+#about-desc{
+    position:absolute ; top:30% ; left:30% ;
+    font-size: 40px ; font-weight: 700 ;
+    width: 540px; height: 200px;
+    line-height: 1.3;
 }
-.about-vid-two{
-    margin-bottom: -5px;
-}
-.card{
-    position:absolute ; top:500% ; left:30% ; 
+#card{
+    position:absolute ; top:55% ; left:30% ; 
     background-color: #c6d2e0;
-    border: none;
+    width: 38%;
+    /* border: none; */
 }
-.card-title{
-    width: 522px; height: 60px; 
-    font-size: 60px ; font-weight: 700 ; 
+#card-title{
+    width: 100%; height: 10%; 
+    font-size: 300% ; font-weight: 700 ; 
 }
-.card-body{
-    width: 522px; height: 243px; 
+#card-body{
+    width: 100%;
     font-size: 20px ; font-weight: 400 ;
     padding-left: 0%; 
 }
-.card-img{
-    width: 522px; height: 672px;
+#card-img{
+    width: 100%; height: 2%;
     margin-top: 20px;
 }
-.about-desc-two{
+
+/* About Page Two */
+#about-page-two{
+    position:relative ;
+}
+#about-vid-two{
+    margin-bottom: -5px;
+    z-index: 1;
+}
+#about-desc-two{
     color: white;
 }
-.about-desc-two-title{
-    position:absolute ; top:720% ; left:29% ;
+#about-desc-two-title{
+    position:absolute ; top:30% ; left:29% ;
     font-size: 57px ; font-weight: 700 ; 
     height: 60px; 
+    z-index: 2;
 }
-.about-desc-two-body{
-    position:absolute ; top:735% ; left:29% ;
+#about-desc-two-body{
+    position:absolute ; top:42% ; left:29% ;
     font-size: 20px ; font-weight: 400 ;
-    width: 522px; height: 182px;
+    width: 522px;
+    height: 182px;
+    z-index: 2;
 }
 
 /* Discover Models */
 .watch-designs{
+    position:relative ;
     background-color:#a6b4c8 ; color: white;
     height: 526px;
 }
 #design-model{
-    position:absolute ; top:825% ; left:40% ;
+    position:absolute ; top:4% ; left:35% ;
+    height: 90%;
+    width: 30%;
 }
 .design-btn{
     border-radius: 50%; border: none;
@@ -174,13 +164,19 @@
     margin: 5px;
 }
 .design-btn-div{
-    position:absolute ; top:893% ; left:45% ; 
+    position:absolute ; top:87% ; left:45% ; 
 }
-#design-btn-one{
+.play-pause-btn{
+    position: absolute;
+    right: 30%;
+    top: 23%;
+    font-size: 20px;
+}
+#Oystersteel{
     background-color: white;
 }
 .design-content{
-    position:absolute ; top:843% ; left:15% ; 
+    position:absolute ; top:37% ; left:15% ; 
 }
 .design-content h4{
     font-weight: 700; font-size: 40px ;
@@ -193,20 +189,25 @@
 #discover-model-label{
     font-size: 19px; font-weight: 600;
 }
-#add-fav-label{
-    position:absolute ; top:823% ; left:11% ; 
+.add-fav-label{
+    position:absolute ; top:23% ; left:11% ; 
     font-size: 13px; font-weight: 700;
 }
-#add-fav-label i{
+.add-fav-label:hover{
+    opacity: 0.6;
+    transition: opacity 0.3s ease-in-out;
+}
+.add-fav-label i{
     font-size: 15px; font-weight: 900;
 }
 #new-model-label{
-    position:absolute ; top:819% ; left:15% ;
+    position:absolute ; top:19% ; left:15% ;
     font-size: 15px; font-weight: 700;
-    display: none;
+    /* display: none; */
 }
-
-
+#image-one,#image-two,#image-three{
+    width: 100%;
+}
 .discover-models-section{
     height: 509px;
 }
@@ -214,14 +215,19 @@
     padding: 0%;  
 }
 
-    /* Inline height,width for Images */
+/* Inline height,width for Images */
 
- /* Learn More Section  */
-.learn-more{ 
+ /* Learn More and Contact Section  */
+ .learn-more-section{
+    margin-top: -40px; 
+    background-color: white;
+    padding-bottom: 90px;
+ }
+.learn-more{
     padding-top: 20px; padding-right: 80px; padding-left:80px ;
-    margin-top: 50px;
+    padding-top: 50px;
     text-align: center;
-    color: #126c43; 
+    color: #126c43;
 }
  .learn-more p{
     font-size: 20px; font-weight: 500 ;
@@ -247,6 +253,42 @@
  }
  .social-media i{
     padding-left: 20px;
+   
  }
-
+ 
+/* Animations */
+ @keyframes moving-up {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  }
+  /* @keyframes moving-up-two {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  } */
+  @keyframes appear {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes dissappear {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
 

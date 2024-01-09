@@ -18,14 +18,21 @@ const firebaseConfig = {
   measurementId: "G-SYHPGRBD62"
 };
 
+
+const user = "jintu@gmail.com";
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+const series ="GMT-Masters II";
+// const user = localStorage.getItem("user");
+
 //colRef -> docRef -> colRef2 -> docRef2
-const watchCollectionRef = collection(db, "WatchCollection"); //Get collection "WatchCollection" from databse
+const watchCollectionRef = collection(db,"WatchCollection"); //Get collection "WatchCollection" from databse
 const mainWatchCollectionDocRef = doc(watchCollectionRef,"watchCollection");  // Get doc "watchCollection" from collection "WatchCollection"
-const gmtMastersIICollectionRef = collection(mainWatchCollectionDocRef,"GMT-Masters II")//Get collection "GMT-Masters II" from doc "watchCollection"
-const wishlistCollectionRef = collection(db,"Wishlist");
+const seriesCollectionRef = collection(mainWatchCollectionDocRef,series);//Get collection "GMT-Masters II" from doc "watchCollection"
+const userCollectionRef = collection(db,"User");
+const userDocRef = doc(userCollectionRef,user)
+const userWishlistCollectionRef = collection(userDocRef,"wishlist");
 const watchIdArray =[];
 let timeoutId=null;
 let currentWatchId;
@@ -33,10 +40,11 @@ let isPaused = "false";
 let iconPaused;
 
 
-getDocs(gmtMastersIICollectionRef).then((snapshot)=>{  
+getDocs(seriesCollectionRef).then((snapshot)=>{  
     snapshot.docs.forEach(async (doc) => { 
      createButton(doc);     
   })
+  currentWatchId = watchIdArray[0];
   displayWatchData(currentWatchId)
 })
 .catch(err => {
@@ -51,24 +59,20 @@ const createButton=(doc)=>{
 
   // Attach click event listener
   button.addEventListener("click", async (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     const watchId = button.id;
     await displayWatchData(watchId);
   })
-  currentWatchId = watchIdArray[0];
+//   currentWatchId = watchIdArray[0];
   document.querySelector(".design-btn-div").appendChild(button);
 }
 
 // Function to display watch data based on ID
 async function displayWatchData(watchId) {
   currentWatchId = watchId;
-  try {
-    if(timeoutId != null){
-      clearTimeout(timeoutId);
-      timeoutId = null;
-    }   
+  try {  
     changeButtonColor();
-    const watchDocRef = doc(gmtMastersIICollectionRef, watchId);
+    const watchDocRef = doc(seriesCollectionRef, watchId);
     const snapshot = await getDoc(watchDocRef);
     const watchData = snapshot.data();
 
@@ -79,7 +83,7 @@ async function displayWatchData(watchId) {
 
     watchSeriesElement.textContent = watchData.series;
     watchModelElement.textContent = watchData.model;
-    watchImageElement.src = watchData.img; // Assuming a valid image URL
+    watchImageElement.src = watchData.img; 
     document.getElementById(watchId).style.backgroundColor="white";
 
     const wishlistButton = document.querySelector(".add-fav-label");
@@ -103,24 +107,33 @@ async function displayWatchData(watchId) {
   }
 }
 
-//Create Buttons
- const changeButtonColor=()=>{
-  getDocs(gmtMastersIICollectionRef)
-  .then((snapshot)=>{
-      snapshot.docs.forEach((doc) => {
-      document.getElementById(doc.id).style.backgroundColor="#b1bece"; 
-    })
-  })
-  .catch(err => {
-    console.log(err.message)
-  })
+//Change Button Color
+//  const changeButtonColor=()=>{
+//   getDocs(seriesCollectionRef)
+//   .then((snapshot)=>{
+//       snapshot.docs.forEach((doc) => {
+//       document.getElementById(doc.id).style.backgroundColor="#b1bece"; 
+//     })
+//   })
+//   .catch(err => {
+//     console.log(err.message)
+//   })
+// }
+
+const changeButtonColor=()=>{
+  for(const watchId of watchIdArray){
+    document.getElementById(watchId).style.backgroundColor="#b1bece";
+  }
 }
+
+
 
 //check presence of document in wishlist
 async function checkWishlistStatus(watchId) {
 
-  const wishlistCollectionRef = collection(db,"Wishlist")
-  const wishlistDocRef = doc(wishlistCollectionRef, watchId);
+//   const wishlistCollectionRef = collection(db,"Wishlist")
+  const userWishlistCollectionRef = collection(userDocRef,"wishlist");
+  const wishlistDocRef = doc(userWishlistCollectionRef, watchId);
   const wishlistButton = document.querySelector(".add-fav-label");
   const wishlistButtonIcon = document.querySelector(".fav-icon");
   const wishlistButtonLabel = document.querySelector(".fav-label");
@@ -151,9 +164,10 @@ async function checkWishlistStatus(watchId) {
 //Function to update wishlist
 async function updateWishlistCollection(watchId){
   
-  const wishlistCollectionRef = collection(db,"Wishlist")
-  const wishlistDocRef = doc(wishlistCollectionRef, watchId);
-  const watchDocRef = doc(gmtMastersIICollectionRef, watchId);
+//   const wishlistCollectionRef = collection(db,"Wishlist")
+  const userWishlistCollectionRef = collection(userDocRef,"wishlist");
+  const wishlistDocRef = doc(userWishlistCollectionRef, watchId);
+  const watchDocRef = doc(seriesCollectionRef, watchId);
   const snapshot = await getDoc(watchDocRef);
   const watchData = snapshot.data();
  
@@ -169,7 +183,7 @@ async function updateWishlistCollection(watchId){
   })
 }
 
-onSnapshot(wishlistCollectionRef, (snapshot) => {
+onSnapshot(userWishlistCollectionRef, (snapshot) => {
   const changes = snapshot.docChanges(); // Get all changes since the last snapshot
   changes.forEach((change) => {
       const type = change.type; // added, modified, or removed
@@ -181,17 +195,21 @@ onSnapshot(wishlistCollectionRef, (snapshot) => {
 
 const autoDisplayWatchData=(watchId)=>{
   if(isPaused =="false"){
+    let index = watchIdArray.indexOf(watchId);
+    if(index < watchIdArray.length - 1 ){
+      index++;
+    }
+    else{
+      index=0;
+    }
+    watchId = watchIdArray[index];
+    if(timeoutId != null){
+        clearTimeout(timeoutId);
+        timeoutId = null;
+    }  
     timeoutId = setTimeout(() => {
-      let index = watchIdArray.indexOf(watchId);
-      if(index < watchIdArray.length - 1 ){
-        index++;
-      }
-      else{
-        index=0;
-      }
-      watchId = watchIdArray[index];
       displayWatchData(watchId)
-     }, 2000);
+     }, 5000);
 
   }
 }
@@ -204,6 +222,7 @@ const playAutoDisplayWatchData =()=>{
 }
 const pauseAutoDisplayWatchData=()=>{
   clearTimeout(timeoutId); 
+  timeoutId = null;
   isPaused ="true";
   playPauseIcon.classList.remove("bi-pause-circle");
   playPauseIcon.classList.add("bi-play-circle");
@@ -211,11 +230,9 @@ const pauseAutoDisplayWatchData=()=>{
 
 const playPauseIcon = document.querySelector(".play-pause-icon")
 playPauseIcon.addEventListener("click",(event) => {
-  event.preventDefault();
   if(isPaused =="false"){
     pauseAutoDisplayWatchData();
     iconPaused ="true";
-
   }
   else{ 
     playAutoDisplayWatchData(); 
@@ -230,3 +247,7 @@ playPauseIcon.addEventListener("click",(event) => {
   
  
 
+
+
+ 
+    

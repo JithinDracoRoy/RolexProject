@@ -14,6 +14,7 @@ var data= {
         title:["Today's Top 5 Headlines"],
         options:["The Perpetual 1908 is Rolex’s non-Oyster dress watch of new. Out with the Cellini, in with the Cellini-in-disguise","Speaking of historically-significant Rolexes, 2023 saw the first yellow-gold GMT on a Jubilee bracelet since the early 1980s. Released alongside a two-tone ‘Rolesor’ version, the gold dual-time watch stole my attention at the Rolex booth in Geneva.","Aside from the unwearable (but still cool) Rolex Deepsea Challenge, the titanium Yacht-Master 42 is Rolex’s first full-Titanium watch. However this time, instead of the titanium compensating for serious heft – as with the 52mm wide and 29mm thick Deepsea Challenge – it pushes the watch into ultra-light territory, coming in at just 100 grams."],
         url : {
+            // more:"https://www.youtube.com/@webhub/videos",
             link:["https://www.everestbands.com/blogs/bezel-barrel/top-5-rolex-watches-of-2023","https://www.everestbands.com/blogs/bezel-barrel/top-5-rolex-watches-of-2023","https://www.everestbands.com/blogs/bezel-barrel/top-5-rolex-watches-of-2023","https://www.youtube.com/@webhub/videos"]
         }
     },

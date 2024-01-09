@@ -1,7 +1,8 @@
-
 function menuBar(x) {
     x.classList.toggle("change");
   }
+
+
 const currentDate = new Date();
 const formattedDateTime = currentDate.toLocaleString();
 
@@ -16,8 +17,3 @@ function changeOnInput(){
   document.getElementById("searchbar").style.backgroundColor = 'white';
   document.getElementById("searchbar").style.color='black';
 }
-function closeDetails(){
-  document.getElementById("map-content").style.display='none';
-}
-
-

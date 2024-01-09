@@ -31,7 +31,18 @@ getDocs(storeWatchesRef)
     console.error("Error getting document:", error);
   });
 
-
+  let check = parseInt(localStorage.getItem("check"));
+    if (check === 1) {
+        document.getElementById("login").innerHTML = "<b>Store</b>";
+        document.getElementById("login").addEventListener("click", function () {
+            window.location.href = "../html/store.html";
+        });
+    }
+    else{
+      document.getElementById("login").addEventListener("click", function () {
+        window.location.href = "../html/login-page.html";
+    });
+    }
 function logScrollPosition() {
   var scrollPosition = parseInt(window.scrollY);
   console.log("Scroll Position: " + scrollPosition);
