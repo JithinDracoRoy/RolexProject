@@ -15,19 +15,14 @@ body {
   &::before {
     content: '';
      position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('../assets/feedback.jpg');
+      background-image: url('../assets/yacht-masterLL.png'); 
     background-position: center;
-    filter: blur(2px);
     z-index: -1;
   }
 }
 </style>
 <body>
-   
+     
     <div class="rolexPic">
         <img id="firstImage"  src="../assets/RolexPNG.png">
     </div>
@@ -43,7 +38,7 @@ body {
             <label for="feedback">Feedback:</label>
             <textarea id="feedback" name="feedback" placeholder="Type your feedback here" required></textarea>
              <div  class="new-color">
-            <button id="btn" type="submit">Submit Feedback</button>
+            <button id="btn" type="submit" onclick="sendMail()">Submit Feedback</button>
             </div>
         </form>
     </div>
