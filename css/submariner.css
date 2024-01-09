@@ -183,16 +183,15 @@ body, html {
     border: none;
 }
 #video-one-btn {
-    width: 200px;
-    font-size: 18px;
-    padding: 10px;
-    border: 1px;
-    color: #f8f8f8;
-    cursor: pointer;
+    cursor: pointer; 
+    border: 1px solid #f8f8f8; 
+    background-color: transparent; 
+    height: 50px; 
+    width: 200px; 
+    color: #3498db; 
+    font-size: 1.5em; 
     border-radius: 30px;
-    margin-top: 20px;
-    /* background-color: transparent;
-    background: blur(15px); */
+    filter: blur(3);
   }
 .image-one{
     margin-top: -5px;

@@ -113,7 +113,7 @@ if(signupPassword !== confirmSignUpPassword)
       
         name: username,
         cart:empty,
-        wishlist: empty,
+        saveforlater: empty,
 
     });
 
@@ -154,6 +154,9 @@ submitButton.addEventListener("click", function () {
        const user = userCredential.user;
        errorInSigningIn.innerHTML="";
        console.log("Sign in Successful");
+       localStorage.setItem("check", 1);//to see if anyone is logged in
+       localStorage.setItem("user", email);
+       window.location.href="../html/MainPage.html";
   //     window.alert("Success! Welcome back!");
   //     // Redirect or perform any other action after successful sign-in
      })
