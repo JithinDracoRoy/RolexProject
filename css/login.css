@@ -283,12 +283,12 @@ color: #6c757d;
 .account-created{
 
 color:green;
-font-size:12px;
+font-size:15px;
 }
 
 
 #signUpErrorid{
   color:red;
-  font-size:12px;
+  font-size:15px;
   margin-top:-10px;
 }
