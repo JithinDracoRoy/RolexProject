@@ -18,13 +18,11 @@ const firebaseConfig = {
   measurementId: "G-SYHPGRBD62"
 };
  
- 
-const user = "jintu@gmail.com";
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
  
 const series ="Date Just";
-// const user = localStorage.getItem("user");
+let user = localStorage.getItem("user");
  
 //colRef -> docRef -> colRef2 -> docRef2
 const watchCollectionRef = collection(db,"WatchCollection"); //Get collection "WatchCollection" from databse
@@ -44,6 +42,7 @@ getDocs(seriesCollectionRef).then((snapshot)=>{
     snapshot.docs.forEach(async (doc) => {
      createButton(doc);    
   })
+  addRecommendation(series);
   currentWatchId = watchIdArray[0];
   displayWatchData(currentWatchId)
 })
@@ -251,3 +250,13 @@ playPauseIcon.addEventListener("click",(event) => {
     iconPaused = "false";  
   }
 });
+
+
+//Add to recommendations
+const sessionStorage = window.sessionStorage; 
+const addRecommendation=(series)=> {
+  let recommendationsArray = JSON.parse(sessionStorage.getItem('recommendationsArray')) || [];
+  recommendationsArray.push(series);
+  // Store the updated array back in session storage
+  sessionStorage.setItem('recommendationsArray', JSON.stringify(recommendationsArray));
+}

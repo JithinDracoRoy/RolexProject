@@ -1,37 +1,3 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAru6JgHWgmu9eMdCi2b9eP7R8xLOxteqA",
-  authDomain: "rolex-clone.firebaseapp.com",
-  projectId: "rolex-clone",
-  storageBucket: "rolex-clone.appspot.com",
-  messagingSenderId: "195944459124",
-  appId: "1:195944459124:web:ee7f54a1a87ef193119a21",
-  measurementId: "G-SYHPGRBD62"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-const landingPageCollection = collection(db, "LandingPage");
-const assetsDocument = doc(landingPageCollection, "Assets");
-
-getDoc(assetsDocument)
-  .then((docSnapshot) => {
-    if (docSnapshot.exists()) {
-      // Document data is available in docSnapshot.data()
-      const assetsData = docSnapshot.data().Vedio1;
-      console.log("Assets Data:", assetsData);
-      document.getElementById("mainVideo").src = assetsData;
-    } else {
-      console.log("No such document!");
-    }
-  })
-  .catch((error) => {
-    console.error("Error getting document:", error);
-  });
 
 function logScrollPosition() {
   var scrollPosition = parseInt(window.scrollY);
@@ -159,10 +125,10 @@ if (check === 1) {
   })();
 }
 else {
-  document.getElementById("opencart").style.display = "none";
-  document.getElementById("closecart").style.display = "none";
-  document.getElementById("number").style.display = "none";
-  document.getElementById("login").addEventListener("click", function () {
-    window.location.href = "../html/login.html";
-  });
+  // document.getElementById("opencart").style.display = "none";
+  // document.getElementById("closecart").style.display = "none";
+  // document.getElementById("number").style.display = "none";
+  // document.getElementById("login").addEventListener("click", function () {
+  //   window.location.href = "../html/login.html";
+  // });
 }

@@ -19,21 +19,24 @@
     <link rel="stylesheet" href="../css/subnavbar.css">
     <link rel="stylesheet" href="../css/gmt.css">
     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/gmtMenubar.css">
+    <!-- <script src="../javascript/MainPage.js"></script> -->
     <script  src="../javascript/menubar.js"></script>
     <script type="module" src="../javascript/menubarFavIcon.js"></script>
     <!-- <script  src="../javascript/switchModels.js" type="module"></script> -->
-    <script type="module" src="../javascript/gmtSwicthModelsTry.js"></script>
+    <script type="module" src="../javascript/gmtSwicthModels.js"></script>
     <script src="../javascript/gmtDiscoverModels.js" type="module"></script>
     <script type="module" src="../javascript/gmtIntro.js"></script>
     <script type="module" src="../javascript/gmt3Dmodel.js"></script>
     <script type="module" src="../javascript/gmtFooter.js"></script>
     <script type="module" src="../javascript/gmtAbout.js"></script>
-    <script src="../javascript/gmtScroll.js"></script>
+    <script src="../js/gmtscroll.js"></script>
+    <script src="../js/gmt.js"></script>
 </head>
 <body>
-
+    <!-- <div id="imported"></div> -->
     <!-- Menubar -->
-    <header>
+    <!-- <header>       
         <div class="navbar" style="padding-left: 120px; padding-right: 120px;">
             <div class="row" style="margin-top:10px;">
                 <div class="containers" onclick="menuBar(this)" style="margin-bottom: -10px;">
@@ -51,15 +54,92 @@
                 <i class="bi bi-suit-heart" id="menubar-fav-icon" style="font-size:24px;z-index: 5;"></i><span id="wishlist-size"></span>
             </div>
         </div>
-    </header>
+    </header> -->
 
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-spinner watch-spinner"></div>
+    </div>
+    <header
+        style="background-image: linear-gradient(to right, #0b3e27, #197149);height: 105px; z-index: 400;">
+        <div class="navb" id="menubar" style="padding-left: 120px;padding-top: 30px;">
+            <div class="row" id="firstpart"
+                style="margin-top: 10px;float: left;visibility: hidden;"
+                class="menuicon">
+                <div class="containers"
+                    onclick="menubar(this);displayMenu();"
+                    style="margin-top: 5px;">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                </div>
+                <p style="margin-left: 30px;margin-top: -20px;"
+                    id="menuname">Menu</p>
+            </div>
+            <div style="float: left;margin-left: 320px;">
+                <img id="mainIcon" src="../assets/RolexPNG.png" alt="ROLEX">
+            </div>
+            <div id="lastpart"
+                style="margin-left: 170px;margin-top: 10px; float: left; display: none;">
+                <i id="opencart" class="bi bi-cart3"
+                    style="font-size:24px"></i>
+                <i id="closecart" class="fa fa-shopping-cart"
+                    style="font-size:24px;display: none;"><span
+                        id="number"></span></i>
+                <i class="fa fa-heart"
+                    style="font-size:24px;display: none;"></i>
+                <i class="" id="menubar-fav-icon" style="font-size:24px"></i><span id="wishlist-size"></span>
+                <a href="map.html" style="color: white;"><i
+                        class="fa fa-map-marker"
+                        style="font-size:24px"></i></a>
+                <button class="btn" id="login"><b>Login</b></button>
+                <div id="dropdown" class="dropdown">
+                    <!-- Your selection list content goes here -->
+                    <ul>
+                        <li><a href="#" id="firstoption"></a></li>
+                        <li><a href="#">Account</a></li>
+                        <li onclick="logout();"><a href="#">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="extranav" id="hiddennav">
+            <div class="x1"
+                style=" padding-left: 100px; padding-top: 40px;">
+                <p>Rolex Watches<br>Watchmaking </p>
+                <p><br>About Rolex</p>
+                <p><br>Rolex And Sports<br>Perpetual Initiatives </p>
+                <p><br>Buying a Rolex <br>Care and Services</p>
+            </div>
+            <div class="x2"
+                style="float: left;margin-left: 450px;margin-top: -360px;">
+                <h3 style="font-size: 50px;"><b>Rolex Watches</b></h3>
+                <div class="scroll-container">
+                    <a href="DateJust.html"><img
+                            src="../assets/datejustnav.avif"></a>
+                    <a href="Submariner.html"><img
+                            src="../assets/submarinernav.avif"></a>
+                    <a href="gmt.html"><img
+                            src="../assets/gmtmasternav.avif"></a>
+                    <a href="oyester.html"><img
+                            src="../assets/oysternav.avif"></a>
+                    <img src="../assets/daydatenav.avif">
+                    <img src="../assets/seadwellernav.avif">
+                    <img src="../assets/deepseanav.avif">
+                    <img src="../assets/datejustladynav.avif">
+                    <img src="../assets/cosmographnav.avif">
+                    <img src="../assets/yacht-masternav.avif">
+                    <img src="../assets/air-kingnav.avif">
+                    <img src="../assets/explorernav.avif">
+                </div>
+            </div>
+        </div>
+    </header>
    <!-- Sub Navbar --> 
     <nav class="navbar-lower row">
         <span class="row col-9">
             <span class="rolex-watches-options "><p><i class="bi bi-arrow-left" style="margin-left:-30px ;"></i>&nbsp;&nbsp;&nbsp;Rolex watches</p></span>
             <span class="cross">|</span>
             <span class="gmt-dropdown">
-                <p>GMT-Master II <i style="margin-left: -40px;" class="bi bi-caret-down-fill"></i></p>
+                <a href="../html/chatbot.html" id="chatbot"><p>Rolex Chatbot </p></a>
             </span>
         </span>
         <div class="subnav-btn col-3"><button class="configure-button ">Configure</button></div>

@@ -3,28 +3,12 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebas
 import {   getFirestore, collection, getDocs, doc, getDoc,onSnapshot,
   setDoc, deleteDoc, 
   query, where } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-// ... your Firebase configuration
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyAru6JgHWgmu9eMdCi2b9eP7R8xLOxteqA",
-  authDomain: "rolex-clone.firebaseapp.com",
-  projectId: "rolex-clone",
-  storageBucket: "rolex-clone.appspot.com",
-  messagingSenderId: "195944459124",
-  appId: "1:195944459124:web:ee7f54a1a87ef193119a21",
-  measurementId: "G-SYHPGRBD62"
-};
-
-
-const user = "jintu@gmail.com";
+  import {firebaseConfig } from '../javascript/config.js'
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const series ="GMT-Masters II";
-// const user = localStorage.getItem("user");
+let user = localStorage.getItem("user");
 
 //colRef -> docRef -> colRef2 -> docRef2
 const watchCollectionRef = collection(db,"WatchCollection"); //Get collection "WatchCollection" from databse
@@ -44,8 +28,9 @@ getDocs(seriesCollectionRef).then((snapshot)=>{
     snapshot.docs.forEach(async (doc) => { 
      createButton(doc);     
   })
+  addRecommendation(series);
   currentWatchId = watchIdArray[0];
-  displayWatchData(currentWatchId)
+  displayWatchData(currentWatchId);
 })
 .catch(err => {
   console.log(err.message)
@@ -59,7 +44,7 @@ const createButton=(doc)=>{
 
   // Attach click event listener
   button.addEventListener("click", async (event) => {
-    // event.preventDefault();
+    event.preventDefault();
     const watchId = button.id;
     await displayWatchData(watchId);
   })
@@ -72,34 +57,34 @@ async function displayWatchData(watchId) {
   currentWatchId = watchId;
   try {  
     changeButtonColor();
-    const watchDocRef = doc(seriesCollectionRef, watchId);
-    const snapshot = await getDoc(watchDocRef);
-    const watchData = snapshot.data();
 
-    // Access and display the fields
-    const watchSeriesElement = document.getElementById("design-title");
-    const watchModelElement = document.getElementById("design-name");
-    const watchImageElement = document.getElementById("design-model");
+    // Check local storage first
+    const storedData = localStorage.getItem(`${watchId}`);
+    if (storedData) {
+        const watchData = JSON.parse(storedData);
+        updateWatchElements(watchData); // Use a separate function for clarity
+      } else {
+        // Fetch from Firestore if not in local storage
+        const watchDocRef = doc(seriesCollectionRef, watchId);
+        const snapshot = await getDoc(watchDocRef);
+        const watchData = snapshot.data();
+  
+        // Store in local storage for future use
+        localStorage.setItem(`${watchId}`, JSON.stringify(watchData));
+  
+        updateWatchElements(watchData);
+      }
 
-    watchSeriesElement.textContent = watchData.series;
-    watchModelElement.textContent = watchData.model;
-    watchImageElement.src = watchData.img; 
+
     document.getElementById(watchId).style.backgroundColor="white";
 
     const wishlistButton = document.querySelector(".add-fav-label");
-    wishlistButton.id = snapshot.id + "-fav";
+    wishlistButton.id = watchId + "-fav";
 
     await checkWishlistStatus(watchId);
+
+    // Auto Display Coomented
     autoDisplayWatchData(watchId);
-    
-    watchImageElement.addEventListener('mouseenter', ()=>{
-      pauseAutoDisplayWatchData();
-    })
-    watchImageElement.addEventListener('mouseleave', ()=>{
-      if(iconPaused != "true"){
-        playAutoDisplayWatchData();
-      }
-    })
 
   } catch (error) {
     console.error("Error loading watch data:", error);
@@ -107,18 +92,6 @@ async function displayWatchData(watchId) {
   }
 }
 
-//Change Button Color
-//  const changeButtonColor=()=>{
-//   getDocs(seriesCollectionRef)
-//   .then((snapshot)=>{
-//       snapshot.docs.forEach((doc) => {
-//       document.getElementById(doc.id).style.backgroundColor="#b1bece"; 
-//     })
-//   })
-//   .catch(err => {
-//     console.log(err.message)
-//   })
-// }
 
 const changeButtonColor=()=>{
   for(const watchId of watchIdArray){
@@ -127,9 +100,32 @@ const changeButtonColor=()=>{
 }
 
 
+const updateWatchElements=(watchData)=> {
+    // Access and display the fields from watchData
+    const watchSeriesElement = document.getElementById("design-title");
+    watchSeriesElement.textContent = watchData.series;
+    console.log();
+
+    const watchModelElement = document.getElementById("design-name");
+    watchModelElement.textContent = watchData.model;
+
+    const watchImageElement = document.getElementById("design-model");   
+    watchImageElement.src = watchData.img; 
+
+    watchImageElement.addEventListener('mouseenter', ()=>{
+        pauseAutoDisplayWatchData();
+      })
+      watchImageElement.addEventListener('mouseleave', ()=>{
+        if(iconPaused != "true"){
+          playAutoDisplayWatchData();
+        }
+      })
+  }
+
+
 
 //check presence of document in wishlist
-async function checkWishlistStatus(watchId) {
+ async function checkWishlistStatus(watchId) {
 
 //   const wishlistCollectionRef = collection(db,"Wishlist")
   const userWishlistCollectionRef = collection(userDocRef,"wishlist");
@@ -193,6 +189,8 @@ onSnapshot(userWishlistCollectionRef, (snapshot) => {
   });
 });
 
+
+// Auto Display Commented
 const autoDisplayWatchData=(watchId)=>{
   if(isPaused =="false"){
     let index = watchIdArray.indexOf(watchId);
@@ -239,6 +237,15 @@ playPauseIcon.addEventListener("click",(event) => {
     iconPaused = "false";  
   }
 });
+
+//Add to recommendations
+const sessionStorage = window.sessionStorage; 
+const addRecommendation=(series)=> {
+  let recommendationsArray = JSON.parse(sessionStorage.getItem('recommendationsArray')) || [];
+  recommendationsArray.push(series);
+  // Store the updated array back in session storage
+  sessionStorage.setItem('recommendationsArray', JSON.stringify(recommendationsArray));
+}
 
 
 
