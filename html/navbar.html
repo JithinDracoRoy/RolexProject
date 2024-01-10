@@ -7,6 +7,7 @@
         <link rel="icon" href="../assets/RolexPNG.png">
         <!-- <link rel="stylesheet" href="../css/MainPage.css"> -->
         <link rel="stylesheet" href="../css/menubar.css">
+        <link rel="stylesheet" href="../css/MainPage.css">
         <script src="../javascript/MainPage.js" type="module"></script>
         <script src="../javascript/menubar.js"></script>
         <link
@@ -31,7 +32,7 @@
         <header
             style="background-image: linear-gradient(to right, #0b3e27, #197149); z-index: 400;">
 
-            <div class="navb" style="padding-left: 120px;padding-top: 30px;">
+            <div class="navb" style="padding-left: 120px;padding-top: 30px;position: fixed;z-index: 8900;">
                 <div class="row" id="firstpart"
                     style="margin-top: 10px;float: left;visibility: hidden;"
                     class="menuicon">
@@ -44,19 +45,15 @@
                     <p style="margin-left: 30px;margin-top: -20px;"
                         id="menuname">Menu</p>
                 </div>
-                <div style="float: left;margin-left: 320px;">
-                    <img id="mainIcon" src="../assets/RolexPNG.png" alt="ROLEX">
+                <div style="float: left;margin-left: 280px;">
+                    <a href="MainPage.html"><img id="mainIcon" src="../assets/RolexPNG.png" alt="ROLEX"></a>
                 </div>
                 <div id="lastpart"
-                    style="margin-left : 190px;margin-top: 10px; float: left; display: none;">
-                    <i id="opencart" class="bi bi-cart3"
-                        style="font-size:24px"></i>
-                    <i id="closecart" class="fa fa-shopping-cart"
-                        style="font-size:24px;display: none;"><span
-                            id="number"></span></i>
-                    <i class="fa fa-heart"
-                        style="font-size:24px;display: none;"></i>
-                    <i class="fa fa-heart-o" style="font-size:24px"></i>
+                style="margin-left: 190px;margin-top: 8px; float: left; display: none;">
+                <a href="Store.html" style="color: white;"><i id="opencart" class="bi bi-cart3"style="font-size:24px;visibility: hidden"></i>
+                <i id="closecart" class="fa fa-shopping-cart" style="font-size:24px;display: none;"><span id="number"></span></i></a>
+                <i id="closeheart" class="fa fa-heart" style="font-size:24px;display: none;"></i>
+                <i id="openheart" class="fa fa-heart-o" style="font-size:24px;visibility: hidden;"></i>
                     <a href="map.html" style="color: white;"><i
                             class="fa fa-map-marker"
                             style="font-size:24px"></i></a>

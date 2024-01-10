@@ -23,38 +23,14 @@
         <script type="module" src="../javascript/cart.js"></script>
         <script src="../javascript/cartt.js"></script>
         <script src="../javascript/cartTwo.js"></script>
+        <script src="../javascript/MainPage.js" type="module"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script
             src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <!-- <script src="../js/cartTwo.js"></script> -->
     </head>
-
-    <script>
-    async function fetchEmailAndSetInput() {
-    const emailInput = document.querySelector('.inputBox input[type="email"]');
- 
-  // Fetch the user document from Firestore
-  try {
-      const userDocRef = doc(db, 'User', 'pavi@gmail.com'); // Replace 'pavi@gmail.com' with the actual user email
-      const userDocSnapshot = await getDoc(userDocRef);
- 
-      if (userDocSnapshot.exists()) {
-          // Get the email from the user document
-          const email = userDocSnapshot.data().email;
- 
-          // Set the fetched email in the email input field
-          emailInput.value = email;
-      } else {
-          console.error('User document does not exist');
-      }
-  } catch (error) {
-      console.error('Error fetching user document:', error);
-  }
-}
-</script>
     <body>
         <div id="imported"></div>
-
         <div class="carousel-container">
             <div class="carousel">
                 <div><img class="carousel-image" src="../assets/air-kingL.avif"
