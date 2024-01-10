@@ -18,12 +18,11 @@ const firebaseConfig = {
   measurementId: "G-SYHPGRBD62"
 };
  
- 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
  
-const series ="Submariner";
-const user = localStorage.getItem("user");
+const series ="Date Just";
+let user = localStorage.getItem("user");
  
 //colRef -> docRef -> colRef2 -> docRef2
 const watchCollectionRef = collection(db,"WatchCollection"); //Get collection "WatchCollection" from databse
@@ -55,7 +54,7 @@ const createButton=(doc)=>{
   let button = document.createElement("button");
   button.id = doc.id; // Set button ID to document ID
   watchIdArray.push(doc.id)
-  button.classList.add("btnround");
+  button.classList.add("image-button");
  
   // Attach click event listener
   button.addEventListener("click", async (event) => {
@@ -64,7 +63,7 @@ const createButton=(doc)=>{
     await displayWatchData(watchId);
   })
 //   currentWatchId = watchIdArray[0];
-  document.querySelector(".watch-models-button").appendChild(button);
+  document.querySelector(".watchebutton").appendChild(button);
 }
  
 // Function to display watch data based on ID
@@ -91,7 +90,7 @@ async function displayWatchData(watchId) {
       }
  
  
-    document.getElementById(watchId).style.backgroundColor="white";
+    document.getElementById(watchId).style.backgroundColor="#212121";
  
     const wishlistButton = document.querySelector(".add-fav-label");
     wishlistButton.id = watchId + "-fav";
@@ -110,7 +109,7 @@ async function displayWatchData(watchId) {
  
 const changeButtonColor=()=>{
   for(const watchId of watchIdArray){
-    document.getElementById(watchId).style.backgroundColor="#6a7f95";
+    document.getElementById(watchId).style.backgroundColor="#cbcbcb";
   }
 }
  
@@ -252,8 +251,9 @@ playPauseIcon.addEventListener("click",(event) => {
   }
 });
 
+
 //Add to recommendations
-const sessionStorage = window.sessionStorage;
+const sessionStorage = window.sessionStorage; 
 const addRecommendation=(series)=> {
   let recommendationsArray = JSON.parse(sessionStorage.getItem('recommendationsArray')) || [];
   recommendationsArray.push(series);
