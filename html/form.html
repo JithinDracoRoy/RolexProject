@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../scss/form.css">
+    <title>Feedback Form</title>
+    <!-- Add this script before your custom script -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+</head>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Times New Roman', serif;
+
+  &::before {
+    content: '';
+     position: fixed;
+      background-image: url('../assets/yacht-masterLL.png'); 
+    background-position: center;
+    z-index: -1;
+  }
+}
+</style>
+<body>
+     
+    <div class="rolexPic">
+        <img id="firstImage"  src="../assets/RolexPNG.png">
+    </div>
+    <div class="feedback-form">
+        <h2>Rating Form</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+            <label for="feedback">Feedback:</label>
+            <textarea id="feedback" name="feedback" placeholder="Type your feedback here" required></textarea>
+             <div  class="new-color">
+            <button id="btn">Submit Feedback</button>
+            </div>
+        </form>
+    </div>
+    <script src = "../javascript/form.js"></script>
+    <script>emailjs.init("E_AG4MMSPrDLV_tVH");</script>
+</body>
+</html>

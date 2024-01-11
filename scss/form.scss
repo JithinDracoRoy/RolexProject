@@ -1,0 +1,126 @@
+$primary-color:#105033;
+$background-color: #ecf0f1;
+$secondary-color: #2ecc71;
+$font-family: 'Times New Roman', serif;
+$border-radius:20px;
+$color:white;
+// Custom function to calculate a new color
+@function calculate-new-color($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+@function calculate-font-size($base-size, $multiplier) {
+    @return $base-size * $multiplier;
+  }
+// Define a mixin for font family
+@mixin customFont() {
+  font-family: $font-family;
+}
+@mixin customBorder(){
+    border-radius:$border-radius;
+}
+.feedback-form {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: $background-color;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 50px;
+  margin-left: 100px;
+  @include customBorder();
+
+
+  h2 {
+    text-align: center;
+    color: $primary-color;
+    margin-bottom: 20px;
+    @include customFont;
+  }
+
+  form {
+    display: grid;
+    gap: 20px;
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: $primary-color;
+      @include customFont;
+      @include customFont();
+      font-size: calculate-font-size(16px, 1.2); 
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid $primary-color;
+      border-radius: 4px;
+      font-size: 16px;
+      box-sizing: border-box;
+      @include customFont;
+     
+      &:focus {
+        outline: none;
+        border-color: darken($primary-color, 10%);
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: $primary-color;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      @include customFont;
+      font-size: calculate-font-size(16px, 1.2); 
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  }
+
+  @media (max-width: 500px) {
+    max-width: 100%;
+  }
+}
+
+.success-message {
+  text-align: center;
+  color: $secondary-color;
+  margin-top: 20px;
+  @include customFont;
+ background-color: $background-color;
+}
+#name{
+border-radius:$border-radius;
+}
+#email{
+    border-radius:$border-radius;
+}
+#feedback{
+    border-radius:$border-radius;
+}
+
+// Example of using the custom function
+.new-color {
+  background-color: calculate-new-color($primary-color, 20%);
+}
+#firstImage{
+    width: 50px;
+    margin-left: 650px;
+    margin-top: 19px;
+}
+.rolexPic{
+    background:linear-gradient(90deg, #0b3e27, #197149);
+    margin-top: -10px;
+    height: 90px;
+}

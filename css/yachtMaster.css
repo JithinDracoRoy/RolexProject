@@ -1,0 +1,477 @@
+.Section1Video{
+    position: relative;
+}
+
+#firsttext{
+    position: absolute;
+    top:250px;
+    color:white;
+    text-align: center;
+    margin-left: 600px;
+    font-size: 20px;
+
+}
+#firstvideo{
+    top:-200px;
+    width: 100%;
+    margin-bottom: -0px;
+}
+#SecondText{
+    position: absolute;
+    top: 300px;
+    font-size: 70px;
+    color: white;
+    /* text-align: center; */
+    margin-left: 500px;
+}
+#thirdtext{
+    position: absolute;
+    top: 400px;
+    font-size: 70px;
+    color: white;
+    /* text-align: center; */
+    margin-left: 440px;
+}
+
+ /* #Main text{
+    position: absolute;
+    top: 500px;
+    z-index: 100;
+} 
+  #secparaone{
+    position: absolute;
+    top: 600px;
+    color: white;
+}
+#secparatwo{
+    position: absolute;
+    top: 700px;
+    color: white;
+}  */
+
+.ImageContainer {
+    position: relative;
+    z-index: 1;
+    margin-bottom: -25px;
+}
+
+#imageone {
+    width: 100%;
+    margin-top: -60px;
+}
+
+#headtext {
+    position: absolute;
+    z-index: 2;
+    top: 80%; /* Adjust as needed */
+    left: 30%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.ImageContainerSub {
+    background-color: black; /* Set the background color for .ImageContainerSub */
+}
+
+#imagetwo {
+    position: absolute;
+    width: 80%; /* Adjust as needed */
+    top: 135%; /* Adjust as needed */
+    left: 50%; /* Adjust as needed */
+    transform: translate(-50%, -50%);
+    z-index: 3; /* Set a higher z-index than #headtext */
+    background-color: black;
+    margin-bottom: -100px;
+}
+#chatbotlink{
+    text-decoration: none;
+    color: white;
+}
+#chatbotlink:hover{
+    color: #198a56;
+}
+
+
+.Section1 {
+    position: relative;
+}
+
+.MainTextRow {
+    position: absolute;
+    top: 50%; /* Adjust as needed */
+    left: 50%; /* Adjust as needed */
+    transform: translate(-50%, -50%);
+    z-index: 2; /* Set a higher z-index than the video */
+}
+
+.MainTextOneCol6,
+.MainTextTwoCol6 {
+    width: 100%; /* Adjust as needed */
+    color: white;
+}
+
+.Section1Video {
+    position: relative;
+    z-index: 1;
+}
+#secFirstImage{
+    margin-top:80%;
+    width: 100%;
+    height: 800px;
+    background-size: cover;
+
+}
+/* #secSecondImage{
+    position: relative;
+    width: 100%;
+    height: 2000px;
+}
+#subSecondImage{
+    position: absolute;
+    width: 80%;
+    margin-left: 80px;
+} */
+
+.secContainer {
+    position: relative;
+    width: 100%; /* Set the width based on your design */
+    height: 700px; /* Set the height based on your design */
+}
+
+#secSecondImage {
+    width: 100%;
+    height: 2200px; /* You can adjust this based on your design */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Other styles specific to secSecondImage */
+   /* Example border style */
+}
+
+#subSecondImage {
+    width: 70%;
+ /* You can adjust this based on your design */
+    position: absolute;
+    top: 80px;
+    left: 200px;
+    /* Other styles specific to subSecondImage */
+     /* Example opacity */
+    z-index: 1; /* Example z-index */
+}
+#secPara{
+    position: absolute;
+    color:white;
+    top:120%;
+    /* text-align: center; */
+    margin-left: 400px;
+}
+
+/* .sectionThree{
+    position: relative;
+    margin-top: 1400px;
+}
+ #secThreeImage{
+    position: absolute;
+    width: 100%;
+    color: white;
+}  */
+
+.sectionThree {
+    position: relative;
+    width: 100%; /* Set the width based on your design */
+    height: 1000px; /* Set the height based on your design */
+    margin-top: 1400px;
+}
+
+#secThreeImage {
+    width: 100%;
+    height: 100%; /* You can adjust this based on your design */
+    object-fit: cover; /* Ensure the image covers the container */
+}
+
+.sectionThreePara {
+    position: absolute;
+    top: 70%; /* Adjust the vertical position as needed */
+    left: 50%; /* Adjust the horizontal position as needed */
+    transform: translate(-50%, -50%); /* Center the content */
+    color: white; /* Set text color */
+     /* Align text in the center */
+    padding: 20px; /* Add padding for better readability */
+}
+.sectionThreeSub{
+    background: linear-gradient( to bottom,#05050d,#050712);
+}
+#secThreeOne{
+    width: 40%;
+    margin-left: 400px;
+}
+.sectionSubThreePara{
+    color: white;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    text-align: center;
+}
+#secThreeTwo{
+    width:84%;
+    margin-left: 110px;
+    margin-bottom: 100px;
+}
+#secThreeLastImg{
+    width: 100%;
+}
+.lastPart{
+    margin-top: 100px; 
+  }
+  .lastImages {
+    display: flex;
+    justify-content: space-between;
+}
+.lastText{
+    color:#197149 ;
+    text-align: center;
+}
+#learnMore{
+    background-color: #197149;
+    color: white;
+    width: 155px;
+    height: 44px;
+    border: 1px solid #197149 ;
+    border-radius: 77px;
+    padding-top : -5px;
+}
+.lastNav{
+    margin-left: 100px;
+    font-size: small;
+}
+.social-icons{
+    margin-left: 100px;
+    padding-bottom: 100px;
+     margin-bottom: -70px; 
+}
+.sectionTwo{
+    background-color: #000000;
+}
+
+.footer{
+    /* margin-top: 100px; */
+    padding-top: 40px;
+   
+}
+.roloex-footer-logo{
+    width: 80px;
+    height:80px;
+    margin-left: 25%;
+}
+.footer-container{
+    margin-left: 50px;
+    line-height: 20px;
+}
+.footer p{
+    margin-bottom: 0%;
+    font-size: small;
+    font-weight: 600;
+    padding: 3px;
+}
+
+#lastimage{
+    width: 101%;
+    height: 400px;
+}
+
+.footerimage {
+    position: relative;
+    display: inline-block;
+     /* Ensures that the container only takes as much width as necessary */
+     width: 100%;
+     height: 400px;
+     /* position: sticky; */
+  
+}
+
+.lastdiv {
+    position: absolute;
+    top: 50%; /* Adjust as needed to vertically center the text */
+    left: 50%; /* Adjust as needed to horizontally center the text */
+    transform: translate(-50%, -50%); /* Centers the text precisely */
+    text-align: center; /* Centers the text within the container */
+    color: white; /* Adjust the text color */
+    font-size: 18px; /* Adjust the font size */
+    font-weight: bold; /* Adjust the font weight if needed */
+}
+.lastdiv a{
+    color: white;
+    text-decoration: none;
+}
+.lastdiv a:hover{
+    color:gray;
+    text-decoration: none;
+}
+.lastdiv i:hover{
+    color: gray;
+}
+.language{
+    margin-left: 130px;
+    margin-top: -40px;
+    margin-bottom: 20px;
+}
+.fvrt{
+    color: #0b3e27;
+}
+
+
+.navbar-lower{
+    width:101.1% ; height:85px ;
+    background-color:#111111 ;    
+    position: sticky;
+    margin-top: -100px;
+    z-index: 1;
+  }
+  .rolex-watches-options{
+    width:250px ;
+    color:white ;
+    margin:30px ;  margin-right:0px ;   
+    padding-left:50px ; padding-right:-100px ; 
+    transition : color 1s ease-in-out;
+         
+  }
+  .rolex-watches-options :hover{
+    color:#198a56    
+  }
+  .rolex-watches-options p{
+    width:200px ;
+    font-size: 15px ;
+    padding-right:-10px ;
+  }
+  .cross{
+    width:2px ;
+    margin-top:30px ;
+    padding-left:-60px ;
+    color: white ;
+  }
+  .gmt-dropdown{
+    width:300px ;
+    color:white ;
+    margin:30px ;
+    padding-right:10px ;
+  }
+  .gmt-dropdown :hover{
+    color:#198a56;
+  }
+  .subnav-btn{
+   margin-top: -70px ; margin-left:1150px ;
+  }
+  .configure-button{
+    width:120px ; height:35px ;   
+    color: white; background-color:#188754 ;  
+    /* padding-right:10px ; padding-right:10px ;   */
+    border:none ; border-radius:30px ;   
+    font-size:15px ; 
+    padding: 7px; 
+    margin-top: 18px;
+  }
+  .configure-button:hover{
+    background-color: #197149;
+  }
+  #arrowleft{
+    margin-right: 20px;
+  }
+
+@keyframes smooth-appear{
+   from{
+    transform: translateY(60px);
+   }
+   to{
+    transform: translateY(0px);
+    opacity: 1;
+   }
+}
+@keyframes disappear{
+    from{
+     transform: translateY(0px);
+     opacity: 1;
+    }
+    to{
+        transform: translateY(60px);
+        opacity: 0;
+    }
+ }
+
+ body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  .containers {
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .bar1,
+  .bar2 {
+    width: 18px;
+    height: 2px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.4s;
+  }
+  
+  /* Rotate first bar */
+  .change .bar1 {
+    transform: translate(0, 3px) rotate(-45deg);
+  }
+  
+  /* Rotate last bar */
+  .change .bar2 {
+    transform: translate(0, -3px) rotate(45deg);
+  }
+  .navb {
+    background-image: linear-gradient(to right, #0b3e27, #197149);
+    align-items: stretch;
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 105px;
+    z-index: 20;
+  }
+  .mainIcon {
+    height: 50px;
+    padding-left: 110px;
+  }
+  
+  i {
+    padding-left: 50px;
+  }
+  
+  .menuicon :hover {
+    color: #197149;
+  }
+  #hiddennav {
+    color: white;
+    z-index: 90;
+    font-size: 25px;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin-top: 100px;
+    height: 0px;
+    transition: height 1s ease-in;
+    margin-bottom: 100px;
+  }
+  .scroll-container {
+    overflow-x: scroll;
+    scrollbar-width: none;
+    white-space: nowrap;
+    width: 900px;
+  }
+  .scroll-container img {
+    width: 360px;
+    padding-left: 5px;
+  }
+  #chatbot{
+    text-decoration: none;
+    margin-left: 30px;
+    color: white;
+  }
+  #chatbot:hover{
+    color: #188754;
+  }

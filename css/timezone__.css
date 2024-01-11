@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: linear-gradient(to right, #0b3e27, #197149);
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+  }
+
+  #time-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .country-time {
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color:rgba(0, 0, 0, 0.5);
+    /* opacity: 0.5; */
+  }
+  .country-time:hover{
+      color: lightgreen;
+      transform: scale(1.4); 
+  }

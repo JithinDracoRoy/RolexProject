@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel = "stylesheet" href = "/css/login.css">
+  <link rel="icon" href="../assets/RolexPNG.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <script type = "module" src = "../javascript/login.js"></script>
+</head>
+<body>
+  <div class = "login-container">    
+    <div id="main" class="signinform">
+        <img src="/assets/RolexPNG.png" style="height:50px;width:50px;margin-left:150px;margin-top:-80px;">
+        <h1 style="margin-bottom:30px;">Sign In</h1>
+        <input id="email"  type="email" placeholder="Email">
+        <span id="signin-email-error" class="error">Please fill out this field</span>
+        <span id="invalid-email-format-signIn" class="signIn-Invalid">Invalid email format</span>
+        <div class="password-container">  
+            <div class="password-test row">
+                <input class="col-10" id="password" type="password" placeholder="Password"></input>
+                <button  class="col-2" id="toggleButton-signin" class="toggle-password" >        
+                    <i id="signIn-Icon" class="bi bi-eye-slash-fill"></i>
+                </button>           
+                <span class="error" id="sign-in-password-error" style="margin-top:-10px;">Please fill out this field</span>  
+            </div>            
+        </div>
+        <button id="submit-btn" type="submit">Sign In</button>
+        <span class="sign-up-error" id="signUpErrorid" ></span>
+        <a href="../html/passwordreset.html"><button id="forget-password" style="margin-top:-10px;" >Forgot password?</button></a>
+        <br>
+        <br>
+        <div style="text-align: center;margin-top: -10px;">Do not have an account?</div>   
+        <button id="sign-up">Sign Up</button>   
+     </div>   
+    <div id = "create-acct">
+      <img src="/assets/RolexPNG.png" style="height:50px;width:50px;margin-left:150px;margin-top:-100px;">
+      <h1 style="margin-top:-20px;">Create an Account</h1>
+      <input id="username" type="text" placeholder="Username"  style="margin-bottom:-35px;"></input>
+      <br>
+      <span id="username-validation"></span>
+      <span class="error1" id="signup-username-error" style="margin-top: -18px;">Please fill out this field</span>
+      <input id = "email-signup" type = "email" placeholder = "Email *"></input>
+      <span class="error1" id="signup-email-error">Please fill out this field</span>
+      <span id="invalid-email-format-signUp" class="signUp-Invalid">Invalid email format</span>
+      <div class="passwordcontainer row">
+            <input class="col-10" id = "password-signup" type = "password" placeholder = "Password *">      
+            <button class="col-2" id="toggleButton-signup" class="toggle-password" >        
+                <i id="signUp-Icon" class="bi bi-eye-slash-fill"></i>
+            </button>
+            <span id="password-strength"></span>
+            <span class="error1" id="signup-password-error" style="margin-top: -10px;">Please fill out this field</span>                
+      </div>
+      <div class="passwordcontainer row">
+        <input class="col-10" id = "confirm-password-signup" type = "password" placeholder = "Confirm Password *"></input>
+        <button id="toggleButton-confirm" class="toggle-password col-2" >
+            <i id="signUpConfirm-Icon" class="bi bi-eye-slash-fill"></i>
+        </button> 
+        <span class="error1" id="confirm-password-signup-error" style="margin-top:-10px;">Please fill out this field</span>
+        <span class="password-error" id="password-no-match" >Passwords don't match</span>
+      </div>
+      <button id = "create-acct-btn" style="margin-top:10px;">Create Account</button>
+      <span class="account-created" id="account-creat"></span>
+      <button id = "return-btn">Return to Login</button>
+    </div>
+  </div>
+</body>
+</html>

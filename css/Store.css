@@ -1,0 +1,32 @@
+body {
+    overflow-x: hidden;
+    margin-left: 0;
+  }
+  .containers {
+    display: inline-block;
+    cursor: pointer;
+  }
+  .mainVideo {
+    margin-top: -100px;
+    position: relative;
+  }
+  .textInside {
+    color: white;
+    position: absolute;
+    top: 250px;
+    left: 500px;
+  }
+  .second p {
+    font-weight: bold;
+  }
+  #firsttext {
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    margin-top: 100px;
+    font-family: sans-serif;
+    opacity: 0;
+  }
+  .card:hover {
+    transform: scale(1.1);
+}
