@@ -16,11 +16,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="../css/menubar.css">
-    <link rel="stylesheet" href="../css/subnavbar.css">
+    <link rel="stylesheet" href="../scss/subnavbar.css">
     <link rel="stylesheet" href="../css/gmt.css">
-    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../scss/footer.css">
     <link rel="stylesheet" href="../css/gmtMenubar.css">
     <!-- <script src="../javascript/MainPage.js"></script> -->
+    <script src="../javascript/MainPage.js" type="module"></script>
     <script  src="../javascript/menubar.js"></script>
     <script type="module" src="../javascript/menubarFavIcon.js"></script>
     <!-- <script  src="../javascript/switchModels.js" type="module"></script> -->
@@ -30,8 +31,8 @@
     <script type="module" src="../javascript/gmt3Dmodel.js"></script>
     <script type="module" src="../javascript/gmtFooter.js"></script>
     <script type="module" src="../javascript/gmtAbout.js"></script>
-    <script src="../js/gmtscroll.js"></script>
-    <script src="../js/gmt.js"></script>
+    <script src="../javascript/gmtScroll.js"></script>
+    <script src="../javascript/gmt.js"></script>
 </head>
 <body>
     <!-- <div id="imported"></div> -->
@@ -75,7 +76,7 @@
                     id="menuname">Menu</p>
             </div>
             <div style="float: left;margin-left: 320px;">
-                <img id="mainIcon" src="../assets/RolexPNG.png" alt="ROLEX">
+                <a href="MainPage.html"><img id="mainIcon" src="../assets/RolexPNG.png" alt="ROLEX"></a>
             </div>
             <div id="lastpart"
                 style="margin-left: 170px;margin-top: 10px; float: left; display: none;">
@@ -86,7 +87,7 @@
                         id="number"></span></i>
                 <i class="fa fa-heart"
                     style="font-size:24px;display: none;"></i>
-                <i class="" id="menubar-fav-icon" style="font-size:24px"></i><span id="wishlist-size"></span>
+                <a href="wishlist.html" style="color: white;"><i class="" id="menubar-fav-icon" style="font-size:24px"></i><span id="wishlist-size"></span></a>
                 <a href="map.html" style="color: white;"><i
                         class="fa fa-map-marker"
                         style="font-size:24px"></i></a>
@@ -136,7 +137,7 @@
    <!-- Sub Navbar --> 
     <nav class="navbar-lower row">
         <span class="row col-9">
-            <span class="rolex-watches-options "><p><i class="bi bi-arrow-left" style="margin-left:-30px ;"></i>&nbsp;&nbsp;&nbsp;Rolex watches</p></span>
+            <span class="rolex-watches-options "><p id="goback"><i class="bi bi-arrow-left" style="margin-left:-30px ;"></i>&nbsp;&nbsp;&nbsp;Rolex watches</p></span>
             <span class="cross">|</span>
             <span class="gmt-dropdown">
                 <a href="../html/chatbot.html" id="chatbot"><p>Rolex Chatbot </p></a>

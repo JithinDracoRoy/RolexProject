@@ -192,14 +192,16 @@ a:hover {
   margin-left: 360px;
   color: #f8f8f8;
 }
-.discoverlink {
+.discoverlink a {
   position: absolute;
   top: 50%;
-  text-decoration: none;
   color: #f8f8f8;
   margin-left: 600px;
+  cursor : pointer;
+ 
 }
-.discoverlink :hover {
-  text-decoration: none;
+.discoverlink a:hover {
   color: gray;
+  text-decoration: none;
+  cursor : pointer;
 }

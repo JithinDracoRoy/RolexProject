@@ -23,7 +23,7 @@ h1{
   margin-bottom:70px;
   font-size: 60px;
 }
-#btn:hover{
+#btnexit:hover{
   background-color: grey;
 }
 .Main-Cart-Container{
@@ -251,7 +251,7 @@ font-weight: 100;
 
 
 
-#btn {
+#btnexit {
   background-color:#104f32;
   color:white;
   width: 24em;
@@ -264,7 +264,7 @@ font-weight: 100;
   transition: all 0.6s ease;
 }
 
-#btn:hover {
+#btnexit:hover {
   background-color:white;
   cursor: pointer;
   color: #104f32;

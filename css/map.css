@@ -44,9 +44,9 @@ i {
   left: 2%;
   position: absolute;
   z-index: 1000;
-  background-color: rgb(255, 249, 237);
+  background-color: #8ca695;
   width: 400px;
-  height: 400px;
+  height: 470px;
   overflow-y: scroll;
   overflow-x: hidden;
   display: none;
@@ -60,20 +60,28 @@ i {
   cursor: pointer;
 }
 .store-details {
-  margin-top: 10px;
-  height: 300px;
+  margin-top: 5px;
+  height: 400px;
 }
 .store-details h1,
 h3,
 p,
 img {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 600;
   margin-left: 10px;
   margin-right: 20px;
 }
+.store-details h1 {
+  font-size: 30px;
+}
+.store-details h3 {
+  font-size: 25px;
+}
 #g-map-icon {
-  margin-top: 150px;
+  padding-bottom: 2px;
   cursor: pointer;
-  margin-left: -40px;
+  margin-left: -30px;
 }
 #g-map-icon:hover {
   color: #8ba495;

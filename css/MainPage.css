@@ -70,7 +70,7 @@ i {
 #dropdown {
   display: none;
   position: absolute;
-  top: 25px;
+  top: 35px;
   left: 1100px;
   text-align: center;
   background-color: white;
@@ -203,7 +203,7 @@ i {
     opacity: 1;
   }
 }
-#datejust {
+/* #datejust {
   position: absolute;
   top: 1300px;
   left: 100px;
@@ -284,7 +284,7 @@ i {
   top: 7050px;
   left: 100px;
   opacity: 0;
-}
+} */
 .share i {
   margin-left: -30px;
 }
