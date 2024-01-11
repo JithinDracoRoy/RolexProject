@@ -13,7 +13,7 @@ const updateMapTheme = () => {
   fetchFirestoreGeopoints(map);
   let tileLayerUrl = "";
 
-  const logo = document.getElementById("rolex");
+  const close = document.getElementById("closeIcon");
   const content = document.getElementById("map-content");
 
   map.eachLayer((layer) => {
@@ -23,13 +23,17 @@ const updateMapTheme = () => {
         : "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png";
       layer.setUrl(tileLayerUrl);
 
-      content.style.backgroundColor = isDarkMode 
-        ? "black" 
+      content.style.backgroundColor = isDarkMode
+        ? "black"
         : "#8ca695";
 
-      content.style.color =  isDarkMode
+      content.style.color = isDarkMode
         ? "#2ce35c"
         : "black";
+
+      closeIcon.src = isDarkMode
+        ? "../assets/greencloseicon.png"
+        : "../assets/close icon.png";
     }
 
     if (layer instanceof L.Marker && layer.options.icon === customIcon) {

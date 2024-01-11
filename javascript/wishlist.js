@@ -8,8 +8,7 @@ import {firebaseConfig } from '../javascript/config.js'
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// const user = localStorage.getItem("user");
-const user = "jintu@gmail.com";
+const user = localStorage.getItem("user");
 
 //colRef -> docRef -> colRef2 -> docRef2
 const userCollectionRef = collection(db,"User");

@@ -1,4 +1,4 @@
-function logScrollPosition() {
+function logScrollPosition2() {
   var scrollPosition = parseInt(window.scrollY.toString());
   console.log("Scroll Position: " + scrollPosition);
 
@@ -79,4 +79,4 @@ function logScrollPosition() {
   }
 }
 
-window.addEventListener('scroll', logScrollPosition);
+window.addEventListener('scroll', logScrollPosition2);

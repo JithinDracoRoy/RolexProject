@@ -8,7 +8,10 @@ export { customIcon };
 
 const map = L.map('map');
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  minZoom: 3,
+  noWrap: true
 }).addTo(map);
+L.control.zoom({ position: 'bottomright' }).addTo(map);
 
 const customIcon = L.icon({
   iconUrl: '../assets/darkgreenmarker.png', // Replace with the path to your custom icon image
@@ -31,12 +34,10 @@ function storeLocator() {
         const longitude = position.coords.longitude;
         map.setView([latitude, longitude], 5);
         console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
-        fetchFirestoreGeopoints(map);
       },
       function (error) {
         map.setView([52.6313102, 1.292898], 13);
         console.error(`Error getting user location: ${error.message}`);
-        fetchFirestoreGeopoints(map);
       }
     );
   } else {
@@ -44,7 +45,6 @@ function storeLocator() {
     console.error("Geolocation is not supported by this browser.");
     map.setView([52.6313102, 1.292898], 13);
     console.error(`Error getting user location: ${error.message}`);
-    fetchFirestoreGeopoints(map);
   }
 }
 
@@ -54,55 +54,45 @@ const db = getFirestore(app);
 
 // Function to fetch and display Firestore geopoints
 function fetchFirestoreGeopoints(map) {
+  const mapDataCollection = collection(db, "Map Data");
+  getDocs(mapDataCollection)
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
 
-    const mapDataCollection = collection(db, "Map Data");
-    getDocs(mapDataCollection)
-        .then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                const data = doc.data();
+        // Assuming each document has a field named "geopoint"
+        const geopoint = data.geopoint;
+        const name = data.name;
+        const place = data.place;
+        const image = data.image;
+        const address = data.address;
 
-                // Assuming each document has a field named "geopoint"
-                const geopoint = data.geopoint;
-                const name = data.name;
-                const place = data.place;
-                const image = data.image;
-                const address = data.address;
+        if (geopoint && geopoint.latitude && geopoint.longitude) {
 
-                if (geopoint && geopoint.latitude && geopoint.longitude) {
-                 
-                    // Print latitude and longitude to console
-                    console.log(`Document ID: ${doc.id}, Latitude: ${geopoint.latitude}, Longitude: ${geopoint.longitude}, name:${name}, place:${place}`);
-                    
-                     
-                    const marker = L.marker([geopoint.latitude, geopoint.longitude],{icon: customIcon});
-                    marker.addTo(map)
-                        .bindPopup(`<b>${name}</b><br>${place}`);
-                    marker.on('click',function(){
-                      map.setView([geopoint.latitude, geopoint.longitude], 15);
-                      document.getElementById("storename").innerHTML = `${name}`;
-                      document.getElementById("storeplace").innerHTML = `${place}`;
-                      document.getElementById("storeimage").src = `${image}`;
-                      document.getElementById("storeimage").style.width = '350px';
-                      document.getElementById("storeimage").style.height = '250px';
-                      document.getElementById("storeaddress").innerHTML = `${address}`;
-                      document.getElementById("map-content").style.display='block';
-                      const gMapIcon = document.getElementById("g-map-icon");
-                      console.log(gMapIcon);
-                      if (gMapIcon) 
-                        console.log(geopoint);
-                        gMapIcon.addEventListener('click', function() {
-                          // geopoint.forEach(()=>{
-                            calculateDirections(geopoint.latitude, geopoint.longitude);
-                            console.log(geopoint._lat, geopoint._long);
-                          });
-                        // });
-                      
+          // Print latitude and longitude to console
+          console.log(`Document ID: ${doc.id}, Latitude: ${geopoint.latitude}, Longitude: ${geopoint.longitude}, name:${name}, place:${place}`);
 
-                    })
-                } else {
-                    console.warn(`Invalid or missing geopoint data in document: ${doc.id}`);
-                }
 
+          const marker = L.marker([geopoint.latitude, geopoint.longitude], { icon: customIcon });
+          marker.addTo(map)
+            .bindPopup(`<b>${name}</b><br>${place}`);
+          marker.on('click', function () {
+            map.setView([geopoint.latitude, geopoint.longitude], 15);
+            document.getElementById("storename").innerHTML = `${name}`;
+            document.getElementById("storeplace").innerHTML = `${place}`;
+            document.getElementById("storeimage").src = `${image}`;
+            document.getElementById("storeimage").style.width = '350px';
+            document.getElementById("storeimage").style.height = '250px';
+            document.getElementById("storeaddress").innerHTML = `${address}`;
+            document.getElementById("map-content").style.display = 'block';
+            const gMapIcon = document.getElementById("g-map-icon");
+            console.log(gMapIcon);
+            if (gMapIcon)
+              console.log(geopoint);
+            gMapIcon.addEventListener('click', function () {
+              // geopoint.forEach(()=>{
+              calculateDirections(geopoint.latitude, geopoint.longitude);
+              console.log(geopoint._lat, geopoint._long);
             });
             // });
 

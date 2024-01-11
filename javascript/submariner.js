@@ -6,7 +6,7 @@ import {
   getDoc,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-import { firebaseConfig } from "./config.js";
+import { firebaseConfig } from "../javascript/config.js";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -325,7 +325,6 @@ getDoc(submarinerText)
   .catch((error) => {
     console.error("Error getting document:", error);
   });
-=======
 function menuBar(x) {
   x.classList.toggle("change");
 }

@@ -84,3 +84,7 @@ const dissappear=(id)=>{
   element = document.getElementById(id);
   element.style.animation = "dissappear 1s ease forwards"
 }
+
+document.getElementById("goback").addEventListener("click",function(){
+  window.location.href="../html/MainPage.html";
+})

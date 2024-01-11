@@ -12,12 +12,11 @@ import {firebaseConfig} from "../javascript/config.js";
 
  
  
-const user = "jintu@gmail.com";
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
  
-const series ="GMT-Masters II";
-// const user = localStorage.getItem("user");
+const series ="Oyster Perpetual";
+const user = localStorage.getItem("user");
  
 //colRef -> docRef -> colRef2 -> docRef2
 const watchCollectionRef = collection(db,"WatchCollection"); //Get collection "WatchCollection" from databse

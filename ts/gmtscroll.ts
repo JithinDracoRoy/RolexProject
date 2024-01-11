@@ -1,4 +1,4 @@
-const logScrollPosition = (): void => {
+let logScrollPosition = (): void => {
     let scrollPosition: number = parseInt(window.scrollY.toString());
     console.log(scrollPosition);
   
@@ -88,3 +88,6 @@ const logScrollPosition = (): void => {
     }
   };
   
+  document.getElementById("goback")?.addEventListener("click", () => {
+    window.location.href = "../html/MainPage.html";
+  });

@@ -1,5 +1,5 @@
 "use strict";
-function logScrollPosition() {
+function logScrollPosition2() {
     var scrollPosition = parseInt(window.scrollY.toString());
     console.log("Scroll Position: " + scrollPosition);
     if (scrollPosition > 250 && scrollPosition < 800) {
@@ -66,4 +66,4 @@ function logScrollPosition() {
         document.getElementById("explorer").style.animation = "smooth-appear 1s ease forwards";
     }
 }
-window.addEventListener('scroll', logScrollPosition);
+window.addEventListener('scroll', logScrollPosition2);
